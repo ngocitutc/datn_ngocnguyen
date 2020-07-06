@@ -31,6 +31,7 @@ Route::namespace('Auth')->group(function () {
 Route::namespace('Admin')->group(function () {
     Route::prefix('user')->group(function () {
         Route::get('create', 'AdminController@userCreate')->name(USER_CREATE);
+        Route::post('store', 'AdminController@storeCreate');
     });
 });
 

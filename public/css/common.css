@@ -56,3 +56,12 @@
     background-color: #0c5460;
     min-height: 100vh;
 }
+
+.error-message {
+    color: red;
+    font-size: 13px;
+}
+
+.input-error {
+    border: 1px solid red;
+}
