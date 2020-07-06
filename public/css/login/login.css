@@ -1,0 +1,5 @@
+.custom-center {
+    position: relative;
+    top: 50%;
+    transform: translate(10px, 50%);
+}

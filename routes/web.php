@@ -12,7 +12,25 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/test', function () {
+    dd(\Illuminate\Support\Facades\Auth::user());
 });
+
+//Route::middleware(['auth'])->group(function () {
+//    Route::get('/', 'HomeController@index');
+//});
+
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::namespace('Auth')->group(function () {
+    Route::post('login', 'LoginController@login')->name(LOGIN);
+    Route::get('login', 'LoginController@create')->name(SHOW_LOGIN);
+    Route::get('logout', 'LoginController@logout')->name(LOGOUT);
+});
+
+Route::namespace('Admin')->group(function () {
+    Route::prefix('user')->group(function () {
+        Route::get('create', 'AdminController@userCreate')->name(USER_CREATE);
+    });
+});
+

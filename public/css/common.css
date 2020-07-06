@@ -1,0 +1,54 @@
+.m10b {
+    margin-bottom: 10px !important;
+}
+
+.w50 {
+    width: 50px !important;
+}
+
+.p10l {
+    padding-left: 10px !important;
+}
+
+.p10r {
+    padding-right: 10px !important;
+}
+
+.p10t {
+    padding-top: 10px !important;
+}
+
+.p15t {
+    padding-top: 15px !important;
+}
+
+.m15b {
+    margin-bottom: 15px !important;
+}
+
+.text-black {
+    color: black !important;
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: white;
+    justify-content: space-between;
+}
+
+#wrapper-content {
+    background-color: rgb(240, 241, 242);
+    min-height: 100vh;
+}
+
+.main-sidebar-left {
+    position: fixed;
+    left: 0;
+    width: 270px;
+    background-color: #0c5460;
+    min-height: 100vh;
+}
