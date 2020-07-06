@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
-use App\Repositories\User\ProfileEloquentRepository;
-use App\Repositories\User\UserEloquentRepository;
-use Illuminate\Http\Request;
+use App\Repositories\ProfileEloquentRepository;
+use App\Repositories\UserEloquentRepository;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -34,6 +34,18 @@ class AdminController extends Controller
 
     public function storeCreate(UserRequest $request)
     {
-        $this->userEloquentRepository->storeUser($request->all());
+        if ($this->userEloquentRepository->storeUser($request->all())) {
+            Session::flash(STR_FLASH_SUCCESS, 'Thêm mới thành công');
+            return response()->json(['save' => true]);
+        } else {
+            Session::flash(STR_FLASH_ERROR, 'Thêm mới thất bại');
+            return response()->json(['save' => false]);
+        }
+    }
+
+    public function userIndex()
+    {
+        $data = $this->userEloquentRepository->getDataUser();
+        return view('admin.user.index', compact('data'));
     }
 }

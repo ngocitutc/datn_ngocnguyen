@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Repositories\User;
+namespace App\Repositories;
 
 use App\Models\Profile;
-use App\Repositories\BaseRepository;
 
 class ProfileEloquentRepository extends BaseRepository
 {

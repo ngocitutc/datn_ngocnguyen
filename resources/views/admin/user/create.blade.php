@@ -3,6 +3,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="justify-content-center" style="padding: 45px 60px 60px 60px;">
+            @include('layouts/notification')
             <div class="row">
                 <div class="col-6 m15b">
                     <h3>Thêm mới tài khoản</h3>
@@ -80,6 +81,18 @@
                                 <div class="col-12 col-xl-8">
                                     <input type="text" class="form-control m5t m5b fs14" name="user_name">
                                     <p class="error-message m0" data-error="user_name"></p>
+                                </div>
+                            </div>
+                            <div id="subject" class="row" style="display: none">
+                                <div class="col-12 form-control col-xl-4 border-0" >
+                                    <span>Bộ môn</span>
+                                </div>
+                                <div class="col-12 col-xl-8">
+                                    <select class="form-control" name="subject" id="">
+                                        <option value="1">Khoa học máy tính</option>
+                                        <option value="2">Hệ thống thông tin</option>
+                                    </select>
+                                    <p class="error-message m0" data-error="gender"></p>
                                 </div>
                             </div>
                             <div class="row">

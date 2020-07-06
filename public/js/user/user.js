@@ -12,7 +12,11 @@ var createUser = (function () {
             contentType: false
         });
         submitAjax.done(function (response) {
-
+            if (response.save == true) {
+                window.location.href = 'user';
+            } else {
+                window.location.reload();
+            }
         });
         submitAjax.fail(function (response) {
             let messageList = response.responseJSON.errors;
@@ -45,19 +49,21 @@ $(document).ready(function () {
    });
 
     $('select[name=role]').on('change', function () {
-        console.log(1111, $(this).val());
         switch ($(this).val()) {
             case '1':
-                $('#select-role-code').html('Mã lãnh đạo khoa');
-                $('#select-role-name').html('Tên lãnh đạo khoa');
+                $('#subject').show();
+                $('#select-role-code').html('Mã lãnh đạo khoa<span style="color: red">*</span>');
+                $('#select-role-name').html('Tên lãnh đạo khoa<span style="color: red">*</span>');
                 break;
             case '2':
-                $('#select-role-code').html('Mã giảng viên');
-                $('#select-role-name').html('Tên giảng viên');
+                $('#subject').show();
+                $('#select-role-code').html('Mã giảng viên<span style="color: red">*</span>');
+                $('#select-role-name').html('Tên giảng viên<span style="color: red">*</span>');
                 break;
             case '3':
-                $('#select-role-code').html('Mã sinh viên');
-                $('#select-role-name').html('Tên sinh viên');
+                $('#subject').hide();
+                $('#select-role-code').html('Mã sinh viên<span style="color: red">*</span>');
+                $('#select-role-name').html('Tên sinh viên<span style="color: red">*</span>');
                 break;
         }
     });

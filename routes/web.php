@@ -30,8 +30,17 @@ Route::namespace('Auth')->group(function () {
 
 Route::namespace('Admin')->group(function () {
     Route::prefix('user')->group(function () {
+        Route::get('/', 'AdminController@userIndex')->name(USER_INDEX);
         Route::get('create', 'AdminController@userCreate')->name(USER_CREATE);
         Route::post('store', 'AdminController@storeCreate');
     });
 });
+
+Route::namespace('Teacher')->group(function () {
+    Route::prefix('teacher')->group(function () {
+        Route::get('/topic', 'TeacherController@getTopics')->name(TEACHER_INDEX);
+    });
+});
+
+
 

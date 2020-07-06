@@ -1,11 +1,17 @@
 <aside class="main-sidebar-left nav-side-menu">
-
+    @php
+    $user = \Illuminate\Support\Facades\Auth::user();
+    @endphp
         <div class="content">
             <div id="jquery-accordion-menu" class="jquery-accordion-menu">
-                <div class="jquery-accordion-menu-header">Header </div>
+                <div class="jquery-accordion-menu-header">Danh mục quản lý</div>
                 <ul>
-                    <li class="active"><a href="#"><i class="fa fa-home"></i>Home </a></li>
-                    <li><a href="#"><i class="fa fa-glass"></i>Events </a></li>
+                    @if($user->role == ADMIN)
+                    <li class="active"><a href="{{ route(USER_INDEX) }}"><i class="fa fa-home"></i>Quản lý tài khoản</a></li>
+                    @endif
+                        @if($user->role == TEACHER)
+                    <li><a href="#"><i class="fa fa-glass"></i>Quản lý đề tài </a></li>
+                        @endif
                     <li><a href="#"><i class="fa fa-file-image-o"></i>Gallery </a><span class="jquery-accordion-menu-label">12 </span></li>
                     <li><a href="#"><i class="fa fa-cog"></i>Services </a>
                         <ul class="submenu">

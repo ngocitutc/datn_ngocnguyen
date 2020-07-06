@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\User;
+namespace App\Repositories;
 
 use App\Models\User;
 use App\Repositories\BaseRepository;
@@ -37,15 +37,22 @@ class UserEloquentRepository extends BaseRepository
                 'phone_number' => $data['phone_number'],
                 'user_email' => $data['user_email'],
                 'address' => $data['address'],
+                'subject' => $data['subject'],
             ];
             $this->create($dataUser);
             resolve(ProfileEloquentRepository::class)->create($dataProfile);
             DB::commit();
+            return true;
         } catch (\Exception $exception) {
             report($exception);
             dd($exception->getMessage());
             DB::rollBack();
             return false;
         }
+    }
+
+    public function getDataUser()
+    {
+        return $this->model->with('profile')->where('role', '<>', ADMIN)->get()->toArray();
     }
 }

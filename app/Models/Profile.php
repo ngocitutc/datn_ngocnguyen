@@ -21,5 +21,6 @@ class Profile extends Model
         'phone_number',
         'user_email',
         'address',
+        'subject',
     ];
 }
