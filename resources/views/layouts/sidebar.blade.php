@@ -10,7 +10,7 @@
                     <li class="active"><a href="{{ route(USER_INDEX) }}"><i class="fa fa-home"></i>Quản lý tài khoản</a></li>
                     @endif
                         @if($user->role == TEACHER)
-                    <li><a href="#"><i class="fa fa-glass"></i>Quản lý đề tài </a></li>
+                    <li><a href="{{ route(TEACHER_TOPIC_INDEX) }}"><i class="fa fa-glass"></i>Quản lý đề tài </a></li>
                         @endif
                     <li><a href="#"><i class="fa fa-file-image-o"></i>Gallery </a><span class="jquery-accordion-menu-label">12 </span></li>
                     <li><a href="#"><i class="fa fa-cog"></i>Services </a>

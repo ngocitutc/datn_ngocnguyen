@@ -6,7 +6,8 @@ const HOME = 'home';
 
 const USER_CREATE = 'user.create';
 const USER_INDEX = 'user.index';
-const TEACHER_INDEX = 'teacher.index';
+const TEACHER_TOPIC_INDEX = 'teacher.topic.index';
+const TEACHER_TOPIC_CREATE = 'teacher.topic.create';
 
 const ADMIN = 0;
 const DEAN = 1;

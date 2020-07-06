@@ -31,4 +31,9 @@ class TeacherController extends Controller
         return view('teacher.topic_index', compact('data'));
     }
 
+    public function create()
+    {
+        return view('teacher.topic_create');
+    }
+
 }

@@ -38,7 +38,8 @@ Route::namespace('Admin')->group(function () {
 
 Route::namespace('Teacher')->group(function () {
     Route::prefix('teacher')->group(function () {
-        Route::get('/topic', 'TeacherController@getTopics')->name(TEACHER_INDEX);
+        Route::get('/topic', 'TeacherController@getTopics')->name(TEACHER_TOPIC_INDEX);
+        Route::get('/topic/create', 'TeacherController@create')->name(TEACHER_TOPIC_CREATE);
     });
 });
 
