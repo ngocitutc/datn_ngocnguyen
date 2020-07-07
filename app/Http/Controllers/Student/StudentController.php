@@ -18,13 +18,16 @@ class StudentController extends Controller
     private $topicEloquentRepository;
     private $profileEloquentRepository;
     private $teacherStudentEloquentRepository;
+    private $userEloquentRepository;
 
     public function __construct(
+        UserEloquentRepository $userEloquentRepository,
         TopicEloquentRepository $topicEloquentRepository,
         ProfileEloquentRepository $profileEloquentRepository,
         TeacherStudentEloquentRepository $teacherStudentEloquentRepository
     )
     {
+        $this->userEloquentRepository = $userEloquentRepository;
         $this->topicEloquentRepository = $topicEloquentRepository;
         $this->profileEloquentRepository = $profileEloquentRepository;
         $this->teacherStudentEloquentRepository = $teacherStudentEloquentRepository;
@@ -38,7 +41,7 @@ class StudentController extends Controller
 
     public function getTeachers()
     {
-        $data = $this->topicEloquentRepository->getAllTopicToStudent(Auth::user()->id);
+        $data = $this->userEloquentRepository->getDataTeacher();
         return view('student.teacher_index', compact('data'));
     }
 
