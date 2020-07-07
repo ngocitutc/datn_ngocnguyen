@@ -58,4 +58,8 @@ class UserEloquentRepository extends BaseRepository
     {
         return $this->model->with('profile')->where('role', '<>', ADMIN)->get()->toArray();
     }
+
+    public function getDataTeacher() {
+        return $this->model->with('profile')->withCount("teacherStudent")->where('role', TEACHER)->get();
+    }
 }
