@@ -62,4 +62,8 @@ class UserEloquentRepository extends BaseRepository
     public function getDataTeacher() {
         return $this->model->with('profile')->withCount("teacherStudent")->where('role', TEACHER)->get();
     }
+
+    public function getUser($id) {
+        return $this->model->with('profile')->find($id);
+    }
 }

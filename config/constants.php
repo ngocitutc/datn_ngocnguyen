@@ -19,6 +19,7 @@ const STUDENT_TEACHER = 'student.teacher';
 const STUDENT_TEACHER_INFO = 'student.teacher.info';
 const STUDENT_PROJECT_ADD = 'student.project.add';
 const STUDENT_PROJECT_INFO = 'student.project.info';
+const STUDENT_TEACHER_REGISTER = 'student.teacher.register';
 
 const DEAN_TOPIC = 'dean.topic';
 const DEAN_TOPIC_ACTIVE = 'dean.topic.active';
@@ -50,4 +51,9 @@ const STATUS_TOPIC = [
 
 const OPEN = 1;
 const CLOSE = 0;
+
+const STATUS_STEP_STOP = 0;
+const STATUS_STEP_LEANNING = 1;
+const STATUS_STEP_DONE = 2;
+
 

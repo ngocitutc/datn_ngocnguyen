@@ -22,8 +22,6 @@
                     </tr>
                     </thead>
                     <tbody>
-
-
                     @forelse($data as $item)
                         <tr>
                             <td>{{$item['profile']['user_name']}}</td>
@@ -31,8 +29,8 @@
                             <td>Thạc sỹ</td>
                             <td>{{ $item['teacher_student_count'] . '/10' }}</td>
                             <td>
-                                <button class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Chi tiết giảng viên"><i class="fas fa-chalkboard-teacher"></i></button>
-                                <button class="btn btn-success border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Đăng ký"><i class="far fa-registered"></i></button>
+                                <a href="{{ route(STUDENT_TEACHER_INFO, $item['id']) }}" class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Chi tiết giảng viên"><i class="fas fa-chalkboard-teacher"></i></a>
+                                <button class="btn btn-success border-0 btn-topic-custom btn-register-teacher" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top" title="Đăng ký"><i class="far fa-registered"></i></button>
                             </td>
                         </tr>
                     @empty
@@ -45,4 +43,9 @@
             </div>
         </div>
     </div>
+    @include('layouts.modal_register_teacher')
+@endsection
+
+@section('js')
+    <script src="{{ asset('js/student.js') }}"></script>
 @endsection

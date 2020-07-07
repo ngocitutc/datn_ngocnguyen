@@ -25,4 +25,24 @@ class TeacherStudentEloquentRepository extends BaseRepository
     {
         return $this->model->with('student.profile')->where('teacher_id', $idTeacher)->get()->toArray();
     }
+
+    public function registerTeacherByStudent($data)
+    {
+        DB::beginTransaction();
+        try {
+            $dataRegister = [
+                'teacher_id' => $data['teacher_id'],
+                'student_id' => $data['student_id'],
+                'status' => STATUS_STEP_LEANNING,
+            ];
+            $this->create($dataRegister);
+            DB::commit();
+            return true;
+        } catch (\Exception $exception) {
+            dd($exception);
+            DB::commit();
+            return false;
+        }
+
+    }
 }

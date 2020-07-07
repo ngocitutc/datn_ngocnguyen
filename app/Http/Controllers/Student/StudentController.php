@@ -72,9 +72,23 @@ class StudentController extends Controller
         return view('student.project_info', compact('data'));
     }
 
-    public function infoTeacher()
+    public function infoTeacher($id)
     {
-        $data = $this->topicEloquentRepository->getAllTopicToStudent(Auth::user()->id);
+        $data = $this->userEloquentRepository->getUser($id);
+        if (!$data) {
+            abort(404);
+        }
+        $data = $data->toArray();
         return view('student.teacher_info', compact('data'));
+    }
+
+    public function registerTeacher(Request $request)
+    {
+        if($this->teacherStudentEloquentRepository->registerTeacherByStudent($request->all())) {
+            Session::flash(STR_FLASH_SUCCESS, 'Đăng ký giảng viên thành công');
+            return redirect()->route(STUDENT_REGISTER_TOPIC);
+        }
+        Session::flash(STR_FLASH_ERROR, 'Đăng ký giảng viên không thành công, Xin hãy thử lại');
+        return redirect()->back();
     }
 }

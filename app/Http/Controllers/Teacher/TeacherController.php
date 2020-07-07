@@ -35,7 +35,7 @@ class TeacherController extends Controller
 
     public function getTopics()
     {
-        $data = $this->teacherStudentEloquentRepository->getAllStudentByTeacher(Auth::user()->id);
+        $data = $this->topicEloquentRepository->getAllTopicByTeacher(Auth::user()->id);
         return view('teacher.topic_index', compact('data'));
     }
 
