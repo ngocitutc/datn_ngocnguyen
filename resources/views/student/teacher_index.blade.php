@@ -27,9 +27,9 @@
                         <td>Công nghệ thông tin</td>
                         <td>Thạc sỹ</td>
                         <td>8/10</td>
-                        <td>
-                            <button class="btn btn-primary border-0">Chi tiết giảng viên</button>
-                            <button class="btn btn-primary border-0" style="background-color: green">Đăng ký</button>
+                        <td class="text-center">
+                            <button class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Chi tiết giảng viên"><i class="fas fa-chalkboard-teacher"></i></button>
+                            <button class="btn btn-success border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Đăng ký"><i class="far fa-registered"></i></button>
                         </td>
                     </tr>
                     <tr>
@@ -37,9 +37,9 @@
                         <td>Công nghệ thông tin</td>
                         <td>Thạc sỹ</td>
                         <td>8/10</td>
-                        <td>
-                            <button class="btn btn-primary border-0">Chi tiết giảng viên</button>
-                            <button class="btn btn-primary border-0" style="background-color: green">Đăng ký</button>
+                        <td class="text-center">
+                            <button class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Chi tiết giảng viên"><i class="fas fa-chalkboard-teacher"></i></button>
+                            <button class="btn btn-success border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Đăng ký"><i class="far fa-registered"></i></button>
                         </td>
                     </tr>
                     <tr>
@@ -47,9 +47,9 @@
                         <td>Công nghệ thông tin</td>
                         <td>Thạc sỹ</td>
                         <td>8/10</td>
-                        <td>
-                            <button class="btn btn-primary border-0">Chi tiết giảng viên</button>
-                            <button class="btn btn-primary border-0" style="background-color: green">Đăng ký</button>
+                        <td class="text-center">
+                            <button class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Chi tiết giảng viên"><i class="fas fa-chalkboard-teacher"></i></button>
+                            <button class="btn btn-success border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Đăng ký"><i class="far fa-registered"></i></button>
                         </td>
                     </tr>
 {{--                    @forelse($data as $item)--}}
