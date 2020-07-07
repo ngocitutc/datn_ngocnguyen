@@ -8,13 +8,18 @@
                 <div class="col-6 m15b">
                     <h3>Thêm mới tài khoản</h3>
                 </div>
-                <div class="col-6 m15b text-right">
-                    <button class="btn btn-primary border-0" style="background-color: green">
-                        Import file
-                    </button>
-                    <button class="btn btn-primary border-0" style="background-color: #FACC2E">
-                        Tải bản mẫu
-                    </button>
+                <div class="col-6 m15b text-right ml-auto" style="display: inline-flex; justify-content: flex-end;">
+                    <form action="" method="" id="export-form" style="margin-right: 15px">
+                        <button type="button" class="btn btn-success border-0">
+                           Import file
+                        </button>
+                    </form>
+
+                    <form action="{{ route(USER_EXPORT_FILE, STUDENT) }}" method="GET" id="export-form">
+                        <button class="btn btn-warning border-0 text-white" id="export-file">
+                            Tải bản mẫu
+                        </button>
+                    </form>
                 </div>
             </div>
 

@@ -46,6 +46,7 @@
     width: 100%;
     background-color: white;
     justify-content: space-between;
+    z-index: 999;
 }
 
 #wrapper-content {
