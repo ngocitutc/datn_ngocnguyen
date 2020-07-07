@@ -20,9 +20,10 @@
                     @elseif($user->role == STUDENT)
                         <li><a href="{{ route(STUDENT_TOPIC) }}"><i class="fa fa-glass"></i>Định hướng đề tài</a></li>
                         <li><a href="{{ route(STUDENT_TEACHER) }}"><i class="fa fa-glass"></i>Đăng ký giảng viên hướng dẫn</a></li>
-                        <li><a href="{{ route(TEACHER_STUDENT_OFFER) }}"><i class="fa fa-glass"></i>Nộp báo cáo</a></li>
-                        <li><a href="{{ route(TEACHER_STUDENT_OFFER) }}"><i class="fa fa-glass"></i>Thông tin đồ án</a></li>
-                        <li><a href="{{ route(TEACHER_STUDENT_OFFER) }}"><i class="fa fa-glass"></i>Thông tin giảng viên hướng dẫn</a></li>
+                        <li><a href="{{ route(STUDENT_REGISTER_TOPIC) }}"><i class="fa fa-glass"></i>Đăng ký đề tài</a></li>
+                        <li><a href="{{ route(STUDENT_PROJECT_ADD) }}"><i class="fa fa-glass"></i>Báo cáo đồ án</a></li>
+                        <li><a href="{{ route(STUDENT_PROJECT_INFO) }}"><i class="fa fa-glass"></i>Thông tin đồ án</a></li>
+                        <li><a href="{{ route(STUDENT_TEACHER_INFO) }}"><i class="fa fa-glass"></i>Thông tin giảng viên hướng dẫn</a></li>
                     @else
                     @endif
                 </ul>
