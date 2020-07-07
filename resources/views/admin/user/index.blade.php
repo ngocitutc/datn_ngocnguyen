@@ -38,7 +38,9 @@
                         </tr>
                     @empty
                         <tr>
-                            Không có dữ liệu
+                            <td class="text-center" colspan="5">
+                                Không có dữ liệu
+                            </td>
                         </tr>
                     @endforelse
                     </tbody>

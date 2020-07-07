@@ -41,7 +41,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5">Không có dữ liệu</td>
+                            <td class="text-center" colspan="7">Không có dữ liệu</td>
                         </tr>
                     @endforelse
                     </tbody>

@@ -13,7 +13,7 @@ var createUser = (function () {
         });
         submitAjax.done(function (response) {
             if (response.save == true) {
-                window.location.href = 'user';
+                window.location.href = '/user';
             } else {
                 window.location.reload();
             }

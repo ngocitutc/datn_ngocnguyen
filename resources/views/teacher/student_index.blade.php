@@ -36,10 +36,10 @@
                         <td>Đã đánh giá</td>
                         <td>Xuất sắc</td>
                         <td>10/10/1996</td>
-                        <td>
-                            <button class="btn btn-primary border-0" style="background-color: green">Đánh giá</button>
-                            <button class="btn btn-primary border-0">Phê duyệt</button>
-                            <button class="btn btn-primary border-0" style="background-color: #FACC2E">Sửa</button>
+                        <td class="text-center">
+                            <button class="btn btn-info border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Đánh giá"><i class="fas fa-award"></i></button>
+                            <button class="btn btn-success border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Phê duyệt"><i class="fas fa-check"></i></button>
+                            <button class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="far fa-edit"></i></button>
                         </td>
                     </tr>
                     <tr>
@@ -50,10 +50,10 @@
                         <td>Đang hướng dẫn</td>
                         <td>Chưa đánh giá</td>
                         <td>Chưa đánh giá</td>
-                        <td>
-                            <button class="btn btn-primary border-0" style="background-color: green">Đánh giá</button>
-                            <button class="btn btn-primary border-0">Phê duyệt</button>
-                            <button class="btn btn-primary border-0" style="background-color: #FACC2E">Sửa</button>
+                        <td class="text-center">
+                            <button class="btn btn-info border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Đánh giá"><i class="fas fa-award"></i></button>
+                            <button class="btn btn-success border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Phê duyệt"><i class="fas fa-check"></i></button>
+                            <button class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="far fa-edit"></i></button>
                         </td>
                     </tr>
                     <tr>
@@ -64,10 +64,10 @@
                         <td>Đang chờ phê duyệt</td>
                         <td>Chưa đánh giá</td>
                         <td>Chưa đánh giá</td>
-                        <td>
-                            <button class="btn btn-primary border-0" style="background-color: green">Đánh giá</button>
-                            <button class="btn btn-primary border-0">Phê duyệt</button>
-                            <button class="btn btn-primary border-0" style="background-color: #FACC2E">Sửa</button>
+                        <td class="text-center">
+                            <button class="btn btn-info border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Đánh giá"><i class="fas fa-award"></i></button>
+                            <button class="btn btn-success border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Phê duyệt"><i class="fas fa-check"></i></button>
+                            <button class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="far fa-edit"></i></button>
                         </td>
                     </tr>
 {{--                    @forelse($data as $item)--}}
