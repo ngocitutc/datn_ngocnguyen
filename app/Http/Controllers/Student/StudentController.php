@@ -42,4 +42,27 @@ class StudentController extends Controller
         return view('student.teacher_index', compact('data'));
     }
 
+    public function registerTopic()
+    {
+        $data = $this->topicEloquentRepository->getAllTopicToStudent(Auth::user()->id);
+        return view('student.register_topic', compact('data'));
+    }
+
+    public function createProject()
+    {
+        $data = $this->topicEloquentRepository->getAllTopicToStudent(Auth::user()->id);
+        return view('student.project_add', compact('data'));
+    }
+
+    public function infoProject()
+    {
+        $data = $this->topicEloquentRepository->getAllTopicToStudent(Auth::user()->id);
+        return view('student.project_info', compact('data'));
+    }
+
+    public function infoTeacher()
+    {
+        $data = $this->topicEloquentRepository->getAllTopicToStudent(Auth::user()->id);
+        return view('student.teacher_info', compact('data'));
+    }
 }
