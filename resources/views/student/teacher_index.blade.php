@@ -31,8 +31,8 @@
                             <td>Thạc sỹ</td>
                             <td>{{ $item['teacher_student_count'] . '/10' }}</td>
                             <td>
-                                <button class="btn btn-primary border-0">Chi tiết giảng viên</button>
-                                <button class="btn btn-primary border-0" style="background-color: green">Đăng ký</button>
+                                <button class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Chi tiết giảng viên"><i class="fas fa-chalkboard-teacher"></i></button>
+                                <button class="btn btn-success border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Đăng ký"><i class="far fa-registered"></i></button>
                             </td>
                         </tr>
                     @empty

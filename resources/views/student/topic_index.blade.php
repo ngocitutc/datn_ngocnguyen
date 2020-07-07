@@ -33,8 +33,8 @@
                         <td>Sinh viên</td>
                         <td>30/03/1998</td>
                         <td>01/01/2000</td>
-                        <td>
-                            <button class="btn btn-primary border-0">Xem chi tiết</button>
+                        <td class="text-center">
+                            <button class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Xem chi tiết"><i class="fas fas fa-eye"></i></button>
                         </td>
                     </tr>
                     <tr>
@@ -44,8 +44,8 @@
                         <td>Sinh viên</td>
                         <td>30/03/1998</td>
                         <td>01/01/2000</td>
-                        <td>
-                            <button class="btn btn-primary border-0">Xem chi tiết</button>
+                        <td class="text-center">
+                            <button class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Xem chi tiết"><i class="fas fas fa-eye"></i></button>
                         </td>
                     </tr>
                     <tr>
@@ -55,8 +55,8 @@
                         <td>Giảng viên</td>
                         <td>30/03/1998</td>
                         <td>01/01/2000</td>
-                        <td>
-                            <button class="btn btn-primary border-0">Xem chi tiết</button>
+                        <td class="text-center">
+                            <button class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Xem chi tiết"><i class="fas fas fa-eye"></i></button>
                         </td>
                     </tr>
 {{--                    @forelse($data as $item)--}}

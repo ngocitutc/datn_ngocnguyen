@@ -34,9 +34,9 @@
                         <td>01/01/2020</td>
                         <td>01/06/2020</td>
                         <td>Kỳ 2 / Năm 2020</td>
-                        <td>
-                            <button class="btn btn-primary border-0">Chi tiết</button>
-                            <button class="btn btn-primary border-0" style="background-color: green">Đăng ký</button>
+                        <td class="text-center">
+                            <button class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Xem chi tiết"><i class="fas fas fa-eye"></i></button>
+                            <button class="btn btn-success border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Đăng ký"><i class="far fa-registered"></i></button>
                         </td>
                     </tr>
                     <tr>
@@ -45,9 +45,9 @@
                         <td>01/01/2020</td>
                         <td>01/06/2020</td>
                         <td>Kỳ 2 / Năm 2020</td>
-                        <td>
-                            <button class="btn btn-primary border-0">Chi tiết</button>
-                            <button class="btn btn-primary border-0" style="background-color: green">Đăng ký</button>
+                        <td class="text-center">
+                            <button class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Xem chi tiết"><i class="fas fas fa-eye"></i></button>
+                            <button class="btn btn-success border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Đăng ký"><i class="far fa-registered"></i></button>
                         </td>
                     </tr>
                     <tr>
@@ -56,9 +56,9 @@
                         <td>01/01/2020</td>
                         <td>01/06/2020</td>
                         <td>Kỳ 2 / Năm 2020</td>
-                        <td>
-                            <button class="btn btn-primary border-0">Chi tiết</button>
-                            <button class="btn btn-primary border-0" style="background-color: green">Đăng ký</button>
+                        <td class="text-center">
+                            <button class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Xem chi tiết"><i class="fas fas fa-eye"></i></button>
+                            <button class="btn btn-success border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Đăng ký"><i class="far fa-registered"></i></button>
                         </td>
                     </tr>
 {{--                    @forelse($data as $item)--}}
