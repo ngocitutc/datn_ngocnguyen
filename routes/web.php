@@ -46,16 +46,25 @@ Route::middleware('auth')->group(function () {
         Route::prefix('student')->group(function () {
             Route::prefix('topic')->group(function () {
                 Route::get('/', 'StudentController@getTopics')->name(STUDENT_TOPIC);
+                Route::get('/info/{id}', 'StudentController@showInfoTopic')->name(STUDENT_TOPIC_INFO);
                 Route::get('/register', 'StudentController@registerTopic')->name(STUDENT_REGISTER_TOPIC);
             });
             Route::prefix('teacher')->group(function () {
                 Route::get('/', 'StudentController@getTeachers')->name(STUDENT_TEACHER);
-                Route::get('/info', 'StudentController@infoTeacher')->name(STUDENT_TEACHER_INFO);
+                Route::get('/info/{id}', 'StudentController@infoTeacher')->name(STUDENT_TEACHER_INFO);
+                Route::post('/register', 'StudentController@registerTeacher')->name(STUDENT_TEACHER_REGISTER);
             });
             Route::prefix('project')->group(function () {
                 Route::get('/', 'StudentController@createProject')->name(STUDENT_PROJECT_ADD);
                 Route::get('/info', 'StudentController@infoProject')->name(STUDENT_PROJECT_INFO);
             });
+        });
+    });
+
+    Route::namespace('Dean')->group(function () {
+        Route::prefix('dean')->group(function () {
+            Route::get('/topic', 'DeanController@getTopics')->name(DEAN_TOPIC);
+            Route::post('/topic', 'DeanController@activeTopic')->name(DEAN_TOPIC_ACTIVE);
         });
     });
 });

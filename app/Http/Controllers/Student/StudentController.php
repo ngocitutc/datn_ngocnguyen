@@ -18,13 +18,16 @@ class StudentController extends Controller
     private $topicEloquentRepository;
     private $profileEloquentRepository;
     private $teacherStudentEloquentRepository;
+    private $userEloquentRepository;
 
     public function __construct(
+        UserEloquentRepository $userEloquentRepository,
         TopicEloquentRepository $topicEloquentRepository,
         ProfileEloquentRepository $profileEloquentRepository,
         TeacherStudentEloquentRepository $teacherStudentEloquentRepository
     )
     {
+        $this->userEloquentRepository = $userEloquentRepository;
         $this->topicEloquentRepository = $topicEloquentRepository;
         $this->profileEloquentRepository = $profileEloquentRepository;
         $this->teacherStudentEloquentRepository = $teacherStudentEloquentRepository;
@@ -32,13 +35,22 @@ class StudentController extends Controller
 
     public function getTopics()
     {
-        $data = $this->topicEloquentRepository->getAllTopicToStudent(Auth::user()->id);
+        $data = $this->topicEloquentRepository->getAllTopicToStudent();
         return view('student.topic_index', compact('data'));
+    }
+
+    public function showInfoTopic($id)
+    {
+        $data = $this->topicEloquentRepository->getTopicById($id);
+        abort_if(!$data, 404);
+        $data = $data->toArray();
+        return view('student.topic_info', compact('data'));
+
     }
 
     public function getTeachers()
     {
-        $data = $this->topicEloquentRepository->getAllTopicToStudent(Auth::user()->id);
+        $data = $this->userEloquentRepository->getDataTeacher();
         return view('student.teacher_index', compact('data'));
     }
 
@@ -60,9 +72,23 @@ class StudentController extends Controller
         return view('student.project_info', compact('data'));
     }
 
-    public function infoTeacher()
+    public function infoTeacher($id)
     {
-        $data = $this->topicEloquentRepository->getAllTopicToStudent(Auth::user()->id);
+        $data = $this->userEloquentRepository->getUser($id);
+        if (!$data) {
+            abort(404);
+        }
+        $data = $data->toArray();
         return view('student.teacher_info', compact('data'));
+    }
+
+    public function registerTeacher(Request $request)
+    {
+        if($this->teacherStudentEloquentRepository->registerTeacherByStudent($request->all())) {
+            Session::flash(STR_FLASH_SUCCESS, 'Đăng ký giảng viên thành công');
+            return redirect()->route(STUDENT_REGISTER_TOPIC);
+        }
+        Session::flash(STR_FLASH_ERROR, 'Đăng ký giảng viên không thành công, Xin hãy thử lại');
+        return redirect()->back();
     }
 }

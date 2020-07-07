@@ -6,7 +6,7 @@
             @include('layouts/notification')
             <div class="row">
                 <div class="col-6 m15b">
-                    <h3>Định hướng đề tài</h3>
+                    <h3>Phê duyệt đề tài</h3>
                 </div>
             </div>
 
@@ -15,11 +15,9 @@
                     <thead>
                     <tr>
                         <td>Tên đề tài</td>
-                        <td>Bộ môn</td>
                         <td>Người tạo</td>
                         <td>Chức vụ</td>
                         <td>Ngày tạo</td>
-                        <td>Ngày phê duyệt</td>
                         <td></td>
                     </tr>
                     </thead>
@@ -27,18 +25,18 @@
                     @forelse($data as $item)
                         <tr>
                             <td>{{ $item['name'] }}</td>
-                            <td>{{ SUBJECTS[$item['subject']] }}</td>
                             <td>{{ $item['user_created']['profile']['user_name'] }}</td>
                             <td>{{ ROLES[$item['user_created']['role']] }}</td>
                             <td>{{ date('m/d/Y', strtotime($item['created_at'])) }}</td>
-                            <td>{{ date('m/d/Y', strtotime($item['date_active'])) }}</td>
                             <td>
-                                <a href="{{ route(STUDENT_TOPIC_INFO, $item['id']) }}" class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Xem chi tiết"><i class="fas fas fa-eye"></i></a>
+                                <a href="" class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Chi tiết đề tài"><i class="fas fas fa-eye"></i></a>
+                                <button class="btn btn-success border-0 btn-topic-custom btn-topic-active" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top" title="Duyệt đề tài"><i class="fas fa-check"></i></button>
+                                <button class="btn btn-danger border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Huỷ đề tài"><i class="fas fa-trash-alt"></i></button>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="7">Không có dữ liệu</td>
+                            <td colspan="5">Không có dữ liệu</td>
                         </tr>
                     @endforelse
                     </tbody>
@@ -46,4 +44,8 @@
             </div>
         </div>
     </div>
+    @include('layouts.modal')
+@endsection
+@section('js')
+    <script src="{{ asset('js/dean_topic.js') }}"></script>
 @endsection

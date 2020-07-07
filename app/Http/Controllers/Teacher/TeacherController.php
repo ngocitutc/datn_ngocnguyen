@@ -18,13 +18,16 @@ class TeacherController extends Controller
     private $topicEloquentRepository;
     private $profileEloquentRepository;
     private $teacherStudentEloquentRepository;
+    private $userEloquentRepository;
 
     public function __construct(
+        UserEloquentRepository $userEloquentRepository,
         TopicEloquentRepository $topicEloquentRepository,
         ProfileEloquentRepository $profileEloquentRepository,
         TeacherStudentEloquentRepository $teacherStudentEloquentRepository
     )
     {
+        $this->userEloquentRepository = $userEloquentRepository;
         $this->topicEloquentRepository = $topicEloquentRepository;
         $this->profileEloquentRepository = $profileEloquentRepository;
         $this->teacherStudentEloquentRepository = $teacherStudentEloquentRepository;

@@ -14,11 +14,16 @@ const TEACHER_TOPIC_OFFER = 'teacher.topic.offer';
 const TEACHER_STUDENT = 'teacher.topic.student';
 const TEACHER_STUDENT_OFFER = 'teacher.topic.student.offer';
 const STUDENT_TOPIC = 'student.topic';
+const STUDENT_TOPIC_INFO = 'student.topic.info';
 const STUDENT_REGISTER_TOPIC = 'student.register.topic';
 const STUDENT_TEACHER = 'student.teacher';
 const STUDENT_TEACHER_INFO = 'student.teacher.info';
 const STUDENT_PROJECT_ADD = 'student.project.add';
 const STUDENT_PROJECT_INFO = 'student.project.info';
+const STUDENT_TEACHER_REGISTER = 'student.teacher.register';
+
+const DEAN_TOPIC = 'dean.topic';
+const DEAN_TOPIC_ACTIVE = 'dean.topic.active';
 
 
 const ADMIN = 0;
@@ -47,4 +52,9 @@ const STATUS_TOPIC = [
 
 const OPEN = 1;
 const CLOSE = 0;
+
+const STATUS_STEP_STOP = 0;
+const STATUS_STEP_LEANNING = 1;
+const STATUS_STEP_DONE = 2;
+
 

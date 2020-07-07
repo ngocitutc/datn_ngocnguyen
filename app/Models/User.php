@@ -42,4 +42,19 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class, 'user_code', 'email');
     }
+
+    public function teacherStudent()
+    {
+        return $this->hasMany(TeacherStudent::class, 'teacher_id', 'id');
+    }
+
+    public function getTeacherByStudent()
+    {
+        return $this->hasMany(TeacherStudent::class, 'student_id', 'id');
+    }
+
+    public function getTeacherLastByStudent()
+    {
+        return $this->getTeacherByStudent->last();
+    }
 }

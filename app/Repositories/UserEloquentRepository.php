@@ -29,15 +29,18 @@ class UserEloquentRepository extends BaseRepository
                 'password_show' => $data['password'],
                 'role' => $data['role']
             ];
+            if ($data['role'] == STUDENT && $data['subject']) {
+                unset($data['subject']);
+            }
             $dataProfile = [
                 'user_code' => $data['email'],
                 'user_name' => $data['user_name'],
-                'birthday' => $data['birthday'],
+                'birthday' => $data['birthday'] ?? null,
                 'gender' => $data['gender'],
-                'phone_number' => $data['phone_number'],
-                'user_email' => $data['user_email'],
-                'address' => $data['address'],
-                'subject' => $data['subject'],
+                'phone_number' => $data['phone_number'] ?? null,
+                'user_email' => $data['user_email'] ?? null,
+                'address' => $data['address'] ?? null,
+                'subject' => $data['subject'] ?? null,
             ];
             $this->create($dataUser);
             resolve(ProfileEloquentRepository::class)->create($dataProfile);
@@ -54,5 +57,13 @@ class UserEloquentRepository extends BaseRepository
     public function getDataUser()
     {
         return $this->model->with('profile')->where('role', '<>', ADMIN)->get()->toArray();
+    }
+
+    public function getDataTeacher() {
+        return $this->model->with('profile')->withCount("teacherStudent")->where('role', TEACHER)->get();
+    }
+
+    public function getUser($id) {
+        return $this->model->with('profile')->find($id);
     }
 }
