@@ -7,39 +7,24 @@
                 <div class="jquery-accordion-menu-header">Danh mục quản lý</div>
                 <ul>
                     @if($user->role == ADMIN)
-                    <li class="active"><a href="{{ route(USER_INDEX) }}"><i class="fa fa-home"></i>Quản lý tài khoản</a></li>
+                        <li class="active"><a href="{{ route(USER_INDEX) }}"><i class="fa fa-home"></i>Quản lý tài khoản</a></li>
+                    @elseif($user->role == DEAN)
+                        <li><a href="#"><i class="fa fa-file-image-o"></i>Gallery </a><span class="jquery-accordion-menu-label">Phê duyệt đề tài</span></li>
+                        <li><a href="#"><i class="fa fa-file-image-o"></i>Gallery </a><span class="jquery-accordion-menu-label">Phê duyệt đề tài</span></li>
+                        <li><a href="#"><i class="fa fa-file-image-o"></i>Gallery </a><span class="jquery-accordion-menu-label">Phê duyệt đề tài</span></li>
+                    @elseif($user->role == TEACHER)
+                        <li><a href="{{ route(TEACHER_TOPIC_INDEX) }}"><i class="fa fa-glass"></i>Quản lý đề tài </a></li>
+                        <li><a href="{{ route(TEACHER_STUDENT) }}"><i class="fa fa-glass"></i>Quản lý sinh viên hướng dẫn </a></li>
+                        <li><a href="{{ route(TEACHER_TOPIC_OFFER) }}"><i class="fa fa-glass"></i>Duyệt đề tài </a></li>
+                        <li><a href="{{ route(TEACHER_STUDENT_OFFER) }}"><i class="fa fa-glass"></i>Duyệt sinh viên hướng dẫn </a></li>
+                    @elseif($user->role == STUDENT)
+                        <li><a href="{{ route(STUDENT_TOPIC) }}"><i class="fa fa-glass"></i>Định hướng đề tài</a></li>
+                        <li><a href="{{ route(STUDENT_TEACHER) }}"><i class="fa fa-glass"></i>Đăng ký giảng viên hướng dẫn</a></li>
+                        <li><a href="{{ route(TEACHER_STUDENT_OFFER) }}"><i class="fa fa-glass"></i>Nộp báo cáo</a></li>
+                        <li><a href="{{ route(TEACHER_STUDENT_OFFER) }}"><i class="fa fa-glass"></i>Thông tin đồ án</a></li>
+                        <li><a href="{{ route(TEACHER_STUDENT_OFFER) }}"><i class="fa fa-glass"></i>Thông tin giảng viên hướng dẫn</a></li>
+                    @else
                     @endif
-                        @if($user->role == TEACHER)
-                    <li><a href="{{ route(TEACHER_TOPIC_INDEX) }}"><i class="fa fa-glass"></i>Quản lý đề tài </a></li>
-                        @endif
-                    <li><a href="#"><i class="fa fa-file-image-o"></i>Gallery </a><span class="jquery-accordion-menu-label">12 </span></li>
-                    <li><a href="#"><i class="fa fa-cog"></i>Services </a>
-                        <ul class="submenu">
-                            <li><a href="#">
-                            Web Design </a></li>
-                            <li><a href="#">Hosting </a></li>
-                            <li><a href="#">Design </a>
-                                <ul class="submenu">
-                                    <li><a href="#">Graphics </a></li>
-                                    <li><a href="#">Vectors </a></li>
-                                    <li><a href="#">Photoshop </a></li>
-                                    <li><a href="#">Fonts </a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Consulting </a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><i class="fa fa-newspaper-o"></i>News </a></li>
-                    <li><a href="#"><i class="fa fa-suitcase"></i>Portfolio </a>
-                        <ul class="submenu">
-                            <li><a href="#">Web Design </a></li>
-                            <li><a href="#">Graphics </a><span class="jquery-accordion-menu-label">10 </span></li>
-                            <li><a href="#">Photoshop </a></li>
-                            <li><a href="#">Programming </a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><i class="fa fa-user"></i>About </a></li>
-                    <li><a href="#"><i class="fa fa-envelope"></i>Contact </a></li>
                 </ul>
             </div>
         </div>

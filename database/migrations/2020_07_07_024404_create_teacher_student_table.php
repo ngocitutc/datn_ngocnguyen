@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTopicsTable extends Migration
+class CreateTeacherStudentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateTopicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('topics', function (Blueprint $table) {
+        Schema::create('teacher_student', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('user_created');
-            $table->integer('role_created');
+            $table->string('teacher_id');
+            $table->string('student_id');
             $table->integer('status');
-            $table->date('date_active')->nullable();
-            $table->text('note')->nullable();
-            $table->integer('subject')->nullable();
-            $table->text('description')->nullable();
+            $table->integer('topic_id');
+            $table->text('note');
+            $table->integer('rate_status');
+            $table->text('rate_note');
+            $table->date('rate_date');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -35,6 +35,6 @@ class CreateTopicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('topics');
+        Schema::dropIfExists('teacher_student');
     }
 }

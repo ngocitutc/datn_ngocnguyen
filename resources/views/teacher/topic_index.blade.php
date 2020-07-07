@@ -20,20 +20,24 @@
                     <thead>
                     <tr>
                         <td>Tên đề tài</td>
+                        <td>Bộ môn</td>
                         <td>Người tạo</td>
                         <td>Chức vụ</td>
                         <td>Trạng thái</td>
+                        <td>Ngày tạo</td>
                         <td>Ngày phê duyệt</td>
                     </tr>
                     </thead>
                     <tbody>
-                    @forelse($data as $user)
+                    @forelse($data as $item)
                         <tr>
-                            <td>{{ $user['email'] }}</td>
-                            <td>{{ $user['password_show'] }}</td>
-                            <td>{{ $user['profile']['user_name'] }}</td>
-                            <td>{{ ROLES[$user['role']] }}</td>
-                            <td>{{ $user['profile']['subject'] ? SUBJECTS[$user['profile']['subject']] : "" }}</td>
+                            <td>{{ $item['name'] }}</td>
+                            <td>{{ SUBJECTS[$item['subject']] }}</td>
+                            <td>{{ $item['user_created']['profile']['user_name'] }}</td>
+                            <td>{{ ROLES[$item['user_created']['role']] }}</td>
+                            <td>{{ STATUS_TOPIC[$item['status']] }}</td>
+                            <td>{{ date('d/m/Y', strtotime($item['created_at'])) }}</td>
+                            <td>{{ $item['date_active'] ? date('d/m/Y', strtotime($item['date_active'])) : "Đang chờ kiểm duyệt" }}</td>
                         </tr>
                     @empty
                         <tr>

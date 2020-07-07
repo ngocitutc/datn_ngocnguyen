@@ -20,5 +20,12 @@ class Topic extends Authenticatable
         'status',
         'date_active',
         'note',
+        'subject',
+        'description',
     ];
+
+    public function userCreated()
+    {
+        return $this->belongsTo(User::class, 'user_created', 'id');
+    }
 }

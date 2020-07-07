@@ -38,8 +38,27 @@ Route::namespace('Admin')->group(function () {
 
 Route::namespace('Teacher')->group(function () {
     Route::prefix('teacher')->group(function () {
-        Route::get('/topic', 'TeacherController@getTopics')->name(TEACHER_TOPIC_INDEX);
-        Route::get('/topic/create', 'TeacherController@create')->name(TEACHER_TOPIC_CREATE);
+        Route::prefix('topic')->group(function () {
+            Route::get('/', 'TeacherController@getTopics')->name(TEACHER_TOPIC_INDEX);
+            Route::get('/create', 'TeacherController@create')->name(TEACHER_TOPIC_CREATE);
+            Route::get('/offer', 'TeacherController@offer')->name(TEACHER_TOPIC_OFFER);
+            Route::post('/store', 'TeacherController@store')->name(TEACHER_TOPIC_STORE);
+        });
+        Route::prefix('student')->group(function () {
+            Route::get('/', 'TeacherController@getStudent')->name(TEACHER_STUDENT);
+            Route::get('/offer', 'TeacherController@getStudentOffer')->name(TEACHER_STUDENT_OFFER);
+        });
+    });
+});
+
+Route::namespace('Student')->group(function () {
+    Route::prefix('student')->group(function () {
+        Route::prefix('topic')->group(function () {
+            Route::get('/', 'StudentController@getTopics')->name(STUDENT_TOPIC);
+        });
+        Route::prefix('teacher')->group(function () {
+            Route::get('/', 'StudentController@getTeachers')->name(STUDENT_TEACHER);
+        });
     });
 });
 

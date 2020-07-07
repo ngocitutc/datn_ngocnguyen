@@ -11,8 +11,8 @@
                     <ul class="navbar-nav">
                         <!-- Dropdown -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbardrop"
-                               data-toggle="dropdown">
+                            <a class="nav-link text-white" href="{{ route(LOGOUT) }}" id="navbardrop"
+                               >
                                 <img class="img-user w50" src="{{ asset('images/logos/admin.jpeg') }}">
                                 <span class="name-user text-center m10l text-black"> Admin</span>
                             </a>
