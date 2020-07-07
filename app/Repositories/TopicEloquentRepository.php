@@ -34,6 +34,12 @@ class TopicEloquentRepository extends BaseRepository
             ->get()->toArray();
     }
 
+    public function getTopicById($id)
+    {
+        return $this->model->with('userCreated.profile')
+            ->find($id);
+    }
+
     public function getAllTopicByStudent($idTeacher)
     {
         return $this->model->with('userCreated.profile')

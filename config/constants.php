@@ -13,6 +13,7 @@ const TEACHER_TOPIC_OFFER = 'teacher.topic.offer';
 const TEACHER_STUDENT = 'teacher.topic.student';
 const TEACHER_STUDENT_OFFER = 'teacher.topic.student.offer';
 const STUDENT_TOPIC = 'student.topic';
+const STUDENT_TOPIC_INFO = 'student.topic.info';
 const STUDENT_REGISTER_TOPIC = 'student.register.topic';
 const STUDENT_TEACHER = 'student.teacher';
 const STUDENT_TEACHER_INFO = 'student.teacher.info';

@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
         Route::prefix('student')->group(function () {
             Route::prefix('topic')->group(function () {
                 Route::get('/', 'StudentController@getTopics')->name(STUDENT_TOPIC);
+                Route::get('/info/{id}', 'StudentController@showInfoTopic')->name(STUDENT_TOPIC_INFO);
                 Route::get('/register', 'StudentController@registerTopic')->name(STUDENT_REGISTER_TOPIC);
             });
             Route::prefix('teacher')->group(function () {

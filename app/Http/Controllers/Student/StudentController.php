@@ -32,8 +32,17 @@ class StudentController extends Controller
 
     public function getTopics()
     {
-        $data = $this->topicEloquentRepository->getAllTopicToStudent(Auth::user()->id);
+        $data = $this->topicEloquentRepository->getAllTopicToStudent();
         return view('student.topic_index', compact('data'));
+    }
+
+    public function showInfoTopic($id)
+    {
+        $data = $this->topicEloquentRepository->getTopicById($id);
+        abort_if(!$data, 404);
+        $data = $data->toArray();
+        return view('student.topic_info', compact('data'));
+
     }
 
     public function getTeachers()

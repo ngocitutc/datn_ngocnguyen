@@ -24,56 +24,23 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Phần mềm chỉnh sửa ảnh</td>
-                        <td>Công nghệ phần mềm</td>
-                        <td>
-
-                        </td>
-                        <td>Sinh viên</td>
-                        <td>30/03/1998</td>
-                        <td>01/01/2000</td>
-                        <td>
-                            <button class="btn btn-primary border-0">Xem chi tiết</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Phần mềm chỉnh sửa ảnh</td>
-                        <td>Công nghệ phần mềm</td>
-                        <td>Trần Thị Bích</td>
-                        <td>Sinh viên</td>
-                        <td>30/03/1998</td>
-                        <td>01/01/2000</td>
-                        <td>
-                            <button class="btn btn-primary border-0">Xem chi tiết</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Phần mềm chỉnh sửa ảnh</td>
-                        <td>Công nghệ phần mềm</td>
-                        <td>Nguyễn Thị Ngọc</td>
-                        <td>Giảng viên</td>
-                        <td>30/03/1998</td>
-                        <td>01/01/2000</td>
-                        <td>
-                            <button class="btn btn-primary border-0">Xem chi tiết</button>
-                        </td>
-                    </tr>
-{{--                    @forelse($data as $item)--}}
-{{--                        <tr>--}}
-{{--                            <td>{{ $item['name'] }}</td>--}}
-{{--                            <td>{{ SUBJECTS[$item['subject']] }}</td>--}}
-{{--                            <td>{{ $item['user_created']['profile']['user_name'] }}</td>--}}
-{{--                            <td>{{ ROLES[$item['user_created']['role']] }}</td>--}}
-{{--                            <td>{{ STATUS_TOPIC[$item['status']] }}</td>--}}
-{{--                            <td>{{ date('d/m/Y', strtotime($item['created_at'])) }}</td>--}}
-{{--                            <td>{{ $item['date_active'] ? date('d/m/Y', strtotime($item['date_active'])) : "Đang chờ kiểm duyệt" }}</td>--}}
-{{--                        </tr>--}}
-{{--                    @empty--}}
-{{--                        <tr>--}}
-{{--                            <td colspan="5">Không có dữ liệu</td>--}}
-{{--                        </tr>--}}
-{{--                    @endforelse--}}
+                    @forelse($data as $item)
+                        <tr>
+                            <td>{{ $item['name'] }}</td>
+                            <td>{{ SUBJECTS[$item['subject']] }}</td>
+                            <td>{{ $item['user_created']['profile']['user_name'] }}</td>
+                            <td>{{ ROLES[$item['user_created']['role']] }}</td>
+                            <td>{{ date('m/d/Y', strtotime($item['created_at'])) }}</td>
+                            <td>{{ date('m/d/Y', strtotime($item['date_active'])) }}</td>
+                            <td>
+                                    <a class="btn btn-primary border-0"" href="{{ route(STUDENT_TOPIC_INFO, $item['id']) }}">Chi tiết</a>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="7">Không có dữ liệu</td>
+                        </tr>
+                    @endforelse
                     </tbody>
                 </table>
             </div>
