@@ -13,7 +13,7 @@ var createUser = (function () {
         });
         submitAjax.done(function (response) {
             if (response.save == true) {
-                window.location.href = 'user';
+                window.location.href = window.location.origin + '/user';
             } else {
                 window.location.reload();
             }
@@ -70,5 +70,6 @@ $(document).ready(function () {
 
     $('#submit-create-user').on('click', function () {
         createUser.createUser();
-    })
+    });
+    console.log(window.location.origin)
 });

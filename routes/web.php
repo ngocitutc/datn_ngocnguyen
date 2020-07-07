@@ -58,6 +58,13 @@ Route::middleware('auth')->group(function () {
             });
         });
     });
+
+    Route::namespace('Dean')->group(function () {
+        Route::prefix('dean')->group(function () {
+            Route::get('/topic', 'DeanController@getTopics')->name(DEAN_TOPIC);
+            Route::post('/topic', 'DeanController@activeTopic')->name(DEAN_TOPIC_ACTIVE);
+        });
+    });
 });
 
 

@@ -33,7 +33,7 @@
                             <td>{{ date('m/d/Y', strtotime($item['created_at'])) }}</td>
                             <td>{{ date('m/d/Y', strtotime($item['date_active'])) }}</td>
                             <td>
-                                    <a class="btn btn-primary border-0"" href="{{ route(STUDENT_TOPIC_INFO, $item['id']) }}">Chi tiết</a>
+                                <a href="{{ route(STUDENT_TOPIC_INFO, $item['id']) }}" class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Xem chi tiết"><i class="fas fas fa-eye"></i></a>
                             </td>
                         </tr>
                     @empty

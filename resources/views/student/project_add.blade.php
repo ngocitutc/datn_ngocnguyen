@@ -13,7 +13,7 @@
             <div class="content-wrapper m15b" style="background-color: white;">
                 <form id="form-create-user" action="">
                     <div class="row form-group m-0 d-flex p20">
-                        <div class="col-12 col-xl-6">
+                        <div class="col-12 col-xl-6" style="padding-right: 25px !important;">
                             <div class="row">
                                 <div class="col-12 form-control border-0" style="font-size: 23px; margin-bottom: 20px">
                                     Thông tin sinh viên
@@ -46,7 +46,7 @@
                                     <p class="error-message m0" data-error="password"></p>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top: 40px">
                                 <div class="col-12 form-control border-0" style="font-size: 23px; margin-bottom: 20px">
                                     Thông tin giảng viên hướng dẫn
                                 </div>
@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-xl-6">
+                        <div class="col-12 col-xl-6" style="padding-left: 25px !important;">
                             <div class="row">
                                 <div class="col-12 form-control border-0" style="font-size: 23px; margin-bottom: 20px">
                                     Thông tin đồ án
@@ -114,7 +114,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 form-control col-xl-4 border-0" >
-                                    <div id="select-role-name">Đường dẫn file báo cáo</div>
+                                    <div id="select-role-name">Link file báo cáo</div>
                                 </div>
                                 <div class="col-12 col-xl-8">
                                     <input type="text" class="form-control m5t m5b fs14" name="user_name" placeholder="https://drive.google.com/drive/folders/example">
@@ -123,7 +123,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 form-control col-xl-4 border-0" >
-                                    <div id="select-role-name">Đường dẫn source code</div>
+                                    <div id="select-role-name">Link source code</div>
                                 </div>
                                 <div class="col-12 col-xl-8">
                                     <input type="text" class="form-control m5t m5b fs14" name="user_name" placeholder="https://drive.google.com/drive/folders/example">

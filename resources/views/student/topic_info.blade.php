@@ -81,7 +81,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 form-control col-xl-4 border-0" >
-                                    <span>Số sinh trượt</span>
+                                    <span>Số sinh viên trượt</span>
                                 </div>
                                 <div class="col-12 col-xl-8">
                                     <input type="text" class="form-control m5t m5b fs14" name="name" value="200" readonly>

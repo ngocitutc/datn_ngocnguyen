@@ -20,6 +20,9 @@ const STUDENT_TEACHER_INFO = 'student.teacher.info';
 const STUDENT_PROJECT_ADD = 'student.project.add';
 const STUDENT_PROJECT_INFO = 'student.project.info';
 
+const DEAN_TOPIC = 'dean.topic';
+const DEAN_TOPIC_ACTIVE = 'dean.topic.active';
+
 
 const ADMIN = 0;
 const DEAN = 1;

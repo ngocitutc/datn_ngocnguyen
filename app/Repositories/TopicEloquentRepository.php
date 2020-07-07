@@ -27,6 +27,14 @@ class TopicEloquentRepository extends BaseRepository
             ->get()->toArray();
     }
 
+    public function getAllTopicByDean($idSubject)
+    {
+        return $this->model->with('userCreated.profile')
+            ->where('subject', $idSubject)
+            ->where('status', CLOSE)
+            ->get()->toArray();
+    }
+
     public function getAllTopicToStudent()
     {
         return $this->model->with('userCreated.profile')
@@ -63,5 +71,24 @@ class TopicEloquentRepository extends BaseRepository
             DB::rollBack();
             return false;
         }
+    }
+
+    public function activeTopic($data)
+    {
+        DB::beginTransaction();
+        try {
+            $this->update($data['id'], [
+                'status' => OPEN,
+                'date_active' => date('m/d/Y', time()),
+                'note' => $data['note'],
+            ]);
+            DB::commit();
+            return true;
+        } catch (\Exception $exception) {
+            dd($exception);
+            DB::rollBack();
+            return false;
+        }
+
     }
 }
