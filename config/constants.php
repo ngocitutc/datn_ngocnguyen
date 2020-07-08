@@ -7,15 +7,21 @@ const HOME = 'home';
 const USER_CREATE = 'user.create';
 const USER_EXPORT_FILE = 'user.export_file';
 const USER_INDEX = 'user.index';
+
 const TEACHER_TOPIC_INDEX = 'teacher.topic.index';
 const TEACHER_TOPIC_CREATE = 'teacher.topic.create';
 const TEACHER_TOPIC_STORE = 'teacher.topic.store';
 const TEACHER_TOPIC_OFFER = 'teacher.topic.offer';
 const TEACHER_STUDENT = 'teacher.topic.student';
-const TEACHER_STUDENT_OFFER = 'teacher.topic.student.offer';
+const TEACHER_STUDENT_OFFER = 'teacher.student.offer';
+const TEACHER_STUDENT_ACCEPT_OFFER = 'teacher.student.accept.offer';
+const TEACHER_ACCEPT_TOPIC_STUDENT = 'teacher.accept.topic.student';
+const TEACHER_REMOVE_TOPIC_STUDENT = 'teacher.remove.topic.student';
+
 const STUDENT_TOPIC = 'student.topic';
 const STUDENT_TOPIC_INFO = 'student.topic.info';
 const STUDENT_REGISTER_TOPIC = 'student.register.topic';
+const STUDENT_REGISTER_TOPIC_STORE = 'student.register.topic.store';
 const STUDENT_TEACHER = 'student.teacher';
 const STUDENT_TEACHER_INFO = 'student.teacher.info';
 const STUDENT_PROJECT_ADD = 'student.project.add';
@@ -70,5 +76,10 @@ const STATUS_STEP_TEXT = [
     STATUS_STEP_LEANING => 'Đang hướng dẫn',
     STATUS_STEP_DONE => 'Đã đánh giá',
 ];
+
+const STATUS_TOPIC_WAITING = 1;
+const STATUS_TOPIC_DOING = 2;
+const STATUS_TOPIC_DONE = 3;
+
 
 

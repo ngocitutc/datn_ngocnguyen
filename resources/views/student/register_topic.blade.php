@@ -22,7 +22,18 @@
                     @if($teacherStudent->status == STATUS_STEP_WAITING)
                         <div style="min-height: 400px">
                             <div class="text-center" style="font-size: 28px; padding-top: 50px; margin-bottom: 50px">
-                                Đang chờ giảng viên hướng dẫn xác nhận
+                                Liên hệ với giảng viên hướng dẫn để xác nhận đề tài
+                            </div>
+                            <div class="col-12 text-center" style="justify-content: center">
+                                <a href="{{ route(STUDENT_TEACHER_INFO, $teacherStudent->teacher_id) }}" class="btn btn-primary border-0">
+                                    Thông tin giảng viên hướng dẫn
+                                </a>
+                            </div>
+                        </div>
+                    @elseif($teacherStudent->status == STATUS_STEP_LEANING && $teacherStudent->topic_id)
+                        <div style="min-height: 400px">
+                            <div class="text-center" style="font-size: 28px; padding-top: 50px; margin-bottom: 50px">
+                                Bạn đã đăng ký đề tài
                             </div>
                             <div class="col-12 text-center" style="justify-content: center">
                                 <a href="{{ route(STUDENT_TEACHER_INFO, $teacherStudent->teacher_id) }}" class="btn btn-primary border-0">
@@ -52,7 +63,7 @@
                             <td>Kỳ 2 / Năm 2020</td>
                             <td class="text-center">
                                 <a href="{{ route(STUDENT_TOPIC_INFO, $item['id']) }}" class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Xem chi tiết"><i class="fas fas fa-eye"></i></a>
-                                <button class="btn btn-success border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Đăng ký"><i class="far fa-registered"></i></button>
+                                <button class="btn btn-success border-0 btn-topic-custom register-topic" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top" title="Đăng ký"><i class="far fa-registered"></i></button>
                             </td>
                         </tr>
                     @empty
@@ -78,4 +89,9 @@
             </div>
         </div>
     </div>
+    @include('layouts.modal_register_topic')
+@endsection
+
+@section('js')
+    <script src="{{ asset('js/student.js') }}"></script>
 @endsection

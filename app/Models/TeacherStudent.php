@@ -21,6 +21,7 @@ class TeacherStudent extends Authenticatable
         'rate_status',
         'rate_note',
         'rate_date',
+        'status_topic',
     ];
 
     public function teacher()

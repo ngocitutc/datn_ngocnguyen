@@ -12,6 +12,7 @@ use App\Repositories\UserEloquentRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use function GuzzleHttp\Promise\all;
 
 class StudentController extends Controller
 {
@@ -35,8 +36,10 @@ class StudentController extends Controller
 
     public function getTopics()
     {
+        $student = Auth::user();
+        $teacherStudent = $student->getTeacherLastByStudent();
         $data = $this->topicEloquentRepository->getAllTopicToStudent();
-        return view('student.topic_index', compact('data'));
+        return view('student.topic_index', compact('data', 'teacherStudent'));
     }
 
     public function showInfoTopic($id)
@@ -70,6 +73,18 @@ class StudentController extends Controller
             return view('student.register_topic', compact('data', 'teacherStudent'));
         }
         return view('student.register_topic');
+    }
+
+    public function storeRegisterTopic(Request $request)
+    {
+        $student = Auth::user();
+        $teacherStudent = $student->getTeacherLastByStudent();
+        if ($teacherStudent && $this->teacherStudentEloquentRepository->registerTopicStore($request->all(), $teacherStudent)) {
+            Session::flash(STR_FLASH_SUCCESS, 'Đăng ký đề tài thành công, Liên hệ với giảng viên hướng dẫn để xác nhận');
+        } else {
+            Session::flash(STR_FLASH_ERROR, 'Xảy ra lỗi trong quá trình xử lý hệ thống. Hãy thử lại');
+        }
+        return redirect()->back();
     }
 
     public function createProject()

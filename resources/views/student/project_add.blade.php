@@ -24,7 +24,8 @@
                             </div>
                         </div>
                     @else
-                    <form id="form-create-user" action="">
+                        @if(isset($teacherStudent->topic) && $teacherStudent->status_topic == STATUS_TOPIC_DOING)
+                            <form id="form-create-user" action="">
                     <div class="row form-group m-0 d-flex p20">
                         <div class="col-12 col-xl-6" style="padding-right: 25px !important;">
                             <div class="row">
@@ -37,7 +38,7 @@
                                     <span>Mã sinh viên</span>
                                 </div>
                                 <div class="col-12 col-xl-8">
-                                    <input type="text" class="form-control m5t m5b fs14" name="email" value="961010" readonly>
+                                    <input type="text" class="form-control m5t m5b fs14" value="{{ $teacherStudent->student->email }}" readonly>
                                     <p class="error-message m0" data-error="email"></p>
                                 </div>
                             </div>
@@ -46,7 +47,7 @@
                                     <span>Tên sinh viên</span>
                                 </div>
                                 <div class="col-12 col-xl-8">
-                                    <input type="text" class="form-control m5t m5b fs14" name="password" value="Đỗ Phú Cường" readonly>
+                                    <input type="text" class="form-control m5t m5b fs14" value="{{ $teacherStudent->student->profile->user_name }}" readonly>
                                     <p class="error-message m0" data-error="password"></p>
                                 </div>
                             </div>
@@ -55,7 +56,16 @@
                                     <span>Lớp</span>
                                 </div>
                                 <div class="col-12 col-xl-8">
-                                    <input type="text" class="form-control m5t m5b fs14" name="password" value="CNTT2-K56" readonly>
+                                    <input type="text" class="form-control m5t m5b fs14" value="CNTT2" readonly>
+                                    <p class="error-message m0" data-error="password"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 form-control col-xl-4 border-0" >
+                                    <span>Khoá</span>
+                                </div>
+                                <div class="col-12 col-xl-8">
+                                    <input type="text" class="form-control m5t m5b fs14" value="K56" readonly>
                                     <p class="error-message m0" data-error="password"></p>
                                 </div>
                             </div>
@@ -69,7 +79,7 @@
                                     <span>Tên giảng viên</span>
                                 </div>
                                 <div class="col-12 col-xl-8">
-                                    <input type="text" class="form-control m5t m5b fs14" value="Nguyễn Thị Giảng Viên" name="email" readonly>
+                                    <input type="text" class="form-control m5t m5b fs14" value="{{ $teacherStudent->teacher->profile->user_name }}" readonly>
                                     <p class="error-message m0" data-error="email"></p>
                                 </div>
                             </div>
@@ -78,7 +88,7 @@
                                     <span>Bộ môn</span>
                                 </div>
                                 <div class="col-12 col-xl-8">
-                                    <input type="text" class="form-control m5t m5b fs14" value="Khoa học máy tính" name="password" readonly>
+                                    <input type="text" class="form-control m5t m5b fs14" value="{{ SUBJECTS[$teacherStudent->teacher->profile->subject] }}" readonly>
                                     <p class="error-message m0" data-error="password"></p>
                                 </div>
                             </div>
@@ -94,7 +104,7 @@
                                     <div id="select-role-code">Tên đề tài</div>
                                 </div>
                                 <div class="col-12 col-xl-8">
-                                    <input type="text" class="form-control m5t m5b fs14" name="user_code" value="Phần mềm nhận diện khuôn mặt" readonly>
+                                    <input type="text" class="form-control m5t m5b fs14" value="{{ $teacherStudent->topic->name }}" readonly>
                                     <p class="error-message m0" data-error="user_code"></p>
                                 </div>
                             </div>
@@ -155,6 +165,29 @@
                         </div>
                     </div>
                 </form>
+                        @elseif(isset($teacherStudent->topic) && $teacherStudent->status_topic == STATUS_TOPIC_WAITING)
+                            <div style="min-height: 400px">
+                                <div class="text-center" style="font-size: 28px; padding-top: 50px; margin-bottom: 50px">
+                                    Liên hệ với giảng viên hướng dẫn để xác nhận đề tài
+                                </div>
+                                <div class="col-12 text-center" style="justify-content: center">
+                                    <a href="{{ route(STUDENT_TEACHER_INFO, $teacherStudent->teacher_id) }}" class="btn btn-primary border-0">
+                                        Thông tin giảng viên hướng dẫn
+                                    </a>
+                                </div>
+                            </div>
+                        @else
+                            <div style="min-height: 400px">
+                                <div class="text-center" style="font-size: 28px; padding-top: 50px; margin-bottom: 50px">
+                                    Bạn chưa đăng ký đề tài
+                                </div>
+                                <div class="col-12 text-center" style="justify-content: center">
+                                    <a href="{{ route(STUDENT_REGISTER_TOPIC) }}" class="btn btn-primary border-0">
+                                        Đăng ký đề tài
+                                    </a>
+                                </div>
+                            </div>
+                        @endif
                     @endif
                 @else
                     <div style="min-height: 400px">
@@ -169,7 +202,7 @@
                     </div>
                 @endif
             </div>
-            @if(isset($teacherStudent) && $teacherStudent->status == STATUS_STEP_LEANING && $teacherStudent->topic_id != null)
+            @if(isset($teacherStudent) && $teacherStudent->status == STATUS_STEP_LEANING && $teacherStudent->topic_id != null && $teacherStudent->status_topic == STATUS_TOPIC_DOING)
             <div class="row">
                 <div class="col-12 m15b text-right">
                     <button id="submit-create-user" class="btn btn-primary border-0">

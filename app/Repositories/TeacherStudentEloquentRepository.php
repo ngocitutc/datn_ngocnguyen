@@ -21,9 +21,15 @@ class TeacherStudentEloquentRepository extends BaseRepository
         return TeacherStudent::class;
     }
 
-    public function getAllStudentByTeacher($idTeacher)
+    public function getAllStudentByTeacher($idTeacher, $status = null)
     {
-        return $this->model->with('student.profile')->where('teacher_id', $idTeacher)->get()->toArray();
+        return $this->model->with('student.profile')
+            ->with('topic')
+            ->where('teacher_id', $idTeacher)
+            ->when(isset($status), function ($query) use ($status) {
+                return $query->whereIn('status', $status);
+            })
+            ->get()->toArray();
     }
 
     public function registerTeacherByStudent($data)
@@ -43,6 +49,80 @@ class TeacherStudentEloquentRepository extends BaseRepository
             DB::commit();
             return false;
         }
+    }
 
+    public function acceptStudentByTeacher($id)
+    {
+        DB::beginTransaction();
+        try {
+            $this->update($id, [
+                'status' => STATUS_STEP_LEANING
+            ]);
+            DB::commit();
+            return true;
+        } catch (\Exception $exception) {
+            dd($exception);
+            DB::rollBack();
+            return false;
+        }
+    }
+
+    public function acceptTopicStudentByTeacher($id)
+    {
+        DB::beginTransaction();
+        try {
+            $this->update($id, [
+                'status_topic' => STATUS_TOPIC_DOING
+            ]);
+            DB::commit();
+            return true;
+        } catch (\Exception $exception) {
+            dd($exception);
+            DB::rollBack();
+            return false;
+        }
+    }
+
+    public function removeTopicStudentByTeacher($id)
+    {
+        DB::beginTransaction();
+        try {
+            $this->update($id, [
+                'topic_id' => null,
+                'status_topic' => null
+            ]);
+            DB::commit();
+            return true;
+        } catch (\Exception $exception) {
+            dd($exception);
+            DB::rollBack();
+            return false;
+        }
+    }
+
+    public function registerTopicStore($data, $teacherStudent)
+    {
+        DB::beginTransaction();
+        try {
+            $teacherStudent->topic_id = $data['id_topic'];
+            $teacherStudent->status_topic = STATUS_TOPIC_WAITING;
+            $teacherStudent->save();
+            DB::commit();
+            return true;
+        } catch (\Exception $exception) {
+            dd($exception);
+            DB::rollBack();
+            return false;
+        }
+    }
+
+    public function getTopicStudentToAccept($idTeacher)
+    {
+        return $this->model->with('student.profile')
+            ->with('topic')
+            ->where('teacher_id', $idTeacher)
+            ->where('status_topic',STATUS_TOPIC_WAITING)
+            ->where('topic_id', '<>', null)
+            ->get()->toArray();
     }
 }

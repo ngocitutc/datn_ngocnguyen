@@ -14,45 +14,44 @@
                 <table class="table table-bordered table-striped border-0 m0">
                     <thead>
                     <tr>
-                        <td>Tên đề tài</td>
-                        <td>Bộ môn</td>
                         <td>Mã sinh viên</td>
                         <td>Tên sinh viên</td>
                         <td>Lớp</td>
-                        <td>Ngày tạo</td>
+                        <td>Khoá</td>
+                        <td>Tên đề tài</td>
+                        <td>Bộ môn</td>
                         <td></td>
                     </tr>
                     </thead>
                     <tbody>
+                    @forelse($data as $item)
                     <tr>
-                        <td>Phần mềm nhận diện khuôn mặt</td>
-                        <td>Công nghệ phần mềm</td>
-                        <td>961010</td>
-                        <td>Đỗ Phú Cường</td>
-                        <td>CNTT2-K56</td>
-                        <td>10/10/1996</td>
+                        <td>{{ $item['student']['email'] }}</td>
+                        <td>{{ $item['student']['profile']['user_name'] }}</td>
+                        <td>CNTT 2</td>
+                        <td>K56</td>
+                        <td>{{ $item['topic']['name'] }}</td>
+                        <td>{{ SUBJECTS[$item['topic']['subject']] }}</td>
                         <td class="text-center">
-                            <button class="btn btn-success border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Duyệt đề tài"><i class="fas fa-check"></i></button>
-                            <button class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Xem chi tiết"><i class="fas fa-eye"></i></button>
-                            <button class="btn btn-danger border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Huỷ bỏ để tài"><i class="fas fa-trash-alt"></i></button>
+                            <button class="btn btn-success border-0 btn-topic-custom teacher-accept-topic-student" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top" title="Duyệt đề tài"><i class="fas fa-check"></i></button>
+{{--                            <button class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Xem chi tiết"><i class="fas fa-eye"></i></button>--}}
+                            <button class="btn btn-danger border-0 btn-topic-custom teacher-remove-topic-student" data-toggle="tooltip" data-id="{{ $item['id'] }}" data-placement="top" title="Huỷ bỏ để tài"><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>
-{{--                    @forelse($data as $item)--}}
-{{--                        <tr>--}}
-{{--                            <td>{{ $item['name'] }}</td>--}}
-{{--                            <td>{{ SUBJECTS[$item['subject']] }}</td>--}}
-{{--                            <td>{{ $item['user_created']['profile']['user_name'] }}</td>--}}
-{{--                            <td>{{ ROLES[$item['user_created']['role']] }}</td>--}}
-{{--                            <td>{{ STATUS_TOPIC[$item['status']] }}</td>--}}
-{{--                        </tr>--}}
-{{--                    @empty--}}
-{{--                        <tr>--}}
-{{--                            <td colspan="5">Không có dữ liệu</td>--}}
-{{--                        </tr>--}}
-{{--                    @endforelse--}}
+                        @empty
+                        <tr>
+                            <td colspan="8">Không có dữ liệu</td>
+                        </tr>
+                    @endforelse
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    @include('layouts.modal_teacher_accept_topic')
+    @include('layouts.modal_teacher_remove_topic')
+@endsection
+
+@section('js')
+    <script src="{{ asset('js/teacher.js') }}"></script>
 @endsection

@@ -39,6 +39,9 @@ Route::middleware('auth')->group(function () {
             Route::prefix('student')->group(function () {
                 Route::get('/', 'TeacherController@getStudent')->name(TEACHER_STUDENT);
                 Route::get('/offer', 'TeacherController@getStudentOffer')->name(TEACHER_STUDENT_OFFER);
+                Route::post('/accept', 'TeacherController@acceptStudentOffer')->name(TEACHER_STUDENT_ACCEPT_OFFER);
+                Route::post('/topic/accept', 'TeacherController@acceptTopicStudent')->name(TEACHER_ACCEPT_TOPIC_STUDENT);
+                Route::post('/topic/remove', 'TeacherController@removeTopicStudent')->name(TEACHER_REMOVE_TOPIC_STUDENT);
             });
         });
     });
@@ -48,6 +51,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/', 'StudentController@getTopics')->name(STUDENT_TOPIC);
                 Route::get('/info/{id}', 'StudentController@showInfoTopic')->name(STUDENT_TOPIC_INFO);
                 Route::get('/register', 'StudentController@registerTopic')->name(STUDENT_REGISTER_TOPIC);
+                Route::post('/register', 'StudentController@storeRegisterTopic')->name(STUDENT_REGISTER_TOPIC_STORE);
             });
             Route::prefix('teacher')->group(function () {
                 Route::get('/', 'StudentController@getTeachers')->name(STUDENT_TEACHER);

@@ -13,6 +13,7 @@
             <div class="content-wrapper m15b" style="background-color: white;">
                 @if(isset($teacherStudent))
                     @if($teacherStudent->topic_id != null)
+                        @if($teacherStudent->status_topic == STATUS_TOPIC_DOING)
                         <form id="form-create-user" action="">
                     <div class="row form-group m-0 d-flex p20">
                         <div class="col-12 col-xl-6">
@@ -121,6 +122,18 @@
                         </div>
                     </div>
                 </form>
+                            @else
+                            <div style="min-height: 400px">
+                                <div class="text-center" style="font-size: 28px; padding-top: 50px; margin-bottom: 50px">
+                                    Liên hệ với giảng viên hướng dẫn để xác nhận đề tài
+                                </div>
+                                <div class="col-12 text-center" style="justify-content: center">
+                                    <a href="{{ route(STUDENT_TEACHER_INFO, $teacherStudent->teacher_id) }}" class="btn btn-primary border-0">
+                                        Thông tin giảng viên hướng dẫn
+                                    </a>
+                                </div>
+                            </div>
+                            @endif
                     @else
                         <div style="min-height: 400px">
                             <div class="text-center" style="font-size: 28px; padding-top: 50px; margin-bottom: 50px">
