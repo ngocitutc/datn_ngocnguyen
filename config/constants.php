@@ -5,6 +5,7 @@ const LOGOUT = 'logout';
 const HOME = 'home';
 
 const USER_CREATE = 'user.create';
+const USER_EXPORT_FILE = 'user.export_file';
 const USER_INDEX = 'user.index';
 const TEACHER_TOPIC_INDEX = 'teacher.topic.index';
 const TEACHER_TOPIC_CREATE = 'teacher.topic.create';

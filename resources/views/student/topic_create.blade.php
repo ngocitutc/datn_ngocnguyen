@@ -47,8 +47,8 @@
                             </div>
                         </div>
                         <div class="col-12 col-xl-6">
-                            <div class="row">
-                                <div class="col-12 form-control border-0" style="font-size: 23px; margin-bottom: 20px">
+                            <div class="row h-100">
+                                <div class="col-12 form-control border-0 h-100 center-vertically text-center" style="font-size: 23px; margin-bottom: 20px; padding-left: 30px">
                                     Đề tài sẽ được gửi tới Lãnh đạo khoa để xét phê duyệt
                                 </div>
                             </div>

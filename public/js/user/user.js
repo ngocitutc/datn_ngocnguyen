@@ -71,5 +71,11 @@ $(document).ready(function () {
     $('#submit-create-user').on('click', function () {
         createUser.createUser();
     });
-    console.log(window.location.origin)
+
+    $(document).on('submit', '#export-form', function (event) {
+        event.preventDefault();
+        let url = $(this).attr('action');
+        $(this).attr('action', url.slice(0, url.lastIndexOf('/')) + '/' + $('#select-role').val());
+        event.currentTarget.submit();
+    })
 });

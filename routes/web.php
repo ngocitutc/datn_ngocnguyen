@@ -23,8 +23,9 @@ Route::middleware('auth')->group(function () {
     Route::namespace('Admin')->group(function () {
         Route::prefix('user')->group(function () {
             Route::get('/', 'AdminController@userIndex')->name(USER_INDEX);
-            Route::get('create', 'AdminController@userCreate')->name(USER_CREATE);
-            Route::post('store', 'AdminController@storeCreate');
+            Route::get('/create', 'AdminController@userCreate')->name(USER_CREATE);
+            Route::post('/store', 'AdminController@storeCreate');
+            Route::get('/export-file/{role}', 'AdminController@exportFile')->name(USER_EXPORT_FILE);
         });
     });
     Route::namespace('Teacher')->group(function () {
