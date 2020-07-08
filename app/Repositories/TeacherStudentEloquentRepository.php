@@ -25,6 +25,7 @@ class TeacherStudentEloquentRepository extends BaseRepository
     {
         return $this->model->with('student.profile')
             ->with('topic')
+            ->with('project')
             ->where('teacher_id', $idTeacher)
             ->when(isset($status), function ($query) use ($status) {
                 return $query->whereIn('status', $status);

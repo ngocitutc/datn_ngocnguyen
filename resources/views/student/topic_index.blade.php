@@ -30,8 +30,8 @@
                                 <td>{{ SUBJECTS[$item['subject']] }}</td>
                                 <td>{{ $item['user_created']['profile']['user_name'] }}</td>
                                 <td>{{ ROLES[$item['user_created']['role']] }}</td>
-                                <td>{{ date('m/d/Y', strtotime($item['created_at'])) }}</td>
-                                <td>{{ date('m/d/Y', strtotime($item['date_active'])) }}</td>
+                                <td>{{ date('d/m/Y', strtotime($item['created_at'])) }}</td>
+                                <td>{{ date('d/m/Y', strtotime($item['date_active'])) }}</td>
                                 <td>
                                     <a href="{{ route(STUDENT_TOPIC_INFO, $item['id']) }}"
                                        class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip"

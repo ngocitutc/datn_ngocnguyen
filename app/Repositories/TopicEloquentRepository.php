@@ -88,7 +88,7 @@ class TopicEloquentRepository extends BaseRepository
         try {
             $this->update($data['id'], [
                 'status' => OPEN,
-                'date_active' => date('m/d/Y', time()),
+                'date_active' => date('d/m/Y', time()),
                 'note' => $data['note'],
             ]);
             DB::commit();

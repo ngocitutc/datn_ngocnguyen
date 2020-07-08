@@ -61,6 +61,7 @@ Route::middleware('auth')->group(function () {
             Route::prefix('project')->group(function () {
                 Route::get('/', 'StudentController@createProject')->name(STUDENT_PROJECT_ADD);
                 Route::get('/info', 'StudentController@infoProject')->name(STUDENT_PROJECT_INFO);
+                Route::post('/store', 'StudentController@storeProject')->name(STUDENT_PROJECT_STORE);
             });
         });
     });

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProjectRequest;
 use App\Http\Requests\TopicRequest;
 use App\Http\Requests\UserRequest;
 use App\Repositories\ProfileEloquentRepository;
+use App\Repositories\ProjectEloquentRepository;
 use App\Repositories\TeacherStudentEloquentRepository;
 use App\Repositories\TopicEloquentRepository;
 use App\Repositories\UserEloquentRepository;
@@ -20,18 +22,21 @@ class StudentController extends Controller
     private $profileEloquentRepository;
     private $teacherStudentEloquentRepository;
     private $userEloquentRepository;
+    private $projectEloquentRepository;
 
     public function __construct(
         UserEloquentRepository $userEloquentRepository,
         TopicEloquentRepository $topicEloquentRepository,
         ProfileEloquentRepository $profileEloquentRepository,
-        TeacherStudentEloquentRepository $teacherStudentEloquentRepository
+        TeacherStudentEloquentRepository $teacherStudentEloquentRepository,
+        ProjectEloquentRepository $projectEloquentRepository
     )
     {
         $this->userEloquentRepository = $userEloquentRepository;
         $this->topicEloquentRepository = $topicEloquentRepository;
         $this->profileEloquentRepository = $profileEloquentRepository;
         $this->teacherStudentEloquentRepository = $teacherStudentEloquentRepository;
+        $this->projectEloquentRepository = $projectEloquentRepository;
     }
 
     public function getTopics()
@@ -128,5 +133,15 @@ class StudentController extends Controller
         }
         Session::flash(STR_FLASH_ERROR, 'Đăng ký giảng viên không thành công, Xin hãy thử lại');
         return redirect()->back();
+    }
+
+    public function storeProject(ProjectRequest $request)
+    {
+        if ($this->projectEloquentRepository->createRecord($request->all())) {
+            Session::flash(STR_FLASH_SUCCESS, 'Báo cáo đồ án thành công');
+            return response()->json(['save' => true]);
+        }
+        Session::flash(STR_FLASH_ERROR, 'Xảy ra lỗi trong quá trình xử lý hệ thống. Hãy thử lại');
+        return response()->json(['save' => false]);
     }
 }

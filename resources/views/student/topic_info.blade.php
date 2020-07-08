@@ -46,7 +46,7 @@
                                     <span>Ngày tạo</span>
                                 </div>
                                 <div class="col-12 col-xl-8">
-                                    <input type="text" class="form-control m5t m5b fs14" name="name" value="{{ date('m/d/Y', strtotime($data['created_at'])) }}" readonly>
+                                    <input type="text" class="form-control m5t m5b fs14" name="name" value="{{ date('d/m/Y', strtotime($data['created_at'])) }}" readonly>
                                     <p class="error-message m0" data-error="subject"></p>
                                 </div>
                             </div>

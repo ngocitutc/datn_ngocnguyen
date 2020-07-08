@@ -73,17 +73,6 @@
                                     <p class="error-message m0" data-error="user_name"></p>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-12 form-control col-xl-4 border-0" >
-                                    <div id="select-role-name">Facebook</div>
-                                </div>
-                                <div class="col-12 col-xl-8">
-                                    <div>
-                                        <a class="form-control border-0" style="color: blue" href="https://www.youtube.com/">https://www.youtube.com/</a>
-                                    </div>
-                                    <p class="error-message m0" data-error="user_name"></p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </form>

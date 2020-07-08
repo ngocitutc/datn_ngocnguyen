@@ -39,4 +39,9 @@ class TeacherStudent extends Authenticatable
         return $this->belongsTo(Topic::class, 'topic_id', 'id');
     }
 
+    public function project()
+    {
+        return $this->hasOne(Project::class, 'id_teacher_student', 'id');
+    }
+
 }

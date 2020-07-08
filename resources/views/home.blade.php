@@ -5,7 +5,7 @@
     <div class="justify-content-center" style="padding: 45px 60px 60px 60px;">
         <div class="row">
             <div class="col-6 m15b">
-                <h3>Màn hình Home</h3>
+                <h3>Quản lý đồ án sinh viên</h3>
             </div>
         </div>
 
