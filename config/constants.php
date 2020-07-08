@@ -39,6 +39,12 @@ const ROLES = [
     STUDENT => 'Sinh viên',
 ];
 
+const ROLES_EN = [
+    DEAN => 'dean',
+    TEACHER => 'teacher',
+    STUDENT => 'student',
+];
+
 const SUBJECTS = [
   1 => 'Khoa học máy tính',
   2 => 'Hệ thống thông tin',
@@ -53,7 +59,15 @@ const OPEN = 1;
 const CLOSE = 0;
 
 const STATUS_STEP_STOP = 0;
-const STATUS_STEP_LEANNING = 1;
-const STATUS_STEP_DONE = 2;
+const STATUS_STEP_WAITING = 1;
+const STATUS_STEP_LEANING = 2;
+const STATUS_STEP_DONE = 3;
+
+const STATUS_STEP_TEXT = [
+    STATUS_STEP_STOP => 'Đã huỷ bỏ',
+    STATUS_STEP_WAITING => 'Đang chờ xác nhận',
+    STATUS_STEP_LEANING => 'Đang hướng dẫn',
+    STATUS_STEP_DONE => 'Đã đánh giá',
+];
 
 

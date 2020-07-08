@@ -11,6 +11,26 @@
             </div>
 
             <div class="content-wrapper" style="background-color: white;">
+                @if(isset($teacherStudent))
+                    <div style="min-height: 400px">
+                        <div class="text-center" style="font-size: 28px; padding-top: 50px">
+                            Đã đăng ký giảng viên hướng dẫn
+                        </div>
+                        <div class="col-12">
+                            <div class="row text-center" style="justify-content: center">
+                                <div class="" style="padding-top: 30px">
+                                    <input type="text" class="form-control m5t m5b fs14 border-0 text-center" name="password" style="font-size: 20px" value="{{ STATUS_STEP_TEXT[$teacherStudent->status] }}">
+                                    <p class="error-message m0" data-error="password"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center" style="justify-content: center">
+                            <a href="{{ route(STUDENT_TEACHER_INFO, $teacherStudent->teacher_id) }}" class="btn btn-primary border-0">
+                                Xem thông tin giảng viên
+                            </a>
+                        </div>
+                    </div>
+                @else
                 <table class="table table-bordered table-striped border-0 m0">
                     <thead>
                     <tr>
@@ -40,6 +60,7 @@
                     @endforelse
                     </tbody>
                 </table>
+                @endif
             </div>
         </div>
     </div>

@@ -35,6 +35,15 @@ class TopicEloquentRepository extends BaseRepository
             ->get()->toArray();
     }
 
+    public function getAllTopicTeacherToStudent()
+    {
+        $teacherStudent = Auth::user()->getTeacherLastByStudent();
+        abort_if(!$teacherStudent, 404);
+        return $this->model->with('userCreated.profile')
+            ->where('user_created', $teacherStudent->teacher_id)
+            ->get()->toArray();
+    }
+
     public function getAllTopicToStudent()
     {
         return $this->model->with('userCreated.profile')

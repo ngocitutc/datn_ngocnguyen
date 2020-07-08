@@ -27,8 +27,8 @@ Route::middleware('auth')->group(function () {
             Route::post('store', 'AdminController@storeCreate');
         });
     });
-    Route::namespace('Teacher')->middleware('auth')->group(function () {
-        Route::prefix('teacher')->group(function () {
+    Route::namespace('Teacher')->group(function () {
+        Route::prefix('teacher')->middleware('role:teacher')->group(function () {
             Route::prefix('topic')->group(function () {
                 Route::get('/', 'TeacherController@getTopics')->name(TEACHER_TOPIC_INDEX);
                 Route::get('/create', 'TeacherController@create')->name(TEACHER_TOPIC_CREATE);
@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
         });
     });
     Route::namespace('Student')->group(function () {
-        Route::prefix('student')->group(function () {
+        Route::prefix('student')->middleware('role:student')->group(function () {
             Route::prefix('topic')->group(function () {
                 Route::get('/', 'StudentController@getTopics')->name(STUDENT_TOPIC);
                 Route::get('/info/{id}', 'StudentController@showInfoTopic')->name(STUDENT_TOPIC_INFO);
@@ -61,7 +61,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::namespace('Dean')->group(function () {
-        Route::prefix('dean')->group(function () {
+        Route::prefix('dean')->middleware('role:dean')->group(function () {
             Route::get('/topic', 'DeanController@getTopics')->name(DEAN_TOPIC);
             Route::post('/topic', 'DeanController@activeTopic')->name(DEAN_TOPIC_ACTIVE);
         });

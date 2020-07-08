@@ -33,7 +33,7 @@ class TeacherStudentEloquentRepository extends BaseRepository
             $dataRegister = [
                 'teacher_id' => $data['teacher_id'],
                 'student_id' => $data['student_id'],
-                'status' => STATUS_STEP_LEANNING,
+                'status' => STATUS_STEP_WAITING,
             ];
             $this->create($dataRegister);
             DB::commit();

@@ -43,6 +43,11 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class, 'user_code', 'email');
     }
 
+    public function hasRole($roles)
+    {
+        return in_array(ROLES_EN[$this->getAttribute('role')], $roles);
+    }
+
     public function teacherStudent()
     {
         return $this->hasMany(TeacherStudent::class, 'teacher_id', 'id');

@@ -4,6 +4,9 @@
     <div class="container-fluid">
         <div class="justify-content-center" style="padding: 45px 60px 60px 60px;">
             @include('layouts/notification')
+            @php
+            $user = \Illuminate\Support\Facades\Auth::user();
+            @endphp
             <div class="row">
                 <div class="col-6 m15b">
                     <h3>Thông tin giảng viên</h3>
@@ -85,7 +88,7 @@
                     </div>
                 </form>
             </div>
-
+            @if(!$user->getTeacherLastByStudent())
             <div class="row">
                 <div class="col-12 m15b text-right">
                     <button id="submit-create-user" class="btn btn-primary border-0 btn-register-teacher" data-id="{{ $data['id'] }}">
@@ -93,6 +96,7 @@
                     </button>
                 </div>
             </div>
+            @endif
         </div>
     </div>
     @include('layouts.modal_register_teacher')

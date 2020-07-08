@@ -11,7 +11,9 @@
             </div>
 
             <div class="content-wrapper m15b" style="background-color: white;">
-                <form id="form-create-user" action="">
+                @if(isset($teacherStudent))
+                    @if($teacherStudent->topic_id != null)
+                        <form id="form-create-user" action="">
                     <div class="row form-group m-0 d-flex p20">
                         <div class="col-12 col-xl-6">
                             <div class="row">
@@ -119,6 +121,30 @@
                         </div>
                     </div>
                 </form>
+                    @else
+                        <div style="min-height: 400px">
+                            <div class="text-center" style="font-size: 28px; padding-top: 50px; margin-bottom: 50px">
+                                Bạn chưa đăng ký đề tài
+                            </div>
+                            <div class="col-12 text-center" style="justify-content: center">
+                                <a href="{{ route(STUDENT_REGISTER_TOPIC) }}" class="btn btn-primary border-0">
+                                    Đăng ký đề tài
+                                </a>
+                            </div>
+                        </div>
+                    @endif
+                @else
+                    <div style="min-height: 400px">
+                        <div class="text-center" style="font-size: 28px; padding-top: 50px; margin-bottom: 50px">
+                            Bạn chưa đăng ký giảng viên hướng dẫn
+                        </div>
+                        <div class="col-12 text-center" style="justify-content: center">
+                            <a href="{{ route(STUDENT_TEACHER) }}" class="btn btn-primary border-0">
+                                Đăng ký giảng viên hướng dẫn
+                            </a>
+                        </div>
+                    </div>
+                @endif
             </div>
 
 {{--            <div class="row">--}}

@@ -50,26 +50,49 @@ class StudentController extends Controller
 
     public function getTeachers()
     {
-        $data = $this->userEloquentRepository->getDataTeacher();
-        return view('student.teacher_index', compact('data'));
+        $student = Auth::user();
+        $teacherStudent = $student->getTeacherLastByStudent();
+
+        if ($teacherStudent) {
+            return view('student.teacher_index', compact('teacherStudent'));
+        } else {
+            $data = $this->userEloquentRepository->getDataTeacher();
+            return view('student.teacher_index', compact('data'));
+        }
     }
 
     public function registerTopic()
     {
-        $data = $this->topicEloquentRepository->getAllTopicToStudent(Auth::user()->id);
-        return view('student.register_topic', compact('data'));
+        $student = Auth::user();
+        $teacherStudent = $student->getTeacherLastByStudent();
+        if ($teacherStudent) {
+            $data = $this->topicEloquentRepository->getAllTopicTeacherToStudent();
+            return view('student.register_topic', compact('data', 'teacherStudent'));
+        }
+        return view('student.register_topic');
     }
 
     public function createProject()
     {
-        $data = $this->topicEloquentRepository->getAllTopicToStudent(Auth::user()->id);
+        $student = Auth::user();
+        $teacherStudent = $student->getTeacherLastByStudent();
+        if ($teacherStudent) {
+            $data = $this->topicEloquentRepository->getAllTopicToStudent(Auth::user()->id);
+            return view('student.project_add', compact('data', 'teacherStudent'));
+        }
         return view('student.project_add', compact('data'));
     }
 
     public function infoProject()
     {
-        $data = $this->topicEloquentRepository->getAllTopicToStudent(Auth::user()->id);
+        $student = Auth::user();
+        $teacherStudent = $student->getTeacherLastByStudent();
+        if ($teacherStudent) {
+            $data = $this->topicEloquentRepository->getAllTopicToStudent(Auth::user()->id);
+            return view('student.project_info', compact('data', 'teacherStudent'));
+        }
         return view('student.project_info', compact('data'));
+
     }
 
     public function infoTeacher($id)
