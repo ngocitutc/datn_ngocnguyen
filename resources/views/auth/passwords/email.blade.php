@@ -7,7 +7,7 @@
     <main class="reset-password-form">
         <div class="">
             <div class="row justify-content-center">
-                <div class="col-md-5 custom-center">
+                <div class="col-md-5 custom-center" style="transform: translate(10px, 20%) !important;">
                     <div class="card border-0" style="background-color: #f0f1f2;">
                         <div class="card-header border-bottom-0 text-info text-center font-weight-bold" style="font-size: 20px; background-color: #f0f1f2; margin-top: 40px;">
                             QUÊN MẬT KHẨU
