@@ -2,6 +2,7 @@
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/login/login.css') }}">
 @endsection
+@section('title', 'Đăng nhập')
 @section('content')
     <main class="login-form">
         <div class="">

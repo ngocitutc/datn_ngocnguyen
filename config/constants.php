@@ -3,6 +3,7 @@ const LOGIN = 'login';
 const SHOW_LOGIN = 'show.login';
 const LOGOUT = 'logout';
 const HOME = 'home';
+const FORGOT_PASSWORD_INDEX = 'forgot_password.index';
 
 const USER_CREATE = 'user.create';
 const USER_EXPORT_FILE = 'user.export_file';

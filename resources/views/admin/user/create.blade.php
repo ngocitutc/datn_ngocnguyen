@@ -35,7 +35,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 form-control col-xl-4 border-0" >
-                                    <span>Mã đăng nhập</span><span style="color: red">*</span>
+                                    <span>Mã đăng nhập</span><span style="color: red">&nbsp;*</span>
                                 </div>
                                 <div class="col-12 col-xl-8">
                                     <input type="text" class="form-control m5t m5b fs14" name="email">
@@ -44,7 +44,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 form-control col-xl-4 border-0" >
-                                    <span>Mật khẩu</span><span style="color: red">*</span>
+                                    <span>Mật khẩu</span><span style="color: red">&nbsp;*</span>
                                 </div>
                                 <div class="col-12 col-xl-8">
                                     <input type="text" class="form-control m5t m5b fs14" name="password">
@@ -72,7 +72,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 form-control col-xl-4 border-0" >
-                                    <div id="select-role-code"> Mã sinh viên<span style="color: red">*</span></div>
+                                    <div id="select-role-code"> Mã sinh viên<span style="color: red">&nbsp;*</span></div>
                                 </div>
                                 <div class="col-12 col-xl-8">
                                     <input type="text" class="form-control m5t m5b fs14" name="user_code" readonly>
@@ -81,7 +81,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 form-control col-xl-4 border-0" >
-                                    <div id="select-role-name">Tên sinh viên<span style="color: red">*</span></div>
+                                    <div id="select-role-name">Tên sinh viên<span style="color: red">&nbsp;*</span></div>
                                 </div>
                                 <div class="col-12 col-xl-8">
                                     <input type="text" class="form-control m5t m5b fs14" name="user_name">
@@ -132,7 +132,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 form-control col-xl-4 border-0" >
-                                    <span>Email</span>
+                                    <span>Email</span><span style="color: red">&nbsp;*</span>
                                 </div>
                                 <div class="col-12 col-xl-8">
                                     <input type="text" class="form-control m5t m5b fs14" name="user_email" placeholder="example@gmail.com">

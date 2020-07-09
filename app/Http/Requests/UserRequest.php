@@ -27,7 +27,7 @@ class UserRequest extends FormRequest
             'email' => ['bail','required', 'min:8', 'max:8'],
             'user_name' => ['bail','required'],
             'password' => ['bail','required','string','min:8', 'max:25'],
-            'user_email' => ['nullable', 'email'],
+            'user_email' => ['bail','required', 'unique:profiles,user_email', 'email'],
             'phone_number' => ['nullable'],
         ];
     }
@@ -42,6 +42,8 @@ class UserRequest extends FormRequest
         return [
             'email.required' => 'Mã đăng nhập không được bỏ trống',
             'user_name.required' => 'Tên không được bỏ trống',
+            'user_email.required' => 'Email không được bỏ trống',
+            'user_email.unique' => 'Email đã tồn tại',
             'email.min' => 'Mã đăng nhập phải là 8 chữ số',
             'email.max' => 'Mã đăng nhập phải là 8 chữ số',
             'password.required' => 'Mật khẩu không được bỏ trống',

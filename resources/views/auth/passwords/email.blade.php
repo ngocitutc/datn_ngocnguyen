@@ -1,47 +1,43 @@
-@extends('layouts.app')
-
+@extends('layouts.login-base')
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/login/login.css') }}">
+@endsection
+@section('title', 'Quên mật khẩu')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+    <main class="reset-password-form">
+        <div class="">
+            <div class="row justify-content-center">
+                <div class="col-md-5 custom-center">
+                    <div class="card border-0" style="background-color: #f0f1f2;">
+                        <div class="card-header border-bottom-0 text-info text-center font-weight-bold" style="font-size: 20px; background-color: #f0f1f2; margin-top: 40px;">
+                            QUÊN MẬT KHẨU
                         </div>
-                    @endif
+                        <div class="card-body" style="padding: 30px 40px 60px 40px">
+                            <div class="content-card bg-light w-100 h-100" style="padding: 20px 20px">
+                                <label for="email_address" class="col-md-12 col-form-label text-secondary text-center">Vui lòng nhập email</label>
+                                <form action="" method="POST">
+                                    @csrf
+                                    <div class="form-group row" style="margin-top: 20px">
+                                        <div class="col-10 offset-1 position-relative">
+                                            <input type="text" id="email" class="form-control" name="email" placeholder="Email" autofocus>
+                                            <i class="fas fa-user position-absolute" style="top: 30%; right: 7%; color: #7d7b7b;"></i>
+                                        </div>
+                                    </div>
 
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    <div class="col-10 offset-1 p-0" style="margin-top: 25px">
+                                        <button type="submit" class="btn btn-primary w-100">
+                                            Gửi email reset lại mật khẩu
+                                        </button>
+                                    </div>
+                                    <div class="col-10 offset-1 p-0" style="margin-top: 30px">
+                                        <a href=""><i class="fas fa-chevron-left" style="margin-right: 7px; font-size: 12px"></i>Quay lại</a>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </main>
 @endsection
