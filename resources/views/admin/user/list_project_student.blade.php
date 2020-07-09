@@ -48,51 +48,51 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>14785236</td>
+                        <td>20166760</td>
                         <td>Vũ Minh Bính</td>
-                        <td>14785239</td>
-                        <td>Nguyễn Thị Ngọc</td>
-                        <td>Quản lý thư viện</td>
+                        <td>20165772</td>
+                        <td>Vương Minh Anh</td>
+                        <td>Xây dựng phần mềm quản lý quy trình kiểm thử của dự án phần mềm</td>
                         <td>Đang hướng dẫn</td>
                     </tr>
                     <tr>
-                        <td>14785236</td>
+                        <td>20166760</td>
                         <td>Vũ Minh Bính</td>
-                        <td>14785239</td>
-                        <td>Nguyễn Thị Ngọc</td>
-                        <td>Quản lý thư viện</td>
+                        <td>20165831</td>
+                        <td>Trịnh Thành Công</td>
+                        <td>Giải pháp tóm tắt trích rút một văn bản Tiếng Việt và ứng dụng</td>
                         <td>Đang hướng dẫn</td>
                     </tr>
                     <tr>
-                        <td>14785236</td>
-                        <td>Vũ Minh Bính</td>
-                        <td>14785239</td>
-                        <td>Nguyễn Thị Ngọc</td>
-                        <td>Quản lý thư viện</td>
+                        <td>20166381</td>
+                        <td>Lý Bảo Long</td>
+                        <td>20165986</td>
+                        <td>Bùi Văn Đức</td>
+                        <td>Deep Learning và ứng dụng</td>
                         <td>Đang hướng dẫn</td>
                     </tr>
                     <tr>
-                        <td>14785236</td>
-                        <td>Vũ Minh Bính</td>
-                        <td>14785239</td>
-                        <td>Nguyễn Thị Ngọc</td>
-                        <td>Quản lý thư viện</td>
+                        <td>20166866</td>
+                        <td>Tăng Thị Huyền</td>
+                        <td>20166020</td>
+                        <td>Nguyễn Trường Giang</td>
+                        <td>Hệ sinh thái phòng trọ cho sinh viên thuê</td>
                         <td>Đang hướng dẫn</td>
                     </tr>
                     <tr>
-                        <td>14785236</td>
-                        <td>Vũ Minh Bính</td>
-                        <td>14785239</td>
-                        <td>Nguyễn Thị Ngọc</td>
-                        <td>Quản lý thư viện</td>
+                        <td>20166866</td>
+                        <td>Tăng Thị Huyền</td>
+                        <td>120166265</td>
+                        <td>Đỗ Thị Lan</td>
+                        <td>Phân tích dữ liệu chuỗi thời gian cho bài toán dự báo</td>
                         <td>Đang hướng dẫn</td>
                     </tr>
                     <tr>
-                        <td>14785236</td>
-                        <td>Vũ Minh Bính</td>
-                        <td>14785239</td>
-                        <td>Nguyễn Thị Ngọc</td>
-                        <td>Quản lý thư viện</td>
+                        <td>20167014</td>
+                        <td>Đặng Thị Mai</td>
+                        <td>20166329</td>
+                        <td>Mai Khánh Linh</td>
+                        <td>Các đề tài liên quan đến công nghệ web hiện đại</td>
                         <td>Đang hướng dẫn</td>
                     </tr>
                     

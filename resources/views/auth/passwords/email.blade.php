@@ -30,7 +30,7 @@
                                         </button>
                                     </div>
                                     <div class="col-10 offset-1 p-0" style="margin-top: 30px">
-                                        <a href=""><i class="fas fa-chevron-left" style="margin-right: 7px; font-size: 12px"></i>Quay lại</a>
+                                        <a href="{{ route(SHOW_LOGIN) }}"><i class="fas fa-chevron-left" style="margin-right: 7px; font-size: 12px"></i>Quay lại</a>
                                     </div>
                                 </form>
                             </div>
