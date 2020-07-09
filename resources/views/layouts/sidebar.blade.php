@@ -10,8 +10,13 @@
                 <ul>
                     @if($user->role == ADMIN)
                         <li class="@if($routeIndex == USER_INDEX) active @endif"><a class="fs16" href="{{ route(USER_INDEX) }}"><i class="fa fa-home"></i>Quản lý tài khoản</a></li>
+                        <li class="@if($routeIndex == USER_LIST_TEACHER) active @endif"><a class="fs16" href="{{ route(USER_LIST_TEACHER) }}"><i class="fa fa-glass"></i>Danh sách giảng viên</a></li>
+                        <li class="@if($routeIndex == USER_LIST_STUDENT) active @endif"><a class="fs16" href="{{ route(USER_LIST_STUDENT) }}"><i class="fa fa-glass"></i>Danh sách sinh viên</a></li>
+                        <li class="@if($routeIndex == USER_LIST_PROJECT_STUDENT) active @endif"><a class="fs16" href="{{ route(USER_LIST_PROJECT_STUDENT) }}"><i class="fa fa-glass"></i>Danh sách đồ án sinh viên</a></li>
                     @elseif($user->role == DEAN)
                         <li class="@if($routeIndex == DEAN_TOPIC) active @endif"><a class="fs16" href="{{ route(DEAN_TOPIC) }}"><i class="fa fa-glass"></i>Phê duyệt đề tài</a></li>
+                        <li class="@if($routeIndex == DEAN_TEACHER_STUDENT) active @endif"><a class="fs16" href="{{ route(DEAN_TEACHER_STUDENT) }}"><i class="fa fa-glass"></i>Giảng viên - sinh viên</a></li>
+                        <li class="@if($routeIndex == DEAN_SEMESTER) active @endif"><a class="fs16" href="{{ route(DEAN_SEMESTER) }}"><i class="fa fa-glass"></i>Quản lý đợt đăng ký</a></li>
                     @elseif($user->role == TEACHER)
                         <li class="@if($routeIndex == TEACHER_TOPIC_INDEX) active @endif"><a class="fs16" href="{{ route(TEACHER_TOPIC_INDEX) }}"><i class="fa fa-glass"></i>Quản lý đề tài </a></li>
                         <li class="@if($routeIndex == TEACHER_STUDENT) active @endif"><a class="fs16" href="{{ route(TEACHER_STUDENT) }}"><i class="fa fa-glass"></i>Quản lý sinh viên hướng dẫn </a></li>

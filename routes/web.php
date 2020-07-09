@@ -26,6 +26,9 @@ Route::middleware('auth')->group(function () {
             Route::get('/create', 'AdminController@userCreate')->name(USER_CREATE);
             Route::post('/store', 'AdminController@storeCreate');
             Route::get('/export-file/{role}', 'AdminController@exportFile')->name(USER_EXPORT_FILE);
+            Route::get('/list-teacher', 'AdminController@listTeacher')->name(USER_LIST_TEACHER);
+            Route::get('/list-student', 'AdminController@listStudent')->name(USER_LIST_STUDENT);
+            Route::get('/list-project-student', 'AdminController@listProjectStudent')->name(USER_LIST_PROJECT_STUDENT);
         });
     });
     Route::namespace('Teacher')->group(function () {
@@ -70,6 +73,8 @@ Route::middleware('auth')->group(function () {
         Route::prefix('dean')->middleware('role:dean')->group(function () {
             Route::get('/topic', 'DeanController@getTopics')->name(DEAN_TOPIC);
             Route::post('/topic', 'DeanController@activeTopic')->name(DEAN_TOPIC_ACTIVE);
+            Route::get('/teacher-student', 'DeanController@teacherStudent')->name(DEAN_TEACHER_STUDENT);
+            Route::get('/semester', 'DeanController@semester')->name(DEAN_SEMESTER);
         });
     });
 });

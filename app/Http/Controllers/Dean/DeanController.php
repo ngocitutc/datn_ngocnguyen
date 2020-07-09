@@ -50,4 +50,14 @@ class DeanController extends Controller
         return redirect()->route(DEAN_TOPIC);
     }
 
+    public function teacherStudent()
+    {
+        return view('dean.teacher_student');
+    }
+
+    public function semester()
+    {
+        return view('dean.semester');
+    }
+
 }

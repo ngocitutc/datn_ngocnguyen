@@ -88,16 +88,59 @@
                                     <p class="error-message m0" data-error="user_name"></p>
                                 </div>
                             </div>
+                            <div id="select-class" class="row" style="">
+                                <div class="col-12 form-control col-xl-4 border-0" >
+                                    <span>Lớp</span>
+                                </div>
+                                <div class="col-12 col-xl-8">
+                                    <select class="form-control" id="">
+                                        <option value="">CNTT-1</option>
+                                        <option value="">CNTT-2</option>
+                                        <option value="">CNTT-3</option>
+                                    </select>
+                                    <p class="error-message m0" data-error="gender"></p>
+                                </div>
+                            </div>
+                            <div id="select-class-2" class="row" style="">
+                                <div class="col-12 form-control col-xl-4 border-0" >
+                                    <span>Khoá</span>
+                                </div>
+                                <div class="col-12 col-xl-8">
+                                    <select class="form-control" id="">
+                                        <option value="">K59</option>
+                                        <option value="">K58</option>
+                                        <option value="">K57</option>
+                                        <option value="">K56</option>
+                                        <option value="">K55</option>
+                                        <option value="">K54</option>
+                                    </select>
+                                    <p class="error-message m0" data-error="gender"></p>
+                                </div>
+                            </div>
                             <div id="subject" class="row" style="display: none">
                                 <div class="col-12 form-control col-xl-4 border-0" >
                                     <span>Bộ môn</span>
                                 </div>
                                 <div class="col-12 col-xl-8">
                                     <select class="form-control" name="subject" id="">
-                                        <option value="1">Khoa học máy tính</option>
-                                        <option value="2">Hệ thống thông tin</option>
+                                        @foreach(SUBJECTS as $key => $value)
+                                            <option value="{{ $key }}">{{ $value }}</option>
+                                        @endforeach
                                     </select>
                                     <p class="error-message m0" data-error="gender"></p>
+                                </div>
+                            </div>
+                            <div id="select-level" class="row" style="display: none">
+                                <div class="col-12 form-control col-xl-4 border-0" >
+                                    <span>Trình độ</span>
+                                </div>
+                                <div class="col-12 col-xl-8">
+                                    <select class="form-control" id="">
+                                        <option value="">Thạc sỹ</option>
+                                        <option value="">Tiến sỹ</option>
+                                        <option value="">Giáo sư</option>
+                                    </select>
+                                    <p class="error-message m0" data-error=""></p>
                                 </div>
                             </div>
                             <div class="row">

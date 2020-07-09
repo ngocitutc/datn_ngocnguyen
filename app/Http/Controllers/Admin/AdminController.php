@@ -66,4 +66,19 @@ class AdminController extends Controller
         Session::flash(STR_FLASH_ERROR, 'Tải file mẫu thất bại');
         return response()->json(['save' => false]);
     }
+
+    public function listTeacher()
+    {
+        return view('admin.user.list_teacher');
+    }
+
+    public function listStudent()
+    {
+        return view('admin.user.list_student');
+    }
+
+    public function listProjectStudent()
+    {
+        return view('admin.user.list_project_student');
+    }
 }

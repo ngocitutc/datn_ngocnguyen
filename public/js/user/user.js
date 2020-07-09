@@ -52,16 +52,25 @@ $(document).ready(function () {
         switch ($(this).val()) {
             case '1':
                 $('#subject').show();
+                $('#select-level').show();
+                $('#select-class').hide();
+                $('#select-class-2').hide();
                 $('#select-role-code').html('Mã lãnh đạo khoa<span style="color: red">*</span>');
                 $('#select-role-name').html('Tên lãnh đạo khoa<span style="color: red">*</span>');
                 break;
             case '2':
                 $('#subject').show();
+                $('#select-level').show();
+                $('#select-class').hide();
+                $('#select-class-2').hide();
                 $('#select-role-code').html('Mã giảng viên<span style="color: red">*</span>');
                 $('#select-role-name').html('Tên giảng viên<span style="color: red">*</span>');
                 break;
             case '3':
                 $('#subject').hide();
+                $('#select-level').hide();
+                $('#select-class').show();
+                $('#select-class-2').show();
                 $('#select-role-code').html('Mã sinh viên<span style="color: red">*</span>');
                 $('#select-role-name').html('Tên sinh viên<span style="color: red">*</span>');
                 break;

@@ -7,6 +7,9 @@ const HOME = 'home';
 const USER_CREATE = 'user.create';
 const USER_EXPORT_FILE = 'user.export_file';
 const USER_INDEX = 'user.index';
+const USER_LIST_TEACHER = 'user.list.teacher';
+const USER_LIST_STUDENT = 'user.list.student';
+const USER_LIST_PROJECT_STUDENT = 'user.list.project.student';
 
 const TEACHER_TOPIC_INDEX = 'teacher.topic.index';
 const TEACHER_TOPIC_CREATE = 'teacher.topic.create';
@@ -31,6 +34,8 @@ const STUDENT_TEACHER_REGISTER = 'student.teacher.register';
 
 const DEAN_TOPIC = 'dean.topic';
 const DEAN_TOPIC_ACTIVE = 'dean.topic.active';
+const DEAN_TEACHER_STUDENT = 'dean.teacher.student';
+const DEAN_SEMESTER = 'dean.semester';
 
 
 const ADMIN = 0;
@@ -55,7 +60,7 @@ const ROLES_EN = [
 
 const SUBJECTS = [
   1 => 'Khoa học máy tính',
-  2 => 'Hệ thống thông tin',
+  2 => 'Mạng và hệ thống thông tin',
   3 => 'Công nghệ phần mềm',
 ];
 const STATUS_TOPIC = [
