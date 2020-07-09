@@ -5,7 +5,7 @@
     $routeIndex = request()->route()->getName();
     @endphp
         <div class="content">
-            <div id="jquery-accordion-menu" class="jquery-accordion-menu h-100" style="padding-top: 20px">
+            <div id="jquery-accordion-menu" class="jquery-accordion-menu h-100 w-100" style="padding-top: 20px">
                 <div class="jquery-accordion-menu-header fs18">DANH MỤC QUẢN LÝ</div>
                 <ul>
                     @if($user->role == ADMIN)

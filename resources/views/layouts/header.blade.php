@@ -13,7 +13,7 @@
                         <li class="nav-item dropdown h-100">
                             <a class="nav-link text-white h-100 center-vertically" href="{{ route(LOGOUT) }}" id="navbardrop" data-toggle="tooltip" data-placement="top" title="Đăng xuất">
                                 <img class="img-user w50" src="{{ asset('images/logos/admin.jpeg') }}">
-                                <span class="name-user text-center m10l text-black">{{ \Illuminate\Support\Facades\Auth::user()->profile['user_name'] }}</span>
+                                <span class="name-user text-center m10l text-black">{{ \Illuminate\Support\Facades\Auth::user()->profile['user_name'] ?? 'Admin' }}</span>
                             </a>
                         </li>
                     </ul>

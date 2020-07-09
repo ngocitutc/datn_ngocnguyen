@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+<link rel="stylesheet" href="{{ asset('css/fontawesome-free-5.6.1.min.css')}}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 @yield('styles')
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
@@ -23,7 +25,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
-    <title>Đăng nhập</title>
+    <title>@yield('title')</title>
 </head>
 <body>
 @yield('content')

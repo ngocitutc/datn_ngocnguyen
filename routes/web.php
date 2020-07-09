@@ -18,6 +18,7 @@ Route::namespace('Auth')->group(function () {
     Route::post('login', 'LoginController@login')->name(LOGIN);
     Route::get('login', 'LoginController@create')->name(SHOW_LOGIN);
     Route::get('logout', 'LoginController@logout')->name(LOGOUT);
+    Route::get('reset-password', 'ForgotPasswordController@index')->name(FORGOT_PASSWORD_INDEX);
 });
 Route::middleware('auth')->group(function () {
     Route::namespace('Admin')->group(function () {
