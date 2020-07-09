@@ -40,7 +40,7 @@
                     </tr>
                         @empty
                         <tr>
-                            <td colspan="8">Không có dữ liệu</td>
+                            <td class="text-center" colspan="8">Không có dữ liệu</td>
                         </tr>
                     @endforelse
                     </tbody>
