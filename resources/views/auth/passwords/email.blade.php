@@ -15,7 +15,7 @@
                         <div class="card-body" style="padding: 30px 40px 60px 40px">
                             <div class="content-card bg-light w-100 h-100" style="padding: 20px 20px">
                                 <label for="email_address" class="col-md-12 col-form-label text-secondary text-center">Vui lòng nhập email</label>
-                                <form action="" method="POST">
+                                <form>
                                     @csrf
                                     <div class="form-group row" style="margin-top: 20px">
                                         <div class="col-10 offset-1 position-relative">
