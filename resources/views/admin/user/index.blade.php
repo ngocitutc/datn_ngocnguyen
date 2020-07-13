@@ -20,7 +20,6 @@
                     <thead>
                     <tr>
                         <td>Tên đăng nhập</td>
-                        <td>Mật khẩu</td>
                         <td>Họ tên</td>
                         <td>Quyền</td>
                         <td>Bộ môn</td>
@@ -31,7 +30,6 @@
                     @forelse($data as $user)
                         <tr>
                             <td>{{ $user['email'] }}</td>
-                            <td>{{ $user['password_show'] }}</td>
                             <td>{{ $user['profile']['user_name'] }}</td>
                             <td>{{ ROLES[$user['role']] }}</td>
                             <td>{{ $user['profile']['subject'] ? SUBJECTS[$user['profile']['subject']] : "" }}</td>

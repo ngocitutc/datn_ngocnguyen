@@ -28,7 +28,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 offset-md-4 m10b">
-                                    <a href="#" class="m10b">
+                                    <a href="{{ route(FORGOT_PASSWORD_INDEX) }}" class="m10b">
                                         Quên mật khẩu ?
                                     </a>
                                 </div>

@@ -45,58 +45,67 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>14785236</td>
+                        <td>20166760</td>
                         <td>Vũ Minh Bính</td>
                         <td>{{ SUBJECTS[1] }}</td>
                         <td>Thạc sỹ</td>
-                        <td>10/10/1996</td>
+                        <td>10/10/1962</td>
+                        <td>Nam</td>
+                        <td>0820166760</td>
+                    </tr>
+                    <tr>
+                        <td>20166381</td>
+                        <td>Lý Bảo Long</td>
+                        <td>{{ SUBJECTS[1] }}</td>
+                        <td>Tiến sĩ</td>
+                        <td>15/11/1977</td>
                         <td>Nam</td>
                         <td>0999999999</td>
                     </tr>
                     <tr>
-                        <td>14785236</td>
-                        <td>Vũ Minh Bính</td>
-                        <td>{{ SUBJECTS[1] }}</td>
-                        <td>Thạc sỹ</td>
-                        <td>10/10/1996</td>
-                        <td>Nam</td>
-                        <td>0999999999</td>
+                        <td>20166866</td>
+                        <td>Tăng Thị Huyền</td>
+                        <td>{{ SUBJECTS[2] }}</td>
+                        <td>Giáo sư</td>
+                        <td>22/9/1967</td>
+                        <td>Nữ</td>
+                        <td>0820166866</td>
                     </tr>
                     <tr>
-                        <td>14785236</td>
-                        <td>Vũ Minh Bính</td>
+                        <td>20167014</td>
+                        <td>Đặng Thị Mai</td>
                         <td>{{ SUBJECTS[1] }}</td>
                         <td>Thạc sỹ</td>
-                        <td>10/10/1996</td>
-                        <td>Nam</td>
-                        <td>0999999999</td>
+                        <td>03/11/1970</td>
+                        <td>Nữ</td>
+                        <td>0920167014</td>
                     </tr>
                     <tr>
-                        <td>14785236</td>
-                        <td>Vũ Minh Bính</td>
-                        <td>{{ SUBJECTS[1] }}</td>
-                        <td>Thạc sỹ</td>
-                        <td>10/10/1996</td>
+                        <td>20166461</td>
+                        <td>Nguyễn Huy Nguyên</td>
+                        <td>{{ SUBJECTS[3] }}</td>
+                        <td>Tiến sĩ</td>
+                        <td>05/11/1976</td>
                         <td>Nam</td>
-                        <td>0999999999</td>
+                        <td>0920166461</td>
                     </tr>
                     <tr>
-                        <td>14785236</td>
-                        <td>Vũ Minh Bính</td>
-                        <td>{{ SUBJECTS[1] }}</td>
-                        <td>Thạc sỹ</td>
-                        <td>10/10/1996</td>
+                        <td>20166425</td>
+                        <td>Đinh Công Quý</td>
+                        <td>{{ SUBJECTS[3] }}</td>
+                        <td>Tiến sĩ</td>
+                        <td>15/10/1972</td>
                         <td>Nam</td>
-                        <td>0999999999</td>
+                        <td>0720166425</td>
                     </tr>
                     <tr>
-                        <td>14785236</td>
-                        <td>Vũ Minh Bính</td>
-                        <td>{{ SUBJECTS[1] }}</td>
+                        <td>20166736</td>
+                        <td>Nguyễn Văn Thuận</td>
+                        <td>{{ SUBJECTS[2] }}</td>
                         <td>Thạc sỹ</td>
-                        <td>10/10/1996</td>
+                        <td>10/08/1977</td>
                         <td>Nam</td>
-                        <td>0999999999</td>
+                        <td>0620166736</td>
                     </tr>
                     
 {{--                    @forelse($data as $user)--}}
