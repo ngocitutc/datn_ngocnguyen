@@ -55,76 +55,23 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>20165772</td>
-                        <td>Vương Minh Anh</td>
-                        <td>CNTT-2</td>
-                        <td>K61</td>
-                        <td>10/10/1996</td>
-                        <td>Nữ</td>
-                        <td>0820165772</td>
-                    </tr>
-                    <tr>
-                        <td>20165831</td>
-                        <td>Trịnh Thành Công</td>
-                        <td>CNTT-1</td>
-                        <td>K56</td>
-                        <td>14/01/1998</td>
-                        <td>Nam</td>
-                        <td>0820165831</td>
-                    </tr>
-                    <tr>
-                        <td>20165986</td>
-                        <td>Bùi	Văn	Đức</td>
-                        <td>CNTT-2</td>
-                        <td>K59</td>
-                        <td>10/05/1996</td>
-                        <td>Nam</td>
-                        <td>0820165986</td>
-                    </tr>
-                    <tr>
-                        <td>20166020</td>
-                        <td>Nguyễn Trường Giang</td>
-                        <td>CNTT-2</td>
-                        <td>K59</td>
-                        <td>04/06/1997</td>
-                        <td>Nam</td>
-                        <td>0820166020</td>
-                    </tr>
-                    <tr>
-                        <td>20166265</td>
-                        <td>Đỗ Thị Lan</td>
-                        <td>CNTT-1</td>
-                        <td>K60</td>
-                        <td>11/12/1995</td>
-                        <td>Nữ</td>
-                        <td>0920166265</td>
-                    </tr>
-                    <tr>
-                        <td>20166329</td>
-                        <td>Mai	Khánh Linh</td>
-                        <td>CNTT-1</td>
-                        <td>K57</td>
-                        <td>21/10/1997</td>
-                        <td>Nữ</td>
-                        <td>0920166329</td>
-                    </tr>
-                    
-{{--                    @forelse($data as $user)--}}
-{{--                        <tr>--}}
-{{--                            <td>{{ $user['email'] }}</td>--}}
-{{--                            <td>{{ $user['password_show'] }}</td>--}}
-{{--                            <td>{{ $user['profile']['user_name'] }}</td>--}}
-{{--                            <td>{{ ROLES[$user['role']] }}</td>--}}
-{{--                            <td>{{ $user['profile']['subject'] ? SUBJECTS[$user['profile']['subject']] : "" }}</td>--}}
-{{--                        </tr>--}}
-{{--                    @empty--}}
-{{--                        <tr>--}}
-{{--                            <td class="text-center" colspan="5">--}}
-{{--                                Không có dữ liệu--}}
-{{--                            </td>--}}
-{{--                        </tr>--}}
-{{--                    @endforelse--}}
+                        @forelse ($datas as $data)
+                            <tr>
+                                <td>{{ $data->profile->user_code }}</td>
+                                <td>{{ $data->profile->user_name ?? "" }}</td>
+                                <td>{{ $data->profile->class ?? ""}}</td>
+                                <td>{{ $data->profile->period ?? "" }}</td>
+                                <td>{{ $data->profile->birthday ?? "" }}</td>
+                                <td>{{ $data->profile->gender ? GENDER[$data->profile->gender] : "" }}</td>
+                                <td>{{ $data->profile->phone_number ?? "" }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td class="text-center" colspan="7">
+                                    Không có dữ liệu
+                                </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

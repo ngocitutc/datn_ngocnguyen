@@ -73,4 +73,24 @@ class UserEloquentRepository extends BaseRepository
     public function getUser($id) {
         return $this->model->with('profile')->find($id);
     }
+
+
+    public function getDataTeacherByRole($params)
+    {
+        $operator = (int)$params['subject'] === 4 ? '<>' : '=';
+        return $this->model->with('profile')
+                    ->join('profiles', 'profiles.user_code', 'users.email')
+                    ->when($params, function ($q) use ($params, $operator) {
+                        return $q->where('profiles.subject', $operator, (int)$params['subject']);
+                    })
+                    ->whereIn('role', [DEAN, TEACHER])
+                    ->get();
+    }
+
+    public function getDataUserByRole($params)
+    {
+        return $this->model->with('profile')
+            ->where('role', STUDENT)
+            ->get();
+    }
 }
