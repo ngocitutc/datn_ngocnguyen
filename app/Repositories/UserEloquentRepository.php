@@ -29,8 +29,12 @@ class UserEloquentRepository extends BaseRepository
                 'password_show' => $data['password'],
                 'role' => $data['role']
             ];
-            if ($data['role'] == STUDENT && $data['subject']) {
+            if ($data['role'] == STUDENT) {
                 unset($data['subject']);
+                unset($data['level']);
+            } else {
+                unset($data['class']);
+                unset($data['period']);
             }
             $dataProfile = [
                 'user_code' => $data['email'],
@@ -41,6 +45,9 @@ class UserEloquentRepository extends BaseRepository
                 'user_email' => $data['user_email'] ?? null,
                 'address' => $data['address'] ?? null,
                 'subject' => $data['subject'] ?? null,
+                'level' => $data['level'] ?? null,
+                'class' => $data['class'] ?? null,
+                'period' => $data['period'] ?? null,
             ];
             $this->create($dataUser);
             resolve(ProfileEloquentRepository::class)->create($dataProfile);

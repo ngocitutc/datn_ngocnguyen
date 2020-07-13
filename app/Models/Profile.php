@@ -21,5 +21,8 @@ class Profile extends Model
         'user_email',
         'address',
         'subject',
+        'class',
+        'period',
+        'level',
     ];
 }

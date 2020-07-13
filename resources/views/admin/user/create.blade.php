@@ -93,10 +93,10 @@
                                     <span>Lớp</span>
                                 </div>
                                 <div class="col-12 col-xl-8">
-                                    <select class="form-control" id="">
-                                        <option value="">CNTT-1</option>
-                                        <option value="">CNTT-2</option>
-                                        <option value="">CNTT-3</option>
+                                    <select class="form-control" name="class" id="">
+                                        <option value="CNTT-1">CNTT-1</option>
+                                        <option value="CNTT-2">CNTT-2</option>
+                                        <option value="CNTT-3">CNTT-3</option>
                                     </select>
                                     <p class="error-message m0" data-error="gender"></p>
                                 </div>
@@ -106,13 +106,13 @@
                                     <span>Khoá</span>
                                 </div>
                                 <div class="col-12 col-xl-8">
-                                    <select class="form-control" id="">
-                                        <option value="">K59</option>
-                                        <option value="">K58</option>
-                                        <option value="">K57</option>
-                                        <option value="">K56</option>
-                                        <option value="">K55</option>
-                                        <option value="">K54</option>
+                                    <select class="form-control" name="period" id="">
+                                        <option value="K59">K59</option>
+                                        <option value="K58">K58</option>
+                                        <option value="K57">K57</option>
+                                        <option value="K56">K56</option>
+                                        <option value="K55">K55</option>
+                                        <option value="K54">K54</option>
                                     </select>
                                     <p class="error-message m0" data-error="gender"></p>
                                 </div>
@@ -135,10 +135,10 @@
                                     <span>Trình độ</span>
                                 </div>
                                 <div class="col-12 col-xl-8">
-                                    <select class="form-control" id="">
-                                        <option value="">Thạc sỹ</option>
-                                        <option value="">Tiến sỹ</option>
-                                        <option value="">Giáo sư</option>
+                                    <select class="form-control" name="level" id="">
+                                        <option value="Thạc sỹ">Thạc sỹ</option>
+                                        <option value="Tiến sỹ">Tiến sỹ</option>
+                                        <option value="Giáo sư">Giáo sư</option>
                                     </select>
                                     <p class="error-message m0" data-error=""></p>
                                 </div>
