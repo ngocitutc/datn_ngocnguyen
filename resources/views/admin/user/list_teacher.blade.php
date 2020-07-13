@@ -53,7 +53,7 @@
                                 <td>{{ $data->profile->subject ? SUBJECTS[$data->profile->subject] : ""}}</td>
                                 <td>{{ $data->profile->level ?? "" }}</td>
                                 <td>{{ $data->profile->birthday ?? "" }}</td>
-                                <td>{{ $data->profile->gender ? GENDER[$data->profile->gender] : "" }}</td>
+                                <td>{{ GENDER[$data->profile->gender] }}</td>
                                 <td>{{ $data->profile->phone_number ?? "" }}</td>
                             </tr>
                         @empty
