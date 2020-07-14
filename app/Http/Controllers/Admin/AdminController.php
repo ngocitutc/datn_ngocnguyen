@@ -54,17 +54,12 @@ class AdminController extends Controller
 
     public function exportFile($role)
     {
-        if ($role == STUDENT) {
-            return Excel::download(new StudentsExport(), 'students.xlsx');
+        try {
+            return Excel::download(new StudentsExport(), 'users.xlsx');
+        } catch (\Exception $exception) {
+            Session::flash(STR_FLASH_ERROR, 'Tải file mẫu thất bại');
+            return response()->json(['save' => false]);
         }
-        if ($role == TEACHER) {
-            return Excel::download(new TeachersExport(), 'teachers.xlsx');
-        }
-        if ($role == DEAN) {
-            return Excel::download(new DeansExport(), 'deans.xlsx');
-        }
-        Session::flash(STR_FLASH_ERROR, 'Tải file mẫu thất bại');
-        return response()->json(['save' => false]);
     }
 
     public function listTeacher()
