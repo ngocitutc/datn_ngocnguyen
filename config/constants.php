@@ -94,5 +94,9 @@ const STATUS_TOPIC_TEXT = [
     STATUS_TOPIC_DONE => "Giảng viên đã đánh giá",
 ];
 
+const GENDER = [
+    0 => 'Nam',
+    1 => 'Nữ',
+];
 
 
