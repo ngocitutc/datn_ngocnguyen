@@ -13,7 +13,7 @@
             <div class="content-wrapper m15b" style="background-color: white;">
                 @if(isset($teacherStudent))
                     @if($teacherStudent->topic_id != null)
-                        @if($teacherStudent->status_topic == STATUS_TOPIC_DOING)
+                        @if($teacherStudent->status_topic == STATUS_TOPIC_DOING || $teacherStudent->status_topic == STATUS_TOPIC_DONE )
                             @php
                                 $project = $teacherStudent->project
                             @endphp
@@ -68,8 +68,9 @@
                                                 <div id="select-role-name">Đường dẫn file báo cáo</div>
                                             </div>
                                             <div class="col-12 col-xl-8">
-                                                <a type="text" class="form-control m5t m5b fs14 border-0" style="color: blue"
-                                                       href="{{ isset($project) ? $project['link_word'] : "#" }}">
+                                                <a type="text" class="form-control m5t m5b fs14 border-0"
+                                                   style="color: blue"
+                                                   href="{{ isset($project) ? $project['link_word'] : "#" }}">
                                                     {{ isset($project) ? $project['link_word'] : "Chưa báo cáo đồ án" }}
                                                 </a>
                                                 <p class="error-message m0" data-error="user_name"></p>
@@ -80,8 +81,9 @@
                                                 <div id="select-role-name">Đường dẫn source code</div>
                                             </div>
                                             <div class="col-12 col-xl-8">
-                                                <a type="text" class="form-control m5t m5b fs14 border-0" style="color: blue"
-                                                       href="{{ isset($project) ? $project['link_code'] : "#" }}">
+                                                <a type="text" class="form-control m5t m5b fs14 border-0"
+                                                   style="color: blue"
+                                                   href="{{ isset($project) ? $project['link_code'] : "#" }}">
                                                     {{ isset($project) ? $project['link_code'] : "Chưa báo cáo đồ án" }}</a>
                                                 <p class="error-message m0" data-error="user_name"></p>
                                             </div>
@@ -114,8 +116,8 @@
                                                 <span>Đánh giá của giảng viên</span>
                                             </div>
                                             <div class="col-12 col-xl-8">
-                                    <textarea type="text" class="form-control m5t m5b fs14" rows="4" readonly>{{ $teacherStudent->status_topic == STATUS_TOPIC_DONE ? $teacherStudent->rate_note : "Chưa có đánh giá" }}
-                                    </textarea>
+                                                <textarea type="text" class="form-control m5t m5b fs14"
+                                                          rows="6">{{ $teacherStudent->status_topic == STATUS_TOPIC_DONE ? $teacherStudent->rate_note : "Chưa có đánh giá" }}</textarea>
                                                 <p class="error-message m0" data-error="address"></p>
                                             </div>
                                         </div>

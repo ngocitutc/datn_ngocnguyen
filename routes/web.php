@@ -47,6 +47,10 @@ Route::middleware('auth')->group(function () {
                 Route::post('/topic/accept', 'TeacherController@acceptTopicStudent')->name(TEACHER_ACCEPT_TOPIC_STUDENT);
                 Route::post('/topic/remove', 'TeacherController@removeTopicStudent')->name(TEACHER_REMOVE_TOPIC_STUDENT);
             });
+            Route::prefix('project')->group(function () {
+                Route::get('/rate/{id}', 'TeacherController@rateProject')->name(TEACHER_RATE_PROJECT);
+                Route::post('/rate', 'TeacherController@storeRateProject')->name(TEACHER_RATE_PROJECT_STORE);
+            });
         });
     });
     Route::namespace('Student')->group(function () {

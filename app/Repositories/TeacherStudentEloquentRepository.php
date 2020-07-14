@@ -126,4 +126,23 @@ class TeacherStudentEloquentRepository extends BaseRepository
             ->where('topic_id', '<>', null)
             ->get()->toArray();
     }
+
+    public function rateProject($teacherStudentId, $data)
+    {
+        DB::beginTransaction();
+        try {
+            $teacherStudent = $this->findOrFail($teacherStudentId);
+            $teacherStudent->rate_note = $data['rate_note'];
+            $teacherStudent->rate_date = date('d/m/Y', time());
+            $teacherStudent->status_topic = STATUS_TOPIC_DONE;
+            $teacherStudent->status = STATUS_STEP_DONE;
+            $teacherStudent->save();
+            DB::commit();
+            return true;
+        } catch (\Exception $exception) {
+            dd($exception);
+            DB::rollBack();
+            return false;
+        }
+    }
 }

@@ -21,6 +21,8 @@ const TEACHER_STUDENT_OFFER = 'teacher.student.offer';
 const TEACHER_STUDENT_ACCEPT_OFFER = 'teacher.student.accept.offer';
 const TEACHER_ACCEPT_TOPIC_STUDENT = 'teacher.accept.topic.student';
 const TEACHER_REMOVE_TOPIC_STUDENT = 'teacher.remove.topic.student';
+const TEACHER_RATE_PROJECT = 'teacher.rate.project';
+const TEACHER_RATE_PROJECT_STORE = 'teacher.rate.project.store';
 
 const STUDENT_TOPIC = 'student.topic';
 const STUDENT_TOPIC_INFO = 'student.topic.info';

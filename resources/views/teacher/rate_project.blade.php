@@ -10,8 +10,61 @@
                 </div>
             </div>
             <div class="content-wrapper m15b" style="background-color: white;">
-                <form id="form-create-user" action="">
+                <form id="form-rate-project" action="">
                     <div class="row form-group m-0 d-flex p20">
+                        <div class="col-12 col-xl-12">
+                            <div class="row">
+                                <div class="col-12 form-control border-0" style="font-size: 23px; margin-bottom: 20px">
+                                    Thông tin sinh viên
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-xl-6">
+                            <div class="row">
+                                <div class="col-12 form-control col-xl-4 border-0">
+                                    <div id="select-role-code">Mã sinh viên</div>
+                                </div>
+                                <div class="col-12 col-xl-8">
+                                    <input type="text" class="form-control m5t m5b fs14"
+                                           value="{{ $teacherStudent->student->email }}" readonly>
+                                    <p class="error-message m0" data-error=""></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 form-control col-xl-4 border-0">
+                                    <div id="select-role-name">Tên sinh viên</div>
+                                </div>
+                                <div class="col-12 col-xl-8">
+                                    <input type="text" class="form-control m5t m5b fs14"
+                                           value="{{ $teacherStudent->student->profile->user_name }}"
+                                           readonly>
+                                    <p class="error-message m0" data-error=""></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 form-control col-xl-4 border-0">
+                                    <div id="select-role-name">Lớp</div>
+                                </div>
+                                <div class="col-12 col-xl-8">
+                                    <input type="text" class="form-control m5t m5b fs14"
+                                           value="{{ $teacherStudent->student->profile->class }}"
+                                           readonly>
+                                    <p class="error-message m0" data-error=""></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 form-control col-xl-4 border-0">
+                                    <div id="select-role-name">Khoá</div>
+                                </div>
+                                <div class="col-12 col-xl-8">
+                                    <input type="text" class="form-control m5t m5b fs14"
+                                           value="{{ $teacherStudent->student->profile->period }}"
+                                           readonly>
+                                    <p class="error-message m0" data-error=""></p>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-12 col-xl-6">
                             <div class="row">
                                 <div class="col-12 form-control col-xl-4 border-0">
@@ -90,37 +143,41 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-xl-6">
+                        <div class="col-12 col-xl-12">
                             <div class="row">
-                                <div class="col-12 form-control col-xl-4 border-0">
-                                    <div id="select-role-code">Trạng thái</div>
-                                </div>
-                                <div class="col-12 col-xl-8">
-                                    <input type="text" class="form-control m5t m5b fs14"
-                                           value="{{ STATUS_TOPIC_TEXT[$teacherStudent->status_topic] }}"
-                                           readonly>
-                                    <p class="error-message m0" data-error="user_code"></p>
+                                <div class="col-12 form-control border-0" style="font-size: 23px; margin-bottom: 20px">
+                                    Đánh giá của giảng viên
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-12 col-xl-12">
                             <div class="row">
-                                <div class="col-12 form-control col-xl-4 border-0">
-                                    <span>Đánh giá của giảng viên</span>
+                                <div class="col-12 form-control col-xl-2 border-0">
+                                    <span>Nhận xét</span>
                                 </div>
-                                <div class="col-12 col-xl-8">
-                                    <textarea type="text" class="form-control m5t m5b fs14" rows="4" readonly>{{ $teacherStudent->status_topic == STATUS_TOPIC_DONE ? $teacherStudent->rate_note : "Chưa có đánh giá" }}
-                                    </textarea>
-                                    <p class="error-message m0" data-error="address"></p>
+                                <div class="col-12 col-xl-10">
+                                    <textarea name="rate_note" type="text" class="form-control m5t m5b fs14" rows="6">{{ $teacherStudent->rate_note ?? "" }}</textarea>
+                                    <p class="error-message m0" data-error="rate_note"></p>
                                 </div>
+                                <input name="id_teacher_student" type="hidden" value="{{ $teacherStudent->id }}">
+                                <input name="id_project" type="hidden" value="{{ $project->id }}">
                             </div>
                         </div>
                     </div>
                 </form>
+            </div>
+            <div class="row">
+                <div class="col-12 m15b text-right">
+                    <button id="submit-rate-project" class="btn btn-primary border-0">
+                        Đánh giá
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 @endsection
 
 @section('js')
-    <script src="{{ asset('js/user/user.js') }}"></script>
+    <script src="{{ asset('js/teacher.js') }}"></script>
 @endsection
 

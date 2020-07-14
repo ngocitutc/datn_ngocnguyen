@@ -41,6 +41,17 @@
                                 </a>
                             </div>
                         </div>
+                    @elseif($teacherStudent->status == STATUS_TOPIC_DONE && $teacherStudent->topic_id)
+                        <div style="min-height: 400px">
+                            <div class="text-center" style="font-size: 28px; padding-top: 50px; margin-bottom: 50px">
+                                Giảng viên đã đánh giá đề tài của bạn
+                            </div>
+                            <div class="col-12 text-center" style="justify-content: center">
+                                <a href="{{ route(STUDENT_PROJECT_INFO) }}" class="btn btn-primary border-0">
+                                    Xem thông tin đồ án
+                                </a>
+                            </div>
+                        </div>
                     @else
                     <table class="table table-bordered table-striped border-0 m0">
                     <thead>
