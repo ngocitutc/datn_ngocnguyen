@@ -213,6 +213,19 @@
                                     </a>
                                 </div>
                             </div>
+                        @elseif(isset($teacherStudent->topic) && $teacherStudent->status_topic == STATUS_TOPIC_DONE)
+                            <div style="min-height: 400px">
+                                <div class="text-center"
+                                     style="font-size: 28px; padding-top: 50px; margin-bottom: 50px">
+                                    Giảng viên đã đánh giá đồ án
+                                </div>
+                                <div class="col-12 text-center" style="justify-content: center">
+                                    <a href="{{ route(STUDENT_PROJECT_INFO) }}"
+                                       class="btn btn-primary border-0">
+                                        Xem thông tin đồ án
+                                    </a>
+                                </div>
+                            </div>
                         @else
                             <div style="min-height: 400px">
                                 <div class="text-center"

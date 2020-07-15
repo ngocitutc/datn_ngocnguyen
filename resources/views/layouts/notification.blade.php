@@ -5,7 +5,7 @@
 @endif
 
 @if( \Illuminate\Support\Facades\Session::has("error") )
-    <div class="error no-print error-message m15b error no-print" style="color: red" role="alert" id="flash-messages-error">
+    <div class="alert alert-danger success no-print" style="color: red" role="alert" id="flash-messages-error">
         {!! \Illuminate\Support\Facades\Session::get("error") !!}
     </div>
 @endif
@@ -17,7 +17,7 @@
     </div>
 @endif
 @if( \Illuminate\Support\Facades\Session::has("error-flash") )
-    <div class="alert alert-danger error no-print" role="alert">
+    <div class="alert alert-danger success no-print" role="alert">
         <button class="close" data-dismiss="alert">×</button>
         {!! \Illuminate\Support\Facades\Session::get("error-flash") !!}
     </div>

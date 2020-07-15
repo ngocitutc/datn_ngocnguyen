@@ -29,8 +29,12 @@ class UserEloquentRepository extends BaseRepository
                 'password_show' => $data['password'],
                 'role' => $data['role']
             ];
-            if ($data['role'] == STUDENT && $data['subject']) {
+            if ($data['role'] == STUDENT) {
                 unset($data['subject']);
+                unset($data['level']);
+            } else {
+                unset($data['class']);
+                unset($data['period']);
             }
             $dataProfile = [
                 'user_code' => $data['email'],
@@ -41,6 +45,9 @@ class UserEloquentRepository extends BaseRepository
                 'user_email' => $data['user_email'] ?? null,
                 'address' => $data['address'] ?? null,
                 'subject' => $data['subject'] ?? null,
+                'level' => $data['level'] ?? null,
+                'class' => $data['class'] ?? null,
+                'period' => $data['period'] ?? null,
             ];
             $this->create($dataUser);
             resolve(ProfileEloquentRepository::class)->create($dataProfile);
@@ -65,5 +72,29 @@ class UserEloquentRepository extends BaseRepository
 
     public function getUser($id) {
         return $this->model->with('profile')->find($id);
+    }
+
+
+    public function getDataTeacherByRole($params)
+    {
+        return $this->model->with('profile')
+                    ->join('profiles', 'profiles.user_code', 'users.email')
+                    ->when($params, function ($q) use ($params) {
+                        return $q->where('profiles.subject', (int)$params['subject'] === 4 ? '<>' : '=', (int)$params['subject']);
+                    })
+                    ->whereIn('role', [DEAN, TEACHER])
+                    ->get();
+    }
+
+    public function getDataUserByRole($params)
+    {
+        return $this->model->with('profile')
+            ->join('profiles', 'profiles.user_code', 'users.email')
+            ->when($params, function ($q) use ($params) {
+                return $q->where('profiles.class', $params['class'] === 'all' ? '<>' : '=', $params['class'])
+                            ->where('profiles.period', $params['period'] === 'all' ? '<>' : '=', $params['period']);
+            })
+            ->where('role', STUDENT)
+            ->get();
     }
 }

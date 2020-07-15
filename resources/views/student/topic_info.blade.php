@@ -70,24 +70,6 @@
                                     <p class="error-message m0" data-error="subject"></p>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-12 form-control col-xl-4 border-0" >
-                                    <span>Số sinh viên đạt</span>
-                                </div>
-                                <div class="col-12 col-xl-8">
-                                    <input type="text" class="form-control m5t m5b fs14" name="name" value="800" readonly>
-                                    <p class="error-message m0" data-error="subject"></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 form-control col-xl-4 border-0" >
-                                    <span>Số sinh viên trượt</span>
-                                </div>
-                                <div class="col-12 col-xl-8">
-                                    <input type="text" class="form-control m5t m5b fs14" name="name" value="200" readonly>
-                                    <p class="error-message m0" data-error="subject"></p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </form>

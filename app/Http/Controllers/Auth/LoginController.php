@@ -53,7 +53,6 @@ class LoginController extends Controller
             $this->fireLockoutEvent($request);
             return $this->sendLockoutResponse($request);
         }
-
         if ($this->guard()->validate($this->credentials($request))) {
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $remember)) {
                 Session::flash(
@@ -64,9 +63,9 @@ class LoginController extends Controller
         } else {
             $this->incrementLoginAttempts($request);
             Session::flash(
-                STR_FLASH_ERROR, 'Đăng nhập thất bại'
+                STR_FLASH_ERROR, 'Đăng nhập thất bại, Xin hãy thử lại'
             );
-            return redirect()->route(HOME);
+            return redirect()->back();
         }
         $this->incrementLoginAttempts($request);
     }

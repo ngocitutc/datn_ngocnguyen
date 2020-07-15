@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RateProjecrRequest;
 use App\Http\Requests\TopicRequest;
 use App\Http\Requests\UserRequest;
 use App\Repositories\ProfileEloquentRepository;
+use App\Repositories\ProjectEloquentRepository;
 use App\Repositories\TeacherStudentEloquentRepository;
 use App\Repositories\TopicEloquentRepository;
 use App\Repositories\UserEloquentRepository;
@@ -19,18 +21,21 @@ class TeacherController extends Controller
     private $profileEloquentRepository;
     private $teacherStudentEloquentRepository;
     private $userEloquentRepository;
+    private $projectEloquentRepository;
 
     public function __construct(
         UserEloquentRepository $userEloquentRepository,
         TopicEloquentRepository $topicEloquentRepository,
         ProfileEloquentRepository $profileEloquentRepository,
-        TeacherStudentEloquentRepository $teacherStudentEloquentRepository
+        TeacherStudentEloquentRepository $teacherStudentEloquentRepository,
+        ProjectEloquentRepository $projectEloquentRepository
     )
     {
         $this->userEloquentRepository = $userEloquentRepository;
         $this->topicEloquentRepository = $topicEloquentRepository;
         $this->profileEloquentRepository = $profileEloquentRepository;
         $this->teacherStudentEloquentRepository = $teacherStudentEloquentRepository;
+        $this->projectEloquentRepository = $projectEloquentRepository;
     }
 
     public function getTopics()
@@ -102,4 +107,23 @@ class TeacherController extends Controller
         return redirect()->back();
     }
 
+    public function rateProject($id)
+    {
+        $teacherStudent = $this->teacherStudentEloquentRepository->find($id);
+        abort_if(!$teacherStudent, 404);
+        $project = $teacherStudent->project;
+        abort_if(!$project, 404);
+        return view('teacher.rate_project', compact('teacherStudent', 'project'));
+    }
+
+    public function storeRateProject(RateProjecrRequest $request)
+    {
+        $data = $request->all();
+        if ($this->teacherStudentEloquentRepository->rateProject($data['id_teacher_student'], $data)) {
+            Session::flash(STR_FLASH_SUCCESS, 'Đánh giá đồ án thành công');
+            return response()->json(['save' => true]);
+        }
+        Session::flash(STR_FLASH_ERROR, 'Xảy ra lỗi trong quá trình xử lý');
+        return response()->json(['save' => false]);
+    }
 }

@@ -8,6 +8,7 @@
         <div class="">
             <div class="row justify-content-center">
                 <div class="col-md-5 custom-center">
+                    @include('layouts/notification')
                     <div class="card">
                         <div class="card-header">Đăng nhập</div>
                         <div class="card-body">
@@ -17,14 +18,14 @@
                                     <label for="email_address" class="col-md-4 col-form-label text-md-right">Tên đăng nhập</label>
                                     <div class="col-md-6">
                                         <input type="text" id="email" class="form-control" name="email"
-                                                autofocus>
+                                                autofocus required>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">Mật khẩu</label>
                                     <div class="col-md-6">
-                                        <input type="password" id="password" class="form-control" name="password">
+                                        <input type="password" id="password" class="form-control" name="password" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6 offset-md-4 m10b">

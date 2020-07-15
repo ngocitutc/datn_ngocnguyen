@@ -42,7 +42,7 @@
                                     <div id="select-role-name">Trình độ</div>
                                 </div>
                                 <div class="col-12 col-xl-8">
-                                    <input type="text" class="form-control m5t m5b fs14" name="user_name" value="Thac Sy" readonly>
+                                    <input type="text" class="form-control m5t m5b fs14" name="user_name" value="{{ $data['profile']['level'] }}" readonly>
                                     <p class="error-message m0" data-error="user_name"></p>
                                 </div>
                             </div>

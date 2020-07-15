@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Repositories\ProfileEloquentRepository;
 use App\Repositories\UserEloquentRepository;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -54,27 +55,26 @@ class AdminController extends Controller
 
     public function exportFile($role)
     {
-        if ($role == STUDENT) {
-            return Excel::download(new StudentsExport(), 'students.xlsx');
+        try {
+            return Excel::download(new StudentsExport(), 'users.xlsx');
+        } catch (\Exception $exception) {
+            Session::flash(STR_FLASH_ERROR, 'Tải file mẫu thất bại');
+            return response()->json(['save' => false]);
         }
-        if ($role == TEACHER) {
-            return Excel::download(new TeachersExport(), 'teachers.xlsx');
-        }
-        if ($role == DEAN) {
-            return Excel::download(new DeansExport(), 'deans.xlsx');
-        }
-        Session::flash(STR_FLASH_ERROR, 'Tải file mẫu thất bại');
-        return response()->json(['save' => false]);
     }
 
-    public function listTeacher()
+    public function listTeacher(Request $request)
     {
-        return view('admin.user.list_teacher');
+        return view('admin.user.list_teacher')->with([
+            'datas' => $this->userEloquentRepository->getDataTeacherByRole($request->all())
+        ]);
     }
 
-    public function listStudent()
+    public function listStudent(Request $request)
     {
-        return view('admin.user.list_student');
+        return view('admin.user.list_student')->with([
+            'datas' => $this->userEloquentRepository->getDataUserByRole($request->all())
+        ]);
     }
 
     public function listProjectStudent()
