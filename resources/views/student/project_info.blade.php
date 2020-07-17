@@ -127,14 +127,70 @@
                         @else
                             <div style="min-height: 400px">
                                 <div class="text-center"
-                                     style="font-size: 28px; padding-top: 50px; margin-bottom: 50px">
+                                     style="font-size: 28px; padding-top: 50px; margin-bottom: 25px">
                                     Liên hệ với giảng viên hướng dẫn để xác nhận đề tài
                                 </div>
-                                <div class="col-12 text-center" style="justify-content: center">
-                                    <a href="{{ route(STUDENT_TEACHER_INFO, $teacherStudent->teacher_id) }}"
-                                       class="btn btn-primary border-0">
-                                        Thông tin giảng viên hướng dẫn
-                                    </a>
+                                <div class="text-center" style="font-size: 22px; margin-bottom: 25px; padding-bottom: 25px">
+                                    Thông tin giảng viên hướng dẫn
+                                </div>
+                                <div class="col-6 offset-3">
+                                    @php
+                                        $data = $teacherStudent->teacher->load('profile')->toArray();
+                                    @endphp
+                                    <div class="row">
+                                        <div class="col-12 form-control col-xl-4 border-0" >
+                                            <div id="select-role-code">Tên giảng viên</div>
+                                        </div>
+                                        <div class="col-12 col-xl-8">
+                                            <input type="text" class="form-control m5t m5b fs14" name="user_code" value="{{ $data['profile']['user_name'] }}" readonly>
+                                            <p class="error-message m0" data-error="user_code"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 form-control col-xl-4 border-0" >
+                                            <div id="select-role-name">Bộ môn</div>
+                                        </div>
+                                        <div class="col-12 col-xl-8">
+                                            <input type="text" class="form-control m5t m5b fs14" name="user_name" value="{{ SUBJECTS[$data['profile']['subject']] }}" readonly>
+                                            <p class="error-message m0" data-error="user_name"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 form-control col-xl-4 border-0" >
+                                            <div id="select-role-name">Trình độ</div>
+                                        </div>
+                                        <div class="col-12 col-xl-8">
+                                            <input type="text" class="form-control m5t m5b fs14" name="user_name" value="{{ $data['profile']['level'] }}" readonly>
+                                            <p class="error-message m0" data-error="user_name"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 form-control col-xl-4 border-0" >
+                                            <div id="select-role-name">Số điện thoại</div>
+                                        </div>
+                                        <div class="col-12 col-xl-8">
+                                            <input type="text" class="form-control m5t m5b fs14" name="user_name" value="{{ $data['profile']['phone_number'] }}" readonly>
+                                            <p class="error-message m0" data-error="user_name"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 form-control col-xl-4 border-0" >
+                                            <div id="select-role-name">Địa chỉ</div>
+                                        </div>
+                                        <div class="col-12 col-xl-8">
+                                            <input type="text" class="form-control m5t m5b fs14" name="user_name" value="{{ $data['profile']['address'] }}" readonly>
+                                            <p class="error-message m0" data-error="user_name"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 form-control col-xl-4 border-0" >
+                                            <div id="select-role-name">Email</div>
+                                        </div>
+                                        <div class="col-12 col-xl-8">
+                                            <input type="text" class="form-control m5t m5b fs14" name="user_name" value="{{ $data['profile']['user_email'] }}" readonly>
+                                            <p class="error-message m0" data-error="user_name"></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         @endif

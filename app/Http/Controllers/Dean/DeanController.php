@@ -52,12 +52,45 @@ class DeanController extends Controller
 
     public function teacherStudent()
     {
-        return view('dean.teacher_student');
+        $user = Auth::user();
+        if ($user->role != DEAN) {
+            abort(404);
+        }
+        $teacherStudent = $this->teacherStudentEloquentRepository->getTopicStudent($user->profile->subject);
+        return view('dean.teacher_student', compact('teacherStudent'));
     }
 
     public function semester()
     {
         return view('dean.semester');
+    }
+
+    public function confirmTopicStudent(Request $request)
+    {
+        $user = Auth::user();
+        if ($user->role != DEAN) {
+            abort(404);
+        }
+        if($this->teacherStudentEloquentRepository->deanAcceptTopicStudent($request->id)) {
+            Session::flash(STR_FLASH_SUCCESS, 'Duyệt thành công');
+        } else {
+            Session::flash(STR_FLASH_ERROR, 'Có lỗi trong quá trình xử lý');
+        }
+        return redirect()->back();
+    }
+
+    public function removeTopicStudent(Request $request)
+    {
+        $user = Auth::user();
+        if ($user->role != DEAN) {
+            abort(404);
+        }
+        if($this->teacherStudentEloquentRepository->removeAcceptTopicStudent($request->id)) {
+            Session::flash(STR_FLASH_SUCCESS, 'Huỷ duyệt thành công');
+        } else {
+            Session::flash(STR_FLASH_ERROR, 'Có lỗi trong quá trình xử lý');
+        }
+        return redirect()->back();
     }
 
 }

@@ -15,6 +15,7 @@
                         <li class="@if($routeIndex == USER_LIST_PROJECT_STUDENT) active @endif"><a class="fs16" href="{{ route(USER_LIST_PROJECT_STUDENT) }}"><i class="fa fa-glass"></i>Danh sách đồ án sinh viên</a></li>
                     @elseif($user->role == DEAN)
                         <li class="@if($routeIndex == DEAN_TOPIC) active @endif"><a class="fs16" href="{{ route(DEAN_TOPIC) }}"><i class="fa fa-glass"></i>Phê duyệt đề tài</a></li>
+                        <li class=""><a class="fs16" href=""><i class="fa fa-glass"></i>Phê duyệt đề tài hướng dẫn</a></li>
                         <li class="@if($routeIndex == DEAN_TEACHER_STUDENT) active @endif"><a class="fs16" href="{{ route(DEAN_TEACHER_STUDENT) }}"><i class="fa fa-glass"></i>Giảng viên - sinh viên</a></li>
                         <li class="@if($routeIndex == DEAN_SEMESTER) active @endif"><a class="fs16" href="{{ route(DEAN_SEMESTER) }}"><i class="fa fa-glass"></i>Quản lý đợt đăng ký</a></li>
                     @elseif($user->role == TEACHER)

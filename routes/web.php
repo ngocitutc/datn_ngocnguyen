@@ -77,6 +77,8 @@ Route::middleware('auth')->group(function () {
     Route::namespace('Dean')->group(function () {
         Route::prefix('dean')->middleware('role:dean')->group(function () {
             Route::get('/topic', 'DeanController@getTopics')->name(DEAN_TOPIC);
+            Route::post('/confirm-topic-student', 'DeanController@confirmTopicStudent')->name(DEAN_CONFIRM_TOPIC_STUDENT);
+            Route::post('/remove-topic-student', 'DeanController@removeTopicStudent')->name(DEAN_REMOVE_TOPIC_STUDENT);
             Route::post('/topic', 'DeanController@activeTopic')->name(DEAN_TOPIC_ACTIVE);
             Route::get('/teacher-student', 'DeanController@teacherStudent')->name(DEAN_TEACHER_STUDENT);
             Route::get('/semester', 'DeanController@semester')->name(DEAN_SEMESTER);
