@@ -25,6 +25,7 @@
                         </thead>
                         <tbody>
                         @forelse($data as $item)
+                            @if(isset($item['user_created']))
                             <tr>
                                 <td>{{ $item['name'] }}</td>
                                 <td>{{ SUBJECTS[$item['subject']] }}</td>
@@ -38,6 +39,7 @@
                                        data-placement="top" title="Xem chi tiết"><i class="fas fas fa-eye"></i></a>
                                 </td>
                             </tr>
+                            @endif
                         @empty
                             <tr>
                                 <td class="text-center" colspan="7">Không có dữ liệu</td>

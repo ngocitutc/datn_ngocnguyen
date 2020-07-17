@@ -47,7 +47,7 @@ class TopicEloquentRepository extends BaseRepository
     public function getAllTopicToStudent()
     {
         return $this->model->with('userCreated.profile')
-            ->where('status', OPEN)
+//            ->where('status', OPEN)
             ->get()->toArray();
     }
 
@@ -69,7 +69,7 @@ class TopicEloquentRepository extends BaseRepository
         DB::beginTransaction();
         try {
             $user = Auth::user();
-            $data['status'] = CLOSE;
+            $data['status'] = OPEN;
             $data['user_created'] = $user->id;
             $data['role_created'] = $user->role;
             $this->create($data);

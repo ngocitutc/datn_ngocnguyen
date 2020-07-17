@@ -80,10 +80,10 @@ class TeacherController extends Controller
     public function store(TopicRequest $request)
     {
         if ($this->topicEloquentRepository->createRecord($request->all())) {
-            Session::flash(STR_FLASH_SUCCESS, 'Gửi đề tài tới lãnh đạo khoa thành công');
+            Session::flash(STR_FLASH_SUCCESS, 'Tạo đề tài thành công');
             return response()->json(['save' => true]);
         }
-        Session::flash(STR_FLASH_ERROR, 'Gửi đề tài tới lãnh đạo khoa thất bại');
+        Session::flash(STR_FLASH_ERROR, 'Tạo đề tài thất bại');
         return response()->json(['save' => false]);
     }
 

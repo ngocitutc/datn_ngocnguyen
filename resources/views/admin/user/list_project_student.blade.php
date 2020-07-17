@@ -95,22 +95,6 @@
                         <td>Các đề tài liên quan đến công nghệ web hiện đại</td>
                         <td>Đang hướng dẫn</td>
                     </tr>
-                    
-{{--                    @forelse($data as $user)--}}
-{{--                        <tr>--}}
-{{--                            <td>{{ $user['email'] }}</td>--}}
-{{--                            <td>{{ $user['password_show'] }}</td>--}}
-{{--                            <td>{{ $user['profile']['user_name'] }}</td>--}}
-{{--                            <td>{{ ROLES[$user['role']] }}</td>--}}
-{{--                            <td>{{ $user['profile']['subject'] ? SUBJECTS[$user['profile']['subject']] : "" }}</td>--}}
-{{--                        </tr>--}}
-{{--                    @empty--}}
-{{--                        <tr>--}}
-{{--                            <td class="text-center" colspan="5">--}}
-{{--                                Không có dữ liệu--}}
-{{--                            </td>--}}
-{{--                        </tr>--}}
-{{--                    @endforelse--}}
                     </tbody>
                 </table>
             </div>

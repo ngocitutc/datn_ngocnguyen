@@ -13,7 +13,7 @@
             <div class="content-wrapper m15b" style="background-color: white;">
                 <form id="form-create-topic" action="">
                     <div class="row form-group m-0 d-flex p20">
-                        <div class="col-12 col-xl-6">
+                        <div class="col-12 col-xl-6 offset-3">
                             <div class="row">
                                 <div class="col-12 form-control col-xl-4 border-0" >
                                     <span>Tên đề tài</span><span style="color: red">*</span>
@@ -46,13 +46,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-xl-6">
-                            <div class="row h-100">
-                                <div class="col-12 form-control border-0 h-100 center-vertically text-center" style="font-size: 23px; margin-bottom: 20px; padding-left: 30px">
-                                    Đề tài sẽ được gửi tới Lãnh đạo khoa để xét phê duyệt
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </form>
             </div>
@@ -60,7 +53,7 @@
             <div class="row">
                 <div class="col-12 m15b text-right">
                     <button id="submit-create-topic" class="btn btn-primary border-0">
-                        Gửi yêu cầu
+                        Thêm đề tài
                     </button>
                 </div>
             </div>

@@ -23,6 +23,7 @@
                     </thead>
                     <tbody>
                     @forelse($data as $item)
+                        @if(isset($item['user_created']))
                         <tr>
                             <td>{{ $item['name'] }}</td>
                             <td>{{ $item['user_created']['profile']['user_name'] ?? "" }}</td>
@@ -34,6 +35,7 @@
                                 <button class="btn btn-danger border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Huỷ đề tài"><i class="fas fa-trash-alt"></i></button>
                             </td>
                         </tr>
+                        @endif
                     @empty
                         <tr>
                             <td class="text-center" colspan="5">Không có dữ liệu</td>
