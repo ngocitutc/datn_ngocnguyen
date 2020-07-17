@@ -55,7 +55,7 @@
                                     <span>Mô tả</span>
                                 </div>
                                 <div class="col-12 col-xl-8">
-                                    <textarea type="text" class="form-control m5t m5b fs14" name="description" readonly>{{ $data['description'] }}</textarea>
+                                    <textarea rows="5" type="text" class="form-control m5t m5b fs14" name="description" readonly>{{ $data['description'] }}</textarea>
                                     <p class="error-message m0" data-error="description"></p>
                                 </div>
                             </div>

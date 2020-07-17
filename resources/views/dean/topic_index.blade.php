@@ -25,8 +25,8 @@
                     @forelse($data as $item)
                         <tr>
                             <td>{{ $item['name'] }}</td>
-                            <td>{{ $item['user_created']['profile']['user_name'] }}</td>
-                            <td>{{ ROLES[$item['user_created']['role']] }}</td>
+                            <td>{{ $item['user_created']['profile']['user_name'] ?? "" }}</td>
+                            <td>{{ ROLES[$item['user_created']['role']] ?? "" }}</td>
                             <td>{{ date('d/m/Y', strtotime($item['created_at'])) }}</td>
                             <td>
                                 <a href="" class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Chi tiết đề tài"><i class="fas fas fa-eye"></i></a>
