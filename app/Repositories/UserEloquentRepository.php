@@ -97,4 +97,9 @@ class UserEloquentRepository extends BaseRepository
             ->where('role', STUDENT)
             ->get();
     }
+
+    public function getTeacherBySubject($subject)
+    {
+        return $this->model->join('profiles', 'email', '=', 'user_code')->where('role', TEACHER)->where('profiles.subject', $subject)->select('users.id')->pluck('users.id')->toArray();
+    }
 }

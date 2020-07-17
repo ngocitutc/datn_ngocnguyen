@@ -36,6 +36,8 @@ const STUDENT_PROJECT_STORE = 'student.project.store';
 const STUDENT_TEACHER_REGISTER = 'student.teacher.register';
 
 const DEAN_TOPIC = 'dean.topic';
+const DEAN_CONFIRM_TOPIC_STUDENT = 'dean.confirm.topic.student';
+const DEAN_REMOVE_TOPIC_STUDENT = 'dean.remove.topic.student';
 const DEAN_TOPIC_ACTIVE = 'dean.topic.active';
 const DEAN_TEACHER_STUDENT = 'dean.teacher.student';
 const DEAN_SEMESTER = 'dean.semester';
@@ -87,11 +89,13 @@ const STATUS_STEP_TEXT = [
 ];
 
 const STATUS_TOPIC_WAITING = 1;
-const STATUS_TOPIC_DOING = 2;
-const STATUS_TOPIC_DONE = 3;
+const STATUS_TOPIC_WAITING_DEAN = 2;
+const STATUS_TOPIC_DOING = 3;
+const STATUS_TOPIC_DONE = 4;
 
 const STATUS_TOPIC_TEXT = [
     STATUS_TOPIC_WAITING => "Đang chờ giảng viên phê duyệt",
+    STATUS_TOPIC_WAITING_DEAN => "Đang chờ xác nhận từ lãnh đạo khoa",
     STATUS_TOPIC_DOING => "Đang chờ giảng viên đánh giá",
     STATUS_TOPIC_DONE => "Giảng viên đã đánh giá",
 ];

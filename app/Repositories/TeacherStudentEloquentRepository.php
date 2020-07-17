@@ -73,7 +73,7 @@ class TeacherStudentEloquentRepository extends BaseRepository
         DB::beginTransaction();
         try {
             $this->update($id, [
-                'status_topic' => STATUS_TOPIC_DOING
+                'status_topic' => STATUS_TOPIC_WAITING_DEAN
             ]);
             DB::commit();
             return true;
@@ -136,6 +136,49 @@ class TeacherStudentEloquentRepository extends BaseRepository
             $teacherStudent->rate_date = date('d/m/Y', time());
             $teacherStudent->status_topic = STATUS_TOPIC_DONE;
             $teacherStudent->status = STATUS_STEP_DONE;
+            $teacherStudent->save();
+            DB::commit();
+            return true;
+        } catch (\Exception $exception) {
+            dd($exception);
+            DB::rollBack();
+            return false;
+        }
+    }
+
+    public function getTopicStudent($subject)
+    {
+       try {
+           $dataTeacher = resolve(UserEloquentRepository::class)->getTeacherBySubject($subject);
+           return $this->model->where('teacher_id', $dataTeacher)->get();
+       } catch (\Exception $exception) {
+           return [];
+       }
+    }
+
+    public function deanAcceptTopicStudent($id)
+    {
+        DB::beginTransaction();
+        try {
+            $teacherStudent = $this->findOrFail($id);
+            $teacherStudent->status_topic = STATUS_TOPIC_DOING;
+            $teacherStudent->save();
+            DB::commit();
+            return true;
+        } catch (\Exception $exception) {
+            dd($exception);
+            DB::rollBack();
+            return false;
+        }
+    }
+
+    public function removeAcceptTopicStudent($id)
+    {
+        DB::beginTransaction();
+        try {
+            $teacherStudent = $this->findOrFail($id);
+            $teacherStudent->status_topic = null;
+            $teacherStudent->topic_id = null;
             $teacherStudent->save();
             DB::commit();
             return true;
