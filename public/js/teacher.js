@@ -56,6 +56,15 @@ var teacher = (function () {
         }, 0);
     };
 
+    modules.showProcessProject = function (id) {
+        window.location.href = '/teacher/student/process-project-student/' + id;
+    };
+
+    modules.showFormRateProcessProject = function (id) {
+        $('#id-teacher-student').val(id);
+        $('#modal-process-project-student').modal('show');
+    };
+
     return modules;
 }(window.jQuery, window, document));
 
@@ -72,5 +81,11 @@ $(document).ready(function () {
     });
     $('#submit-rate-project').on('click', function () {
         teacher.rateProject();
+    });
+    $('.btn-process-project-student').on('click', function () {
+        teacher.showProcessProject(this.dataset.id);
+    });
+    $('.btn-rate-process-project-student').on('click', function () {
+        teacher.showFormRateProcessProject(this.dataset.id);
     });
 });

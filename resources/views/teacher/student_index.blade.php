@@ -39,6 +39,7 @@
                             <form action="{{ route(TEACHER_RATE_PROJECT, $item['id']) }}" method="GET">
                                 <button type="submit" @if($item['status_topic'] == STATUS_TOPIC_DOING &&  isset($item['project'])) @else disabled  @endif class="btn btn-info border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Đánh giá 123"><i class="fas fa-award"></i></button>
                                 <button @if($item['status'] != STATUS_STEP_WAITING) disabled @endif class="btn btn-success border-0 btn-topic-custom btn-accept-student" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top" title="Phê duyệt"><i class="fas fa-check"></i></button>
+                                <button type="button" class="btn btn-primary border-0 btn-process-project-student" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top" title="Xem tiến độ"><i class="fas fa-microchip"></i></button>
                             </form>
                         </td>
                     </tr>

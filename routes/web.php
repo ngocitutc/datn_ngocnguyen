@@ -44,6 +44,8 @@ Route::middleware('auth')->group(function () {
                 Route::get('/', 'TeacherController@getStudent')->name(TEACHER_STUDENT);
                 Route::get('/offer', 'TeacherController@getStudentOffer')->name(TEACHER_STUDENT_OFFER);
                 Route::post('/accept', 'TeacherController@acceptStudentOffer')->name(TEACHER_STUDENT_ACCEPT_OFFER);
+                Route::get('/process-project-student/{id}', 'TeacherController@processProjectStudent')->name(TEACHER_STUDENT_PROCESS_STUDENT);
+                Route::post('/process-project-student', 'TeacherController@rateProcessProjectStudent')->name(TEACHER_STUDENT_PROCESS_STUDENT_STORE);
                 Route::post('/topic/accept', 'TeacherController@acceptTopicStudent')->name(TEACHER_ACCEPT_TOPIC_STUDENT);
                 Route::post('/topic/remove', 'TeacherController@removeTopicStudent')->name(TEACHER_REMOVE_TOPIC_STUDENT);
             });

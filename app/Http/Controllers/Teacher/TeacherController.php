@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RateProjecrRequest;
 use App\Http\Requests\TopicRequest;
 use App\Http\Requests\UserRequest;
+use App\Repositories\ProcessProjectEloquentRepository;
 use App\Repositories\ProfileEloquentRepository;
 use App\Repositories\ProjectEloquentRepository;
 use App\Repositories\TeacherStudentEloquentRepository;
@@ -22,13 +23,15 @@ class TeacherController extends Controller
     private $teacherStudentEloquentRepository;
     private $userEloquentRepository;
     private $projectEloquentRepository;
+    private $processProjectEloquentRepository;
 
     public function __construct(
         UserEloquentRepository $userEloquentRepository,
         TopicEloquentRepository $topicEloquentRepository,
         ProfileEloquentRepository $profileEloquentRepository,
         TeacherStudentEloquentRepository $teacherStudentEloquentRepository,
-        ProjectEloquentRepository $projectEloquentRepository
+        ProjectEloquentRepository $projectEloquentRepository,
+        ProcessProjectEloquentRepository $processProjectEloquentRepository
     )
     {
         $this->userEloquentRepository = $userEloquentRepository;
@@ -36,6 +39,7 @@ class TeacherController extends Controller
         $this->profileEloquentRepository = $profileEloquentRepository;
         $this->teacherStudentEloquentRepository = $teacherStudentEloquentRepository;
         $this->projectEloquentRepository = $projectEloquentRepository;
+        $this->processProjectEloquentRepository = $processProjectEloquentRepository;
     }
 
     public function getTopics()
@@ -125,5 +129,22 @@ class TeacherController extends Controller
         }
         Session::flash(STR_FLASH_ERROR, 'Xảy ra lỗi trong quá trình xử lý');
         return response()->json(['save' => false]);
+    }
+
+    public function processProjectStudent($id)
+    {
+        $teacherStudent = $this->teacherStudentEloquentRepository->find($id);
+        $processProject = $this->processProjectEloquentRepository->findByAttribute('teacher_student_id', $id);
+        return view('teacher.process_project_info', compact('teacherStudent', 'processProject'));
+    }
+
+    public function rateProcessProjectStudent(Request $request)
+    {
+        if ($this->processProjectEloquentRepository->rateByTeacher($request->all())) {
+            Session::flash(STR_FLASH_SUCCESS, 'Nhận xét tiến độ thành công');
+        } else {
+            Session::flash(STR_FLASH_ERROR, 'Xảy ra lỗi trong quá trình xử lý');
+        }
+        return redirect()->back();
     }
 }

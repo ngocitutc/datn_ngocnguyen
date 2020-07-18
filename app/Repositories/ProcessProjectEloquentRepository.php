@@ -35,4 +35,20 @@ class ProcessProjectEloquentRepository extends BaseRepository
     {
         return $this->model->where($attribute, $value)->get();
     }
+
+    public function rateByTeacher($data)
+    {
+        DB::beginTransaction();
+        try {
+            $record = $this->find($data['id']);
+            $record->note_by_teacher = $data['note_by_teacher'];
+            $record->save();
+            DB::commit();
+            return true;
+        } catch (\Exception $exception) {
+            dd($exception);
+            DB::rollBack();
+            return false;
+        }
+    }
 }

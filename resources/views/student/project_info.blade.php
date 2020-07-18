@@ -230,11 +230,12 @@
                 <table class="table table-bordered table-striped border-0 m0">
                     <thead>
                     <tr>
-                        <td class="text-center font-weight-bold" style="width: 20%">Tiêu đề</td>
-                        <td class="text-center font-weight-bold" style="width: 30%">Nội dung</td>
+                        <td class="text-center font-weight-bold" style="width: 15%">Tiêu đề</td>
+                        <td class="text-center font-weight-bold" style="width: 25%">Nội dung</td>
                         <td class="text-center font-weight-bold" style="width: 10%">Link file đính kèm</td>
-                        <td class="text-center font-weight-bold" style="width: 30%">Ghi chú thêm</td>
-                        <td class="text-center font-weight-bold" style="width: 10%">Ngày tạo</td>
+                        <td class="text-center font-weight-bold" style="width: 20%">Ghi chú thêm</td>
+                        <td class="text-center font-weight-bold" style="width: 5%">Ngày tạo</td>
+                        <td class="text-center font-weight-bold" style="width: 25%">Nhận xét</td>
                     </tr>
                     </thead>
                     <tbody>
@@ -242,19 +243,25 @@
                         <tr>
                             <td>{{ $item['title'] }}</td>
                             <td style="padding: 0!important;">
-                                <textarea class="form-control" style="width: 100%;" class="border-0" rows="5" readonly>{{ $item['content'] }}</textarea>
+                                <textarea class="form-control" style="width: 100%;" class="border-0" rows="5"
+                                          readonly>{{ $item['content'] }}</textarea>
                             </td>
                             <td>
                                 <a href="{{ $item['link_file'] }}"> Truy cập link </a>
                             </td>
                             <td style="padding: 0!important;">
-                                <textarea class="form-control" style="width: 100%;" class="border-0" rows="5" readonly>{{ $item['note'] }}</textarea>
+                                <textarea class="form-control" style="width: 100%;" class="border-0" rows="5"
+                                          readonly>{{ $item['note'] }}</textarea>
                             </td>
                             <td>{{ date('d/m/Y', strtotime($item['created_at'] ))}}</td>
+                            <td style="padding: 0!important;">
+                                 <textarea class="form-control" style="width: 100%;" class="border-0" rows="5"
+                                           readonly>{{ $item['note_by_teacher'] ?? " Chưa có nhận xét từ giảng viên" }}</textarea>
+                            </td>
                         </tr>
                     @empty
                         <tr>
-                            <td class="text-center" colspan="5">Không có dữ liệu</td>
+                            <td class="text-center" colspan="6">Không có dữ liệu</td>
                         </tr>
                     @endforelse
                     </tbody>
