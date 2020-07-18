@@ -28,6 +28,7 @@
                         <li class="@if($routeIndex == STUDENT_TEACHER) active @endif"><a class="fs16" href="{{ route(STUDENT_TEACHER) }}"><i class="fa fa-glass"></i>Đăng ký giảng viên hướng dẫn</a></li>
                         <li class="@if($routeIndex == STUDENT_REGISTER_TOPIC) active @endif"><a class="fs16" href="{{ route(STUDENT_REGISTER_TOPIC) }}"><i class="fa fa-glass"></i>Đăng ký đề tài</a></li>
                         <li class="@if($routeIndex == STUDENT_PROJECT_ADD) active @endif"><a class="fs16" href="{{ route(STUDENT_PROJECT_ADD) }}"><i class="fa fa-glass"></i>Báo cáo đồ án</a></li>
+                        <li class="@if($routeIndex == STUDENT_PROCESS_PROJECT) active @endif"><a class="fs16" href="{{ route(STUDENT_PROCESS_PROJECT) }}"><i class="fa fa-glass"></i>Báo cáo tiến độ</a></li>
                         <li class="@if($routeIndex == STUDENT_PROJECT_INFO) active @endif"><a class="fs16" href="{{ route(STUDENT_PROJECT_INFO) }}"><i class="fa fa-glass"></i>Thông tin đồ án</a></li>
                         @if($teacherStudent)
                         <li class="@if($routeIndex == STUDENT_TEACHER_INFO)active @endif"><a class="fs16" href="{{ route(STUDENT_TEACHER_INFO, $teacherStudent->teacher_id) }}"><i class="fa fa-glass"></i>Giảng viên hướng dẫn</a></li>

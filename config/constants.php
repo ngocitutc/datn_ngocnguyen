@@ -32,6 +32,8 @@ const STUDENT_TEACHER = 'student.teacher';
 const STUDENT_TEACHER_INFO = 'student.teacher.info';
 const STUDENT_PROJECT_ADD = 'student.project.add';
 const STUDENT_PROJECT_INFO = 'student.project.info';
+const STUDENT_PROCESS_PROJECT = 'student.progress.project';
+const STUDENT_PROCESS_PROJECT_STORE = 'student.progress.project.store';
 const STUDENT_PROJECT_STORE = 'student.project.store';
 const STUDENT_TEACHER_REGISTER = 'student.teacher.register';
 

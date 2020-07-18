@@ -116,7 +116,7 @@
                                                 <span>Đánh giá của giảng viên</span>
                                             </div>
                                             <div class="col-12 col-xl-8">
-                                                <textarea type="text" class="form-control m5t m5b fs14"
+                                                <textarea readonly type="text" class="form-control m5t m5b fs14"
                                                           rows="6">{{ $teacherStudent->status_topic == STATUS_TOPIC_DONE ? $teacherStudent->rate_note : "Chưa có đánh giá" }}</textarea>
                                                 <p class="error-message m0" data-error="address"></p>
                                             </div>
@@ -220,13 +220,46 @@
                 @endif
             </div>
 
-            {{--            <div class="row">--}}
-            {{--                <div class="col-12 m15b text-right">--}}
-            {{--                    <button id="submit-create-user" class="btn btn-primary border-0">--}}
-            {{--                        Hoàn tất--}}
-            {{--                    </button>--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
+            <div class="row">
+                <div class="col-6 m15b">
+                    <h3>Tiến độ đã báo cáo</h3>
+                </div>
+            </div>
+
+            <div class="content-wrapper m15b" style="background-color: white;">
+                <table class="table table-bordered table-striped border-0 m0">
+                    <thead>
+                    <tr>
+                        <td class="text-center font-weight-bold" style="width: 20%">Tiêu đề</td>
+                        <td class="text-center font-weight-bold" style="width: 30%">Nội dung</td>
+                        <td class="text-center font-weight-bold" style="width: 10%">Link file đính kèm</td>
+                        <td class="text-center font-weight-bold" style="width: 30%">Ghi chú thêm</td>
+                        <td class="text-center font-weight-bold" style="width: 10%">Ngày tạo</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @forelse($processProject as $item)
+                        <tr>
+                            <td>{{ $item['title'] }}</td>
+                            <td style="padding: 0!important;">
+                                <textarea class="form-control" style="width: 100%;" class="border-0" rows="5" readonly>{{ $item['content'] }}</textarea>
+                            </td>
+                            <td>
+                                <a href="{{ $item['link_file'] }}"> Truy cập link </a>
+                            </td>
+                            <td style="padding: 0!important;">
+                                <textarea class="form-control" style="width: 100%;" class="border-0" rows="5" readonly>{{ $item['note'] }}</textarea>
+                            </td>
+                            <td>{{ date('d/m/Y', strtotime($item['created_at'] ))}}</td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td class="text-center" colspan="5">Không có dữ liệu</td>
+                        </tr>
+                    @endforelse
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 @endsection

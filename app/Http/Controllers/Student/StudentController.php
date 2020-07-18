@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProcessProjectRequest;
 use App\Http\Requests\ProjectRequest;
 use App\Http\Requests\TopicRequest;
 use App\Http\Requests\UserRequest;
+use App\Models\ProcessProject;
+use App\Repositories\ProcessProjectEloquentRepository;
 use App\Repositories\ProfileEloquentRepository;
 use App\Repositories\ProjectEloquentRepository;
 use App\Repositories\TeacherStudentEloquentRepository;
@@ -23,13 +26,15 @@ class StudentController extends Controller
     private $teacherStudentEloquentRepository;
     private $userEloquentRepository;
     private $projectEloquentRepository;
+    private $processProjectEloquentRepository;
 
     public function __construct(
         UserEloquentRepository $userEloquentRepository,
         TopicEloquentRepository $topicEloquentRepository,
         ProfileEloquentRepository $profileEloquentRepository,
         TeacherStudentEloquentRepository $teacherStudentEloquentRepository,
-        ProjectEloquentRepository $projectEloquentRepository
+        ProjectEloquentRepository $projectEloquentRepository,
+        ProcessProjectEloquentRepository $processProjectEloquentRepository
     )
     {
         $this->userEloquentRepository = $userEloquentRepository;
@@ -37,6 +42,7 @@ class StudentController extends Controller
         $this->profileEloquentRepository = $profileEloquentRepository;
         $this->teacherStudentEloquentRepository = $teacherStudentEloquentRepository;
         $this->projectEloquentRepository = $projectEloquentRepository;
+        $this->processProjectEloquentRepository = $processProjectEloquentRepository;
     }
 
     public function getTopics()
@@ -108,8 +114,9 @@ class StudentController extends Controller
         $student = Auth::user();
         $teacherStudent = $student->getTeacherLastByStudent();
         if ($teacherStudent) {
+            $processProject = $this->processProjectEloquentRepository->findByAttribute('teacher_student_id', $teacherStudent->id);
             $data = $this->topicEloquentRepository->getAllTopicToStudent(Auth::user()->id);
-            return view('student.project_info', compact('data', 'teacherStudent'));
+            return view('student.project_info', compact('data', 'teacherStudent', 'processProject'));
         }
         return view('student.project_info', compact('data'));
 
@@ -139,6 +146,24 @@ class StudentController extends Controller
     {
         if ($this->projectEloquentRepository->createRecord($request->all())) {
             Session::flash(STR_FLASH_SUCCESS, 'Báo cáo đồ án thành công');
+            return response()->json(['save' => true]);
+        }
+        Session::flash(STR_FLASH_ERROR, 'Xảy ra lỗi trong quá trình xử lý hệ thống. Hãy thử lại');
+        return response()->json(['save' => false]);
+    }
+
+    public function progressProject()
+    {
+        $student = Auth::user();
+        $teacherStudent = $student->getTeacherLastByStudent();
+        return view('student.process_project', compact('teacherStudent'));
+
+    }
+
+    public function storeProgressProject(ProcessProjectRequest $request)
+    {
+        if ($this->processProjectEloquentRepository->createRecord($request->all())) {
+            Session::flash(STR_FLASH_SUCCESS, 'Báo cáo tiến độ thành công');
             return response()->json(['save' => true]);
         }
         Session::flash(STR_FLASH_ERROR, 'Xảy ra lỗi trong quá trình xử lý hệ thống. Hãy thử lại');
