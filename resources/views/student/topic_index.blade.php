@@ -25,11 +25,12 @@
                         </thead>
                         <tbody>
                         @forelse($data as $item)
+                            @if(isset($item['user_created']))
                             <tr>
                                 <td>{{ $item['name'] }}</td>
                                 <td>{{ SUBJECTS[$item['subject']] }}</td>
-                                <td>{{ $item['user_created']['profile']['user_name'] }}</td>
-                                <td>{{ ROLES[$item['user_created']['role']] }}</td>
+                                <td>{{ $item['user_created']['profile']['user_name'] ?? "" }}</td>
+                                <td>{{ ROLES[$item['user_created']['role']] ?? "" }}</td>
                                 <td>{{ date('d/m/Y', strtotime($item['created_at'])) }}</td>
                                 <td>{{ date('d/m/Y', strtotime($item['date_active'])) }}</td>
                                 <td>
@@ -38,6 +39,7 @@
                                        data-placement="top" title="Xem chi tiết"><i class="fas fas fa-eye"></i></a>
                                 </td>
                             </tr>
+                            @endif
                         @empty
                             <tr>
                                 <td class="text-center" colspan="7">Không có dữ liệu</td>
