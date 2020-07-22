@@ -11,6 +11,7 @@ use App\Models\ProcessProject;
 use App\Repositories\ProcessProjectEloquentRepository;
 use App\Repositories\ProfileEloquentRepository;
 use App\Repositories\ProjectEloquentRepository;
+use App\Repositories\SemesterEloquentRepository;
 use App\Repositories\TeacherStudentEloquentRepository;
 use App\Repositories\TopicEloquentRepository;
 use App\Repositories\UserEloquentRepository;
@@ -27,6 +28,7 @@ class StudentController extends Controller
     private $userEloquentRepository;
     private $projectEloquentRepository;
     private $processProjectEloquentRepository;
+    private $semesterEloquentRepository;
 
     public function __construct(
         UserEloquentRepository $userEloquentRepository,
@@ -34,7 +36,8 @@ class StudentController extends Controller
         ProfileEloquentRepository $profileEloquentRepository,
         TeacherStudentEloquentRepository $teacherStudentEloquentRepository,
         ProjectEloquentRepository $projectEloquentRepository,
-        ProcessProjectEloquentRepository $processProjectEloquentRepository
+        ProcessProjectEloquentRepository $processProjectEloquentRepository,
+        SemesterEloquentRepository $semesterEloquentRepository
     )
     {
         $this->userEloquentRepository = $userEloquentRepository;
@@ -43,6 +46,7 @@ class StudentController extends Controller
         $this->teacherStudentEloquentRepository = $teacherStudentEloquentRepository;
         $this->projectEloquentRepository = $projectEloquentRepository;
         $this->processProjectEloquentRepository = $processProjectEloquentRepository;
+        $this->semesterEloquentRepository = $semesterEloquentRepository;
     }
 
     public function getTopics()
@@ -71,8 +75,20 @@ class StudentController extends Controller
             return view('student.teacher_index', compact('teacherStudent'));
         } else {
             $data = $this->userEloquentRepository->getDataTeacher();
-            return view('student.teacher_index', compact('data'));
+            $limitedStudent = $this->getLimitStudent();
+            return view('student.teacher_index', compact('data', 'limitedStudent'));
         }
+    }
+
+    public function getLimitStudent()
+    {
+        $period_year = date('Y');
+        $period = date('m') < 6 ? 1 : 2;
+        $record = $this->semesterEloquentRepository->getSemester($period, $period_year);
+        if ($record) {
+            return $record->sum_student;
+        }
+        return 6;
     }
 
     public function registerTopic()

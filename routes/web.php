@@ -86,6 +86,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/topic', 'DeanController@activeTopic')->name(DEAN_TOPIC_ACTIVE);
             Route::get('/teacher-student', 'DeanController@teacherStudent')->name(DEAN_TEACHER_STUDENT);
             Route::get('/semester', 'DeanController@semester')->name(DEAN_SEMESTER);
+            Route::post('/semester', 'DeanController@storeSemester')->name(DEAN_SEMESTER_STORE);
         });
     });
 });

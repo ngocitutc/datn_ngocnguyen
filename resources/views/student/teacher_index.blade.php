@@ -96,10 +96,10 @@
                             <td>{{$item['profile']['user_name']}}</td>
                             <td>{{SUBJECTS[$item['profile']['subject']]}}</td>
                             <td>Thạc sỹ</td>
-                            <td>{{ $item['teacher_student_count'] . '/10' }}</td>
+                            <td>{{ $item['teacher_student_count'] . '/' . $limitedStudent }}</td>
                             <td>
                                 <a href="{{ route(STUDENT_TEACHER_INFO, $item['id']) }}" class="btn btn-primary border-0 btn-topic-custom" data-toggle="tooltip" data-placement="top" title="Chi tiết giảng viên"><i class="fas fa-chalkboard-teacher"></i></a>
-                                <button class="btn btn-success border-0 btn-topic-custom btn-register-teacher" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top" title="Đăng ký"><i class="far fa-registered"></i></button>
+                                <button @if($item['teacher_student_count'] >= $limitedStudent) disabled @endif class="btn btn-success border-0 btn-topic-custom btn-register-teacher" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top" title="Đăng ký"><i class="far fa-registered"></i></button>
                             </td>
                         </tr>
                     @empty

@@ -45,6 +45,7 @@ const DEAN_REMOVE_TOPIC_STUDENT = 'dean.remove.topic.student';
 const DEAN_TOPIC_ACTIVE = 'dean.topic.active';
 const DEAN_TEACHER_STUDENT = 'dean.teacher.student';
 const DEAN_SEMESTER = 'dean.semester';
+const DEAN_SEMESTER_STORE = 'dean.semester.store';
 
 
 const ADMIN = 0;

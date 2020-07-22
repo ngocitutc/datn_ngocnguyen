@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Dean;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SemesterRequest;
 use App\Http\Requests\TopicRequest;
 use App\Http\Requests\UserRequest;
 use App\Repositories\ProfileEloquentRepository;
+use App\Repositories\SemesterEloquentRepository;
 use App\Repositories\TeacherStudentEloquentRepository;
 use App\Repositories\TopicEloquentRepository;
 use App\Repositories\UserEloquentRepository;
@@ -18,16 +20,19 @@ class DeanController extends Controller
     private $topicEloquentRepository;
     private $profileEloquentRepository;
     private $teacherStudentEloquentRepository;
+    private $semesterEloquentRepository;
 
     public function __construct(
         TopicEloquentRepository $topicEloquentRepository,
         ProfileEloquentRepository $profileEloquentRepository,
-        TeacherStudentEloquentRepository $teacherStudentEloquentRepository
+        TeacherStudentEloquentRepository $teacherStudentEloquentRepository,
+        SemesterEloquentRepository $semesterEloquentRepository
     )
     {
         $this->topicEloquentRepository = $topicEloquentRepository;
         $this->profileEloquentRepository = $profileEloquentRepository;
         $this->teacherStudentEloquentRepository = $teacherStudentEloquentRepository;
+        $this->semesterEloquentRepository = $semesterEloquentRepository;
     }
 
     public function getTopics()
@@ -91,6 +96,17 @@ class DeanController extends Controller
             Session::flash(STR_FLASH_ERROR, 'Có lỗi trong quá trình xử lý');
         }
         return redirect()->back();
+    }
+
+    public function storeSemester(SemesterRequest $request)
+    {
+        if($this->semesterEloquentRepository->createRecord($request->all())) {
+            Session::flash(STR_FLASH_SUCCESS, 'Lưu thành công');
+            return response()->json(['save' => true]);
+        } else {
+            Session::flash(STR_FLASH_ERROR, 'Có lỗi trong quá trình xử lý');
+            return response()->json(['save' => false]);
+        }
     }
 
 }
