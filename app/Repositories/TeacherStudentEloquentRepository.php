@@ -188,4 +188,16 @@ class TeacherStudentEloquentRepository extends BaseRepository
             return false;
         }
     }
+
+    public function getListStudentTeacher($params) {
+        return $this->model->join('users', 'users.id', 'student_id')
+            ->with('student.profile')
+            ->with('teacher.profile')
+            ->with('topic')
+            ->with('project')
+            ->when($params, function ($q) use ($params) {
+                return $q->where('users.email', 'like', '%'.$params['ma_sv'].'%');
+            })
+            ->get()->toArray();
+    }
 }

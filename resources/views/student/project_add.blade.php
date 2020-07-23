@@ -132,7 +132,7 @@
                                                 <span>Lớp</span>
                                             </div>
                                             <div class="col-12 col-xl-8">
-                                                <input type="text" class="form-control m5t m5b fs14" value="CNTT2"
+                                                <input type="text" class="form-control m5t m5b fs14" value="{{ $teacherStudent->student->profile->class }}"
                                                        readonly>
                                                 <p class="error-message m0" data-error="password"></p>
                                             </div>
@@ -142,7 +142,7 @@
                                                 <span>Khoá</span>
                                             </div>
                                             <div class="col-12 col-xl-8">
-                                                <input type="text" class="form-control m5t m5b fs14" value="K56"
+                                                <input type="text" class="form-control m5t m5b fs14" value="{{ $teacherStudent->student->profile->period }}"
                                                        readonly>
                                                 <p class="error-message m0" data-error="password"></p>
                                             </div>
@@ -193,18 +193,9 @@
                                                 <p class="error-message m0" data-error=""></p>
                                             </div>
                                         </div>
-                                        {{--                            <div class="row">--}}
-                                        {{--                                <div class="col-12 form-control col-xl-4 border-0" >--}}
-                                        {{--                                    <div id="select-role-name">Kỳ học</div>--}}
-                                        {{--                                </div>--}}
-                                        {{--                                <div class="col-12 col-xl-8">--}}
-                                        {{--                                    <input type="text" class="form-control m5t m5b fs14" name="user_name" value="Kỳ 2 / Năm 2020" readonly>--}}
-                                        {{--                                    <p class="error-message m0" data-error="user_name"></p>--}}
-                                        {{--                                </div>--}}
-                                        {{--                            </div>--}}
                                         <div class="row">
                                             <div class="col-12 form-control col-xl-4 border-0">
-                                                <div id="select-role-name">Ngôn ngữ lập trình</div>
+                                                <div id="select-role-name">Ngôn ngữ lập trình <span class="text-danger">*</span></div>
                                             </div>
                                             <div class="col-12 col-xl-8">
                                                 <input type="text" class="form-control m5t m5b fs14" name="program_lan"
@@ -213,8 +204,8 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-12 form-control col-xl-4 border-0">
-                                                <div id="select-role-name">Công cụ sử dụng</div>
+                                            <div class="col-12 form-control col-xl-4 border-0" style="padding-right: 0">
+                                                <div id="select-role-name">Công cụ sử dụng <span class="text-danger">*</span></div>
                                             </div>
                                             <div class="col-12 col-xl-8">
                                                 <input type="text" class="form-control m5t m5b fs14" name="program_tool"
@@ -223,8 +214,8 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-12 form-control col-xl-4 border-0">
-                                                <div id="select-role-name">Link file báo cáo</div>
+                                            <div class="col-12 form-control col-xl-4 border-0" style="padding-right: 0">
+                                                <div id="select-role-name">Link file báo cáo <span class="text-danger">*</span></div>
                                             </div>
                                             <div class="col-12 col-xl-8">
                                                 <input type="text" class="form-control m5t m5b fs14" name="link_word"
@@ -233,8 +224,8 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-12 form-control col-xl-4 border-0">
-                                                <div id="select-role-name">Link source code</div>
+                                            <div class="col-12 form-control col-xl-4 border-0" style="padding-right: 0">
+                                                <div id="select-role-name">Link source code <span class="text-danger">*</span></div>
                                             </div>
                                             <div class="col-12 col-xl-8">
                                                 <input type="text" class="form-control m5t m5b fs14" name="link_code"
@@ -367,6 +358,8 @@
                                                 <p class="error-message m0" data-error="subject"></p>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-12 col-xl-6">
                                         <div class="row">
                                             <div class="col-12 form-control col-xl-4 border-0" >
                                                 <span>Ngày tạo</span>
@@ -386,30 +379,124 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-xl-6">
-                                        <div class="row">
-                                            <div class="col-12 form-control col-xl-4 border-0" >
-                                                <span>Số sinh viên đăng ký</span>
-                                            </div>
-                                            <div class="col-12 col-xl-8">
-                                                <input type="text" class="form-control m5t m5b fs14" name="name" value="1000" readonly>
-                                                <p class="error-message m0" data-error="subject"></p>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         @elseif(isset($teacherStudent->topic) && $teacherStudent->status_topic == STATUS_TOPIC_DONE)
                             <div style="min-height: 400px">
                                 <div class="text-center"
-                                     style="font-size: 28px; padding-top: 50px; margin-bottom: 50px">
+                                     style="font-size: 28px; padding-top: 50px; margin-bottom: 10px">
                                     Giảng viên đã đánh giá đồ án
                                 </div>
-                                <div class="col-12 text-center" style="justify-content: center">
-                                    <a href="{{ route(STUDENT_PROJECT_INFO) }}"
-                                       class="btn btn-primary border-0">
-                                        Xem thông tin đồ án
-                                    </a>
+                                <div class="text-center" style="font-size: 22px; margin-bottom: 10px">
+                                    Thông tin đồ án
+                                </div>
+                                @php
+                                    $project = $teacherStudent->project->toArray()
+                                @endphp
+                                <div class="row form-group m-0 d-flex p20">
+                                    <div class="col-12 col-xl-6">
+                                        <div class="row">
+                                            <div class="col-12 form-control col-xl-4 border-0">
+                                                <div id="select-role-code">Tên đề tài</div>
+                                            </div>
+                                            <div class="col-12 col-xl-8">
+                                                <input type="text" class="form-control m5t m5b fs14"
+                                                       value="{{ $teacherStudent->topic->name }}" readonly>
+                                                <p class="error-message m0" data-error=""></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 form-control col-xl-4 border-0">
+                                                <div id="select-role-name">Ngày báo cáo</div>
+                                            </div>
+                                            <div class="col-12 col-xl-8">
+                                                <input type="text" class="form-control m5t m5b fs14"
+                                                       value="{{ isset($project) ? date('d/m/Y', strtotime($project['created_at'])) : "Chưa báo cáo đồ án" }}"
+                                                       readonly>
+                                                <p class="error-message m0" data-error=""></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 form-control col-xl-4 border-0">
+                                                <div id="select-role-name">Ngôn ngữ lập trình</div>
+                                            </div>
+                                            <div class="col-12 col-xl-8">
+                                                <input type="text" class="form-control m5t m5b fs14"
+                                                       value="{{ isset($project) ? $project['program_lan'] : "Chưa báo cáo đồ án" }}"
+                                                       readonly>
+                                                <p class="error-message m0" data-error=""></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 form-control col-xl-4 border-0">
+                                                <div id="select-role-name">Công cụ</div>
+                                            </div>
+                                            <div class="col-12 col-xl-8">
+                                                <input type="text" class="form-control m5t m5b fs14"
+                                                       value="{{ isset($project) ? $project['program_tool'] : "Chưa báo cáo đồ án" }}"
+                                                       readonly>
+                                                <p class="error-message m0" data-error=""></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 form-control col-xl-4 border-0">
+                                                <div id="select-role-name">Đường dẫn file báo cáo</div>
+                                            </div>
+                                            <div class="col-12 col-xl-8">
+                                                <a type="text" class="form-control m5t m5b fs14 border-0"
+                                                   style="color: blue"
+                                                   href="{{ isset($project) ? $project['link_word'] : "#" }}">
+                                                    {{ isset($project) ? $project['link_word'] : "Chưa báo cáo đồ án" }}
+                                                </a>
+                                                <p class="error-message m0" data-error="user_name"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 form-control col-xl-4 border-0">
+                                                <div id="select-role-name">Đường dẫn source code</div>
+                                            </div>
+                                            <div class="col-12 col-xl-8">
+                                                <a type="text" class="form-control m5t m5b fs14 border-0"
+                                                   style="color: blue"
+                                                   href="{{ isset($project) ? $project['link_code'] : "#" }}">
+                                                    {{ isset($project) ? $project['link_code'] : "Chưa báo cáo đồ án" }}</a>
+                                                <p class="error-message m0" data-error="user_name"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 form-control col-xl-4 border-0">
+                                                <span>Mô tả</span>
+                                            </div>
+                                            <div class="col-12 col-xl-8">
+                                                <textarea type="text" class="form-control m5t m5b fs14" rows="4"
+                                                          readonly>{{ isset($project) ? $project['description'] : "Chưa báo cáo đồ án" }}</textarea>
+                                                <p class="error-message m0" data-error="address"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-xl-6">
+                                        <div class="row">
+                                            <div class="col-12 form-control col-xl-4 border-0">
+                                                <div id="select-role-code">Trạng thái</div>
+                                            </div>
+                                            <div class="col-12 col-xl-8">
+                                                <input type="text" class="form-control m5t m5b fs14"
+                                                       value="{{ STATUS_TOPIC_TEXT[$teacherStudent->status_topic] }}"
+                                                       readonly>
+                                                <p class="error-message m0" data-error="user_code"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 form-control col-xl-4 border-0">
+                                                <span>Đánh giá của giảng viên</span>
+                                            </div>
+                                            <div class="col-12 col-xl-8">
+                                                <textarea readonly type="text" class="form-control m5t m5b fs14"
+                                                          rows="6">{{ $teacherStudent->status_topic == STATUS_TOPIC_DONE ? $teacherStudent->rate_note : "Chưa có đánh giá" }}</textarea>
+                                                <p class="error-message m0" data-error="address"></p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         @else

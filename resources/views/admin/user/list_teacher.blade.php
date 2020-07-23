@@ -24,11 +24,11 @@
                                     Lọc
                                 </button>
                             </div>
-                            <div>
-                                <button class="btn btn-warning border-0 text-white" id="export-file">
-                                    In danh sách
-                                </button>
-                            </div>
+{{--                            <div>--}}
+{{--                                <button class="btn btn-warning border-0 text-white" id="export-file">--}}
+{{--                                    In danh sách--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
                         </div>
                     </form>
                 </div>
@@ -42,8 +42,9 @@
                         <td>Tên giảng viên</td>
                         <td>Bộ môn</td>
                         <td>Trình độ</td>
-                        <td>Ngày sinh</td>
-                        <td>Giới tính</td>
+                        <td style="word-break: break-all">Email</td>
+                        <td style="width: 110px;">Ngày sinh</td>
+                        <td style="width: 50px;">Giới tính</td>
                         <td>Điện thoại</td>
                     </tr>
                     </thead>
@@ -54,6 +55,7 @@
                                 <td>{{ $data->profile->user_name ?? "" }}</td>
                                 <td>{{ $data->profile->subject ? SUBJECTS[$data->profile->subject] : ""}}</td>
                                 <td>{{ $data->profile->level ?? "" }}</td>
+                                <td>{{ $data->profile->user_email ?? "" }}</td>
                                 <td>{{ $data->profile->birthday ?? "" }}</td>
                                 <td>{{ GENDER[$data->profile->gender] }}</td>
                                 <td>{{ $data->profile->phone_number ?? "" }}</td>

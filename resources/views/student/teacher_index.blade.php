@@ -13,10 +13,10 @@
             <div class="content-wrapper" style="background-color: white;">
                 @if(isset($teacherStudent))
                     <div style="min-height: 400px">
-                        <div class="text-center" style="font-size: 28px; padding-top: 50px; margin-bottom: 25px">
+                        <div class="text-center" style="font-size: 28px; padding-top: 50px; margin-bottom: 10px">
                             Đã đăng ký giảng viên hướng dẫn
                         </div>
-                        <div class="text-center" style="font-size: 22px; margin-bottom: 25px; padding-bottom: 25px">
+                        <div class="text-center" style="font-size: 22px; margin-bottom: 20px">
                             Thông tin giảng viên hướng dẫn
                         </div>
                         <div class="col-6 offset-3">

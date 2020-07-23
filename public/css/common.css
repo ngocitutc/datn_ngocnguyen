@@ -117,6 +117,12 @@
     width: 40px;
 }
 
+td.td-table-teacher {
+    word-break: break-all !important;
+    white-space: normal !important;
+    width: 244px !important;
+}
+
 @media (max-width: 767px) {
     .wrapper-content {
         padding-top: 57px !important;

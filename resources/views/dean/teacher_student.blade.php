@@ -26,11 +26,11 @@
                             Lọc
                         </button>
                     </form>
-                    <form action="" method="GET" id="">
-                        <button class="btn btn-warning border-0 text-white" id="export-file">
-                            In danh sách
-                        </button>
-                    </form>
+{{--                    <form action="" method="GET" id="">--}}
+{{--                        <button class="btn btn-warning border-0 text-white" id="export-file">--}}
+{{--                            In danh sách--}}
+{{--                        </button>--}}
+{{--                    </form>--}}
                 </div>
             </div>
 

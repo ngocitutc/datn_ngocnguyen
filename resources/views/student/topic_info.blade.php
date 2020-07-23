@@ -41,6 +41,17 @@
                                     <p class="error-message m0" data-error="subject"></p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-12 col-xl-6">
+{{--                            <div class="row">--}}
+{{--                                <div class="col-12 form-control col-xl-4 border-0" >--}}
+{{--                                    <span>Số sinh viên đăng ký</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-12 col-xl-8">--}}
+{{--                                    <input type="text" class="form-control m5t m5b fs14" name="name" value="1000" readonly>--}}
+{{--                                    <p class="error-message m0" data-error="subject"></p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                             <div class="row">
                                 <div class="col-12 form-control col-xl-4 border-0" >
                                     <span>Ngày tạo</span>
@@ -57,17 +68,6 @@
                                 <div class="col-12 col-xl-8">
                                     <textarea rows="5" type="text" class="form-control m5t m5b fs14" name="description" readonly>{{ $data['description'] }}</textarea>
                                     <p class="error-message m0" data-error="description"></p>
-                                </div>
-                            </div>s
-                        </div>
-                        <div class="col-12 col-xl-6">
-                            <div class="row">
-                                <div class="col-12 form-control col-xl-4 border-0" >
-                                    <span>Số sinh viên đăng ký</span>
-                                </div>
-                                <div class="col-12 col-xl-8">
-                                    <input type="text" class="form-control m5t m5b fs14" name="name" value="1000" readonly>
-                                    <p class="error-message m0" data-error="subject"></p>
                                 </div>
                             </div>
                         </div>

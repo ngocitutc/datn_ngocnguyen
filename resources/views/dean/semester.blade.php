@@ -14,7 +14,7 @@
                 <form id="form-semester" action="">
                     <input name="user_created_id" type="hidden" value="{{ \Illuminate\Support\Facades\Auth::user()->id }}">
                     <div class="row form-group m-0 d-flex p20">
-                        <div class="col-12 col-xl-6">
+                        <div class="col-12">
                             <div class="row">
                                 <div class="col-12 form-control col-xl-2 border-0" >
                                     <span>Kỳ học</span>
@@ -60,27 +60,23 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-12 form-control col-xl-3 border-0" >
+                                <div class="col-12 form-control col-xl-2 border-0" >
                                     <span>Số sinh viên</span>
                                 </div>
-                                <div class="col-12 col-xl-9">
-                                    <input type="number" class="form-control m5t m5b fs14" name="sum_student" placeholder="Số sinh viên tối đa hướng dẫn (Mặc định : 10 sinh viên)">
+                                <div class="col-12 col-xl-10">
+                                    <input type="number" class="form-control m5t m5b fs14" name="sum_student" placeholder="Số sinh viên tối đa hướng dẫn (Mặc định : 6 sinh viên)">
                                     <p class="error-message m0" data-error="sum_student"></p>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-12 form-control col-xl-3 border-0" >
+                                <div class="col-12 form-control col-xl-2 border-0" >
                                     <span>Ghi chú</span>
                                 </div>
-                                <div class="col-12 col-xl-9">
+                                <div class="col-12 col-xl-10">
                                     <textarea type="text" class="form-control m5t m5b fs14" name="note" rows="4"></textarea>
                                     <p class="error-message m0" data-error="note"></p>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-12 col-xl-6">
-
                         </div>
                     </div>
                 </form>

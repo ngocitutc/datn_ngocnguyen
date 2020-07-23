@@ -29,8 +29,8 @@
                     <tr>
                         <td>{{ $item['student']['email'] }}</td>
                         <td>{{ $item['student']['profile']['user_name'] }}</td>
-                        <td>CNTT2</td>
-                        <td>K56</td>
+                        <td>{{ $item['student']['profile']['class'] }}</td>
+                        <td>{{ $item['student']['profile']['period'] }}</td>
                         <td>{{ isset($item['topic']) ? $item['topic']['name'] : "Chưa đăng ký đề tài" }}</td>
                         <td>{{ STATUS_STEP_TEXT[$item['status']] }}</td>
                         <td>{{ isset($item['project']) ? 'Đã báo cáo đồ án' : 'Chưa báo cáo đồ án' }}</td>

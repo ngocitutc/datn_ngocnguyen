@@ -35,11 +35,11 @@
                                     Lọc
                                 </button>
                             </div>
-                            <div>
-                                <button class="btn btn-warning border-0 text-white" id="export-file">
-                                    In danh sách
-                                </button>
-                            </div>
+{{--                            <div>--}}
+{{--                                <button class="btn btn-warning border-0 text-white" id="export-file">--}}
+{{--                                    In danh sách--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
                         </div>
                     </form>
                 </div>
@@ -53,8 +53,9 @@
                         <td>Tên sinh viên</td>
                         <td>Lớp</td>
                         <td>Khoá</td>
+                        <td>Email</td>
                         <td>Ngày sinh</td>
-                        <td>Giới tính</td>
+                        <td style="width: 50px">Giới tính</td>
                         <td>Điện thoại</td>
                     </tr>
                     </thead>
@@ -65,6 +66,7 @@
                                 <td>{{ $data->profile->user_name ?? "" }}</td>
                                 <td>{{ $data->profile->class ?? ""}}</td>
                                 <td>{{ $data->profile->period ?? "" }}</td>
+                                <td>{{ $data->profile->user_email ?? "" }}</td>
                                 <td>{{ $data->profile->birthday ?? "" }}</td>
                                 <td>{{ GENDER[$data->profile->gender] }}</td>
                                 <td>{{ $data->profile->phone_number ?? "" }}</td>

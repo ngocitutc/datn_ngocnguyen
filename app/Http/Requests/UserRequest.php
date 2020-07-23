@@ -24,7 +24,7 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['bail','required', 'min:8', 'max:8'],
+            'email' => ['bail','required', 'unique:users,email', 'min:8', 'max:8'],
             'user_name' => ['bail','required'],
             'password' => ['bail','required','string','min:8', 'max:25'],
             'user_email' => ['bail','required', 'unique:profiles,user_email', 'email'],
@@ -40,6 +40,7 @@ class UserRequest extends FormRequest
     public function messages()
     {
         return [
+            'email.unique' => 'Mã đăng nhập đã tồn tại',
             'email.required' => 'Mã đăng nhập không được bỏ trống',
             'user_name.required' => 'Tên không được bỏ trống',
             'user_email.required' => 'Email không được bỏ trống',

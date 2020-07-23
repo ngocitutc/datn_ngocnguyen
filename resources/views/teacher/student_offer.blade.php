@@ -30,8 +30,8 @@
                         <tr>
                             <td>{{ $item['student']['email'] }}</td>
                             <td>{{ $item['student']['profile']['user_name'] }}</td>
-                            <td>CNTT2</td>
-                            <td>K56</td>
+                            <td>{{ $item['student']['profile']['class'] }}</td>
+                            <td>{{ $item['student']['profile']['period'] }}</td>
                             <td>{{ date('d/m/Y', strtotime($item['created_at'])) }}</td>
                             <td class="text-center">
                                 <button class="btn btn-success border-0 btn-topic-custom btn-accept-student" data-id="{{ $item['id'] }}" data-toggle="tooltip" data-placement="top" title="Phê duyệt"><i class="fas fa-check"></i></button>

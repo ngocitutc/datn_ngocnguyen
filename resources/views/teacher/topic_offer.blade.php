@@ -28,8 +28,8 @@
                     <tr>
                         <td>{{ $item['student']['email'] }}</td>
                         <td>{{ $item['student']['profile']['user_name'] }}</td>
-                        <td>CNTT 2</td>
-                        <td>K56</td>
+                        <td>{{ $item['student']['profile']['class'] }}</td>
+                        <td>{{ $item['student']['profile']['period'] }}</td>
                         <td>{{ $item['topic']['name'] }}</td>
                         <td>{{ SUBJECTS[$item['topic']['subject']] }}</td>
                         <td class="text-center">

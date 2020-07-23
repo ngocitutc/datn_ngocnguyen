@@ -64,6 +64,39 @@
                                     <p class="error-message m0" data-error=""></p>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-12 form-control col-xl-4 border-0">
+                                    <div id="select-role-name">Đường dẫn file báo cáo</div>
+                                </div>
+                                <div class="col-12 col-xl-8">
+                                    <a type="text" class="form-control m5t m5b fs14 border-0" style="color: blue"
+                                       href="{{ isset($project) ? $project['link_word'] : "#" }}">
+                                        {{ isset($project) ? $project['link_word'] : "Chưa báo cáo đồ án" }}
+                                    </a>
+                                    <p class="error-message m0" data-error="user_name"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 form-control col-xl-4 border-0">
+                                    <div id="select-role-name">Đường dẫn source code</div>
+                                </div>
+                                <div class="col-12 col-xl-8">
+                                    <a type="text" class="form-control m5t m5b fs14 border-0" style="color: blue"
+                                       href="{{ isset($project) ? $project['link_code'] : "#" }}">
+                                        {{ isset($project) ? $project['link_code'] : "Chưa báo cáo đồ án" }}</a>
+                                    <p class="error-message m0" data-error="user_name"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 form-control col-xl-4 border-0">
+                                    <span>Mô tả</span>
+                                </div>
+                                <div class="col-12 col-xl-8">
+                                                <textarea type="text" class="form-control m5t m5b fs14" rows="4"
+                                                          readonly>{{ isset($project) ? $project['description'] : "Chưa báo cáo đồ án" }}</textarea>
+                                    <p class="error-message m0" data-error="address"></p>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-12 col-xl-6">
                             <div class="row">
@@ -107,39 +140,6 @@
                                            value="{{ isset($project) ? $project['program_tool'] : "Chưa báo cáo đồ án" }}"
                                            readonly>
                                     <p class="error-message m0" data-error=""></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 form-control col-xl-4 border-0">
-                                    <div id="select-role-name">Đường dẫn file báo cáo</div>
-                                </div>
-                                <div class="col-12 col-xl-8">
-                                    <a type="text" class="form-control m5t m5b fs14 border-0" style="color: blue"
-                                       href="{{ isset($project) ? $project['link_word'] : "#" }}">
-                                        {{ isset($project) ? $project['link_word'] : "Chưa báo cáo đồ án" }}
-                                    </a>
-                                    <p class="error-message m0" data-error="user_name"></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 form-control col-xl-4 border-0">
-                                    <div id="select-role-name">Đường dẫn source code</div>
-                                </div>
-                                <div class="col-12 col-xl-8">
-                                    <a type="text" class="form-control m5t m5b fs14 border-0" style="color: blue"
-                                       href="{{ isset($project) ? $project['link_code'] : "#" }}">
-                                        {{ isset($project) ? $project['link_code'] : "Chưa báo cáo đồ án" }}</a>
-                                    <p class="error-message m0" data-error="user_name"></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 form-control col-xl-4 border-0">
-                                    <span>Mô tả</span>
-                                </div>
-                                <div class="col-12 col-xl-8">
-                                                <textarea type="text" class="form-control m5t m5b fs14" rows="4"
-                                                          readonly>{{ isset($project) ? $project['description'] : "Chưa báo cáo đồ án" }}</textarea>
-                                    <p class="error-message m0" data-error="address"></p>
                                 </div>
                             </div>
                         </div>

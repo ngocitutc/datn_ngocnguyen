@@ -8,6 +8,7 @@ use App\Exports\TeachersExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Repositories\ProfileEloquentRepository;
+use App\Repositories\TeacherStudentEloquentRepository;
 use App\Repositories\UserEloquentRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -17,13 +18,16 @@ class AdminController extends Controller
 {
     private $userEloquentRepository;
     private $profileEloquentRepository;
+    private $teacherStudentEloquentRepository;
 
     public function __construct(
         UserEloquentRepository $userEloquentRepository,
-        ProfileEloquentRepository $profileEloquentRepository
+        ProfileEloquentRepository $profileEloquentRepository,
+        TeacherStudentEloquentRepository $teacherStudentEloquentRepository
     ) {
         $this->userEloquentRepository = $userEloquentRepository;
         $this->profileEloquentRepository = $profileEloquentRepository;
+        $this->teacherStudentEloquentRepository = $teacherStudentEloquentRepository;
     }
 
     public function index()
@@ -77,8 +81,10 @@ class AdminController extends Controller
         ]);
     }
 
-    public function listProjectStudent()
+    public function listProjectStudent(Request $request)
     {
-        return view('admin.user.list_project_student');
+        return view('admin.user.list_project_student')->with([
+            'datas'=> $this->teacherStudentEloquentRepository->getListStudentTeacher($request->all())
+        ]);
     }
 }
